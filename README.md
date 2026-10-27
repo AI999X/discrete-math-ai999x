@@ -4,7 +4,9 @@
 
 **[Install](https://pypi.org/project/discrete-math-ai999x/)** · **[Capability guide](https://huggingface.co/AI999X/discrete-math-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/discrete-math-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.0
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.1
+
+Field: **Mathematics & Statistics** · Tasks: Question Answering, Token Classification, Text Classification, Sentence Similarity, Feature Extraction
 
 discrete-math-ai999x is an offline, deterministic Python solver that answers discrete math questions with verified results from 99 certified capabilities, gives 538 documented answers identically on Windows and Linux, and refuses rather than guesses when an answer cannot be verified.
 
@@ -25,7 +27,7 @@ discrete-math-ai999x is an offline, deterministic Python solver that answers dis
 
 | Property | Value |
 |---|---|
-| Package | `discrete-math-ai999x` 1.0.0 (import `discrete_math_ai999x`) |
+| Package | `discrete-math-ai999x` 1.0.1 (import `discrete_math_ai999x`) |
 | Type | Deterministic neuro-symbolic discrete math engine (rule-based reading + certified symbolic capabilities) |
 | Capabilities | 99 certified procedures |
 | Knowledge pack | version 1.0.0 |
@@ -59,7 +61,7 @@ discrete_math.ask("Who created you?").message
 # -> discrete-math-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-Command line: `discrete-math-ai999x "<question>"`, `discrete-math-ai999x --capabilities`. The outputs above were produced by running this exact code on discrete-math-ai999x 1.0.0.
+Command line: `discrete-math-ai999x "<question>"`, `discrete-math-ai999x --capabilities`. The outputs above were produced by running this exact code on discrete-math-ai999x 1.0.1.
 
 ## Find the right capability, and draw it
 
@@ -69,7 +71,7 @@ Command line: `discrete-math-ai999x "<question>"`, `discrete-math-ai999x --capab
 import discrete_math_ai999x as discrete_math
 
 discrete_math.search("Solve x^2 - 5x + 6 = 0", k=2)
-# -> Roots of a quadratic equation (algebra-ai999x, 0.67); Solution of two linear equations in two unknowns (algebra-ai999x, 0.57)
+# -> Roots of a quadratic equation (math-foundations-ai999x, 0.63); Roots of a cubic equation (math-foundations-ai999x, 0.59)
 ```
 
 ## How every answer is verified
@@ -80,6 +82,116 @@ discrete_math.search("Solve x^2 - 5x + 6 = 0", k=2)
 4. **Checking** — dimensions, substitution back into the defining equation, and agreement between independent readings; any disagreement becomes a refusal, never a number.
 
 Capabilities are certified before they ship: each must reproduce hand-worked reference cases, reject a deliberately wrong variant (a control), and leave every benchmark answer unchanged.
+
+## Worked examples
+
+Each question was put to `discrete-math-ai999x`; the answer is the one it returned, with the steps it took.
+
+**Modular multiplicative inverse** · _Modular arithmetic_
+
+> Find the inverse of 3 modulo 11.
+
+→ **inverse = 4**
+
+<details><summary>Steps</summary>
+
+- Modular multiplicative inverse: a = 3, m = 11 → inverse = 4
+
+</details>
+
+**Chinese remainder theorem** · _Modular arithmetic_
+
+> Solve x ≡ 2 (mod 3), x ≡ 3 (mod 5), x ≡ 2 (mod 7).
+
+→ **x = 23, modulus = 105**
+
+<details><summary>Steps</summary>
+
+- Chinese remainder theorem: residues = [2, 3, 2], moduli = [3, 5, 7] → x = 23, modulus = 105
+
+</details>
+
+**Derangements** · _Combinatorics_
+
+> How many derangements of 5 objects are there?
+
+→ **derangements = 44, probability = 0.3666666667**
+
+<details><summary>Steps</summary>
+
+- Derangements: n = 5 → derangements = 44, probability = 0.3666666667
+
+</details>
+
+**Chromatic number of a small graph** · _Graph theory_
+
+`m.solve("chromatic_number", edges="A-B, B-C, C-A, C-D")`
+
+→ **chromatic_number = 3, colouring = {'A': 1, 'B': 2, 'C': 3, 'D': 1}**
+
+<details><summary>Steps</summary>
+
+- Chromatic number of a small graph: edges = A-B, B-C, C-A, C-D → chromatic_number = 3, colouring = {'A': 1, 'B': 2, 'C': 3, 'D': 1}
+
+</details>
+
+**Tautology test** · _Logic_
+
+> Is (p -> q) | (q -> p) a tautology?
+
+→ **tautology = True, false_rows = 0, counterexample = None**
+
+<details><summary>Steps</summary>
+
+- Tautology test: formula = (p -> q) | (q -> p) → tautology = True, false_rows = 0, counterexample = None
+
+</details>
+
+**Affine cipher** · _Cryptography_
+
+> Encrypt "AFFINE CIPHER" with the affine cipher a = 5, b = 8.
+
+→ **result = IHHWVCSWFRCP**
+
+<details><summary>Steps</summary>
+
+- Affine cipher: a = 5, b = 8, message = AFFINE CIPHER, mode = encrypt → result = IHHWVCSWFRCP
+
+</details>
+
+## Figures
+
+Every point was computed by `discrete-math-ai999x`.
+
+**A graph coloured with the fewest colours**
+
+![A graph coloured with the fewest colours — computed by discrete-math-ai999x](https://huggingface.co/AI999X/discrete-math-ai999x/resolve/main/figures/chromatic-number-graph.svg)
+
+_A wheel graph on 7 vertices with the chord A–C (13 edges): the package finds the chromatic number 4 and the colouring drawn here — no edge joins two vertices of the same colour (colour 1: A, D; colour 2: B, E; colour 3: C, F; colour 4: G)._
+
+**Breadth-first search, layer by layer**
+
+![Breadth-first search, layer by layer — computed by discrete-math-ai999x](https://huggingface.co/AI999X/discrete-math-ai999x/resolve/main/figures/bfs-order-graph.svg)
+
+_Breadth-first search from A on a graph of 9 vertices and 12 edges, each vertex placed in the column of its distance from A as returned by the package (visit order A, B, C, D, E, F, G, H, I; 9 reached); highlighted, one edge per vertex to a neighbour one layer closer._
+
+**Stirling numbers of the second kind**
+
+![Stirling numbers of the second kind — computed by discrete-math-ai999x](https://huggingface.co/AI999X/discrete-math-ai999x/resolve/main/figures/stirling2-heatmap.svg)
+
+_Stirling numbers of the second kind S(n, k) for n, k = 1 … 7 (row n, column k), each computed by the package: the ways to split n labelled objects into k non-empty groups; row 7 sums to the Bell number B(7) = 877, also computed by the package._
+
+**Integer partitions, all and into distinct parts**
+
+![Integer partitions, all and into distinct parts — computed by discrete-math-ai999x](https://huggingface.co/AI999X/discrete-math-ai999x/resolve/main/figures/integer-partitions-stems.svg)
+
+_The number of ways to write n as a sum of positive integers, p(n), and as a sum of distinct ones, q(n), for n = 1 … 20, each counted by the package (logarithmic scale): p(10) = 42, q(10) = 10; marked: p(20) = 627 (q(20) = 64)._
+
+**A labelled tree decoded from its Prüfer sequence**
+
+![A labelled tree decoded from its Prüfer sequence — computed by discrete-math-ai999x](https://huggingface.co/AI999X/discrete-math-ai999x/resolve/main/figures/prufer-decode-tree.svg)
+
+_The labelled tree that the package decodes from the Prüfer sequence (3, 3, 3, 7, 7, 8, 8): 9 vertices, edges 1–3, 2–3, 3–4, 3–7, 5–7, 6–8, 7–8, 8–9. A vertex appears in the sequence one time fewer than its degree, so the leaves are exactly the labels the sequence never names._
 
 ## Capabilities
 
@@ -104,10 +216,10 @@ Capabilities are certified before they ship: each must reproduce hand-worked ref
 ## Citation
 
 ```bibtex
-@software{discrete_math_ai999x_1_0_0,
+@software{discrete_math_ai999x_1_0_1,
   title  = {discrete-math-ai999x: an offline, verified discrete math solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.0.0},
+  year   = {2026}, version = {1.0.1},
   url    = {https://huggingface.co/AI999X/discrete-math-ai999x}
 }
 ```

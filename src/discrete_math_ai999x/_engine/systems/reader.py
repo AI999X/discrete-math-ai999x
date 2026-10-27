@@ -152,14 +152,33 @@ def read(question: str, pack) -> Scenario | None:
     return sc
 
 
+_ORDINAL = re.compile(r"(?<!\bat )\b(first|second)\s+(?!(?:time|times|later|half|stage|stages|collision|interval|part|"
+                      r"phase|attempt|trial|run|case|second|seconds|minute|minutes|hour|hours|of|and|or|to)\b)[a-z]+", re.I)
+
+
+def _ordinal_body(sc: Scenario, seg: str) -> int | None:
+    """The body a stretch of wording names by its ordinal ("the final velocity of the first body", "a stationary second
+    cart"): 0 or 1, or None when it names none or both. Ordinal names outrank position: "the first body" is body 0
+    wherever the sentence mentions it."""
+    found = {m.group(1).lower() for m in _ORDINAL.finditer(seg)}
+    if len(sc.bodies) < 2 or len(found) != 1:
+        return None
+    return 0 if found == {"first"} else 1
+
+
 def _bind(sc: Scenario) -> None:
+    prev_end = 0
     for q in sc.quantities:
+        start_seg, prev_end = prev_end, q.end
         if q.kind == "mass" or not sc.bodies:
             continue
         a, b = sc.sentence_of(q.start)
         before = [bd for bd in sc.bodies if bd.anchor < q.start]
         same = [bd for bd in before if a <= bd.anchor]
-        if same:
+        named = _ordinal_body(sc, sc.low[max(a, start_seg):q.start])
+        if named is not None:
+            q.body = named                                # "... of the first body is 1.22 m/s": named, not nearest
+        elif same:
             q.body = same[-1].idx
         elif q.start < sc.asking[0] and before and re.search(r"\b(it|its|the [a-z]+)\b", sc.low[a:q.start]):
             q.body = before[-1].idx                       # "It is moving at ..." refers back
@@ -180,6 +199,11 @@ def rest_bodies(sc: Scenario) -> set:
     out = set()
     for m in REST.finditer(sc.low):
         a, b = sc.sentence_of(m.start())
+        nxt = re.search(r"\d", sc.low[m.end():b])
+        named = _ordinal_body(sc, sc.low[m.end():m.end() + nxt.start() if nxt else b][:40])
+        if named is not None and re.match(r"\s*(?:the|a|an)?\s*(?:first|second)\b", sc.low[m.end():]):
+            out.add(named)                                 # "a stationary second body": the body the ordinal names
+            continue
         ahead = [bd for bd in sc.bodies if m.end() <= bd.anchor <= m.end() + 25 and a <= bd.anchor < b]
         behind = [bd for bd in sc.bodies if bd.anchor < m.start() and a <= bd.anchor]
         if ahead and not re.search(r"\d", sc.low[m.end():ahead[0].anchor]):

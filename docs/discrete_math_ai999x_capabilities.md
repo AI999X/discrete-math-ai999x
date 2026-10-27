@@ -2025,6 +2025,10 @@ $$
 - **Assumes:** $0  \leq  n$, $k  \leq  100$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![Stirling numbers of the second kind S(n, k) for n, k = 1 … 7 (row n, column k), each computed by the package: the ways to split n labelled objects into k non-empty groups; row 7 sums to the Bell number B(7) = 877, also computed by the package](https://huggingface.co/AI999X/discrete-math-ai999x/resolve/main/figures/stirling2-heatmap.svg)
+
+*Stirling numbers of the second kind S(n, k) for n, k = 1 … 7 (row n, column k), each computed by the package: the ways to split n labelled objects into k non-empty groups; row 7 sums to the Bell number B(7) = 877, also computed by the package.*
+
 ```python
 discrete_math_ai999x.solve('stirling2', n=7, k=3)
 # -> stirling2 = 301, surjections = 1806   (SOLVED)
@@ -2348,6 +2352,10 @@ $$
 - **Method:** Euler's pentagonal number recurrence
 - **Assumes:** $0  \leq  n  \leq  2000$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The number of ways to write n as a sum of positive integers, p(n), and as a sum of distinct ones, q(n), for n = 1 … 20, each counted by the package (logarithmic scale): p(10) = 42, q(10) = 10; marked: p(20) = 627 (q(20) = 64)](https://huggingface.co/AI999X/discrete-math-ai999x/resolve/main/figures/integer-partitions-stems.svg)
+
+*The number of ways to write n as a sum of positive integers, p(n), and as a sum of distinct ones, q(n), for n = 1 … 20, each counted by the package (logarithmic scale): p(10) = 42, q(10) = 10; marked: p(20) = 627 (q(20) = 64).*
 
 ```python
 discrete_math_ai999x.solve('integer_partitions', n=10)
@@ -2998,6 +3006,10 @@ $$
 - **Assumes:** simple unweighted graph; TIE RULE: neighbours are visited in ascending order of their names (numerically when the names are integers)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![Breadth-first search from A on a graph of 9 vertices and 12 edges, each vertex placed in the column of its distance from A as returned by the package (visit order A, B, C, D, E, F, G, H, I; 9 reached); highlighted, one edge per vertex to a neighbour one layer closer](https://huggingface.co/AI999X/discrete-math-ai999x/resolve/main/figures/bfs-order-graph.svg)
+
+*Breadth-first search from A on a graph of 9 vertices and 12 edges, each vertex placed in the column of its distance from A as returned by the package (visit order A, B, C, D, E, F, G, H, I; 9 reached); highlighted, one edge per vertex to a neighbour one layer closer.*
+
 ```python
 discrete_math_ai999x.solve('bfs_order', edges='A-B, A-C, B-D, C-D, D-E', source='A')
 # -> order = ['A', 'B', 'C', 'D', 'E'], reached = 5, distances = {'A': 0, 'B': 1, 'C': 1, 'D': 2, 'E': 3}   (SOLVED)
@@ -3324,6 +3336,10 @@ $$
 - **Method:** exact backtracking for $k = 1$, 2, ... colours
 - **Assumes:** undirected simple graph, unweighted, at most 12 vertices; the colouring is the first one found trying vertices in ascending name order, colours 1, 2, ...
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![A wheel graph on 7 vertices with the chord A–C (13 edges): the package finds the chromatic number 4 and the colouring drawn here — no edge joins two vertices of the same colour (colour 1: A, D; colour 2: B, E; colour 3: C, F; colour 4: G)](https://huggingface.co/AI999X/discrete-math-ai999x/resolve/main/figures/chromatic-number-graph.svg)
+
+*A wheel graph on 7 vertices with the chord A–C (13 edges): the package finds the chromatic number 4 and the colouring drawn here — no edge joins two vertices of the same colour (colour 1: A, D; colour 2: B, E; colour 3: C, F; colour 4: G).*
 
 ```python
 discrete_math_ai999x.solve('chromatic_number', edges='A-B, B-C, C-A, C-D')
@@ -3738,6 +3754,10 @@ $$
 - **Method:** attach each entry to the smallest current leaf; join the last two leaves
 - **Assumes:** vertices are numbered 1..n with n = length + 2
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The labelled tree that the package decodes from the Prüfer sequence (3, 3, 3, 7, 7, 8, 8): 9 vertices, edges 1–3, 2–3, 3–4, 3–7, 5–7, 6–8, 7–8, 8–9](https://huggingface.co/AI999X/discrete-math-ai999x/resolve/main/figures/prufer-decode-tree.svg)
+
+*The labelled tree that the package decodes from the Prüfer sequence (3, 3, 3, 7, 7, 8, 8): 9 vertices, edges 1–3, 2–3, 3–4, 3–7, 5–7, 6–8, 7–8, 8–9. A vertex appears in the sequence one time fewer than its degree, so the leaves are exactly the labels the sequence never names.*
 
 ```python
 discrete_math_ai999x.solve('prufer_decode', sequence='4, 4, 4, 5')

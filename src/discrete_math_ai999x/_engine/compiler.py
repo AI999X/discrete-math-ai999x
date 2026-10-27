@@ -361,7 +361,7 @@ def compile_problem(question: str, pack: Pack) -> Problem:
             unit, spelled, end = found
             measures.append((m.start(), end, value, unit, spelled))
 
-    labels = _occurrences(text, terms.get("labels", []))
+    labels = _occurrences(text, pack.reading_labels())
     claimed: set = set()
     givens: list = []
     pre_tags = context_tags(terms, low)
@@ -442,6 +442,9 @@ def compile_problem(question: str, pack: Pack) -> Problem:
                 k.replace("_", " ") for k in kinds) + "; say which.", code="ambiguous_quantity")
         kind = entry["kind"] if entry else kinds[0]
         role = entry.get("role", "plain") if entry else "plain"
+        if (kind, role) == ("temperature", "plain") and "temperature_difference" in pack.kinds and \
+                re.search(r"\bby\s*$", text[max(0, s - 14):s].lower()):
+            kind = "temperature_difference"                # "the temperature rises by 30 K": a change, not a state
         si = to_si(value, unit, difference=pack.kinds[kind].difference)
         exact = None
         if unit.pi_factor is not None:
