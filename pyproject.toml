@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "discrete-math-ai999x"
-version = "1.0.1"
+version = "1.0.2"
 description = "Offline discrete math solver: number theory, modular arithmetic, combinatorics, graph theory and network algorithms, logic and the mathematics of cryptography, with steps, LaTeX and honest refusals"
 readme = "README.md"
 requires-python = ">=3.10"

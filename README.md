@@ -4,7 +4,7 @@
 
 **[Install](https://pypi.org/project/discrete-math-ai999x/)** · **[Capability guide](https://huggingface.co/AI999X/discrete-math-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/discrete-math-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.1
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.2
 
 Field: **Mathematics & Statistics** · Tasks: Question Answering, Token Classification, Text Classification, Sentence Similarity, Feature Extraction
 
@@ -27,7 +27,7 @@ discrete-math-ai999x is an offline, deterministic Python solver that answers dis
 
 | Property | Value |
 |---|---|
-| Package | `discrete-math-ai999x` 1.0.1 (import `discrete_math_ai999x`) |
+| Package | `discrete-math-ai999x` 1.0.2 (import `discrete_math_ai999x`) |
 | Type | Deterministic neuro-symbolic discrete math engine (rule-based reading + certified symbolic capabilities) |
 | Capabilities | 99 certified procedures |
 | Knowledge pack | version 1.0.0 |
@@ -61,7 +61,7 @@ discrete_math.ask("Who created you?").message
 # -> discrete-math-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-Command line: `discrete-math-ai999x "<question>"`, `discrete-math-ai999x --capabilities`. The outputs above were produced by running this exact code on discrete-math-ai999x 1.0.1.
+Command line: `discrete-math-ai999x "<question>"`, `discrete-math-ai999x --capabilities`. The outputs above were produced by running this exact code on discrete-math-ai999x 1.0.2.
 
 ## Find the right capability, and draw it
 
@@ -216,10 +216,10 @@ _The labelled tree that the package decodes from the Prüfer sequence (3, 3, 3, 
 ## Citation
 
 ```bibtex
-@software{discrete_math_ai999x_1_0_1,
+@software{discrete_math_ai999x_1_0_2,
   title  = {discrete-math-ai999x: an offline, verified discrete math solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.0.1},
+  year   = {2026}, version = {1.0.2},
   url    = {https://huggingface.co/AI999X/discrete-math-ai999x}
 }
 ```

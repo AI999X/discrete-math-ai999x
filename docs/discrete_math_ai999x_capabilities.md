@@ -229,6 +229,10 @@ $$
 - **Assumes:** two or more whole numbers, each at least 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The worked example of Greatest common divisor and least common multiple as inputs and results: stated numbers = 84, 36; returned by discrete-math-ai999x: gcd = 12, lcm = 252](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/gcd-lcm-io)
+
+*The worked example of Greatest common divisor and least common multiple as inputs and results: stated numbers = 84, 36; returned by discrete-math-ai999x: gcd = 12, lcm = 252.*
+
 ```python
 discrete_math_ai999x.solve('gcd_lcm', numbers='84, 36')
 # -> gcd = 12, lcm = 252   (SOLVED)
@@ -281,6 +285,14 @@ $$
 - **Assumes:** a, b whole numbers >= 1; (x, y) are the coefficients the standard extended Euclidean algorithm produces; (x_min, y_min) is the solution with the smallest non-negative x
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![gcd (gcd(a, b)) against b (second positive integer) from 1 to 92 on a logarithmic axis](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/extended-gcd-curve)
+
+*gcd (gcd(a, b)) against b (second positive integer) from 1 to 92 on a logarithmic axis. Other inputs as in the worked example: a = 240. 31 points computed by discrete-math-ai999x; marked: the worked example, b = 46, gcd = 2.*
+
+![gcd (gcd(a, b)) over b (second positive integer) from 1 to 92 and a (first positive integer) from 1 to 480 (logarithmic axes): each of the 19 × 15 cells is one run of discrete-math-ai999x, shaded by its value (light 1 to dark 30); iso-lines at gcd = 5, 10, 15, 20, 25](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/extended-gcd-field)
+
+*gcd (gcd(a, b)) over b (second positive integer) from 1 to 92 and a (first positive integer) from 1 to 480 (logarithmic axes): each of the 19 × 15 cells is one run of discrete-math-ai999x, shaded by its value (light 1 to dark 30); iso-lines at gcd = 5, 10, 15, 20, 25. Marked: the worked example, b = 46, a = 240, gcd = 2.*
+
 ```python
 discrete_math_ai999x.solve('extended_gcd', a=240, b=46)
 # -> gcd = 2, x = -9, y = 47, x_min = 14, y_min = -73   (SOLVED)
@@ -332,6 +344,14 @@ $$
 - **Assumes:** a, b non-zero integers; solutions exist exactly when gcd(a, b) divides c
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![true when gcd(a, b) divides c (solvable) over b (coefficient of y (non-zero)) from 1 to 36 and c (right-hand side) from 1 to 60 (logarithmic vertical axis): each of the 21 × 18 cells is one run of discrete-math-ai999x, coloured by the verdict it returned — yes: 208 cells, no: 170 cells](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/linear-diophantine-decision)
+
+*true when gcd(a, b) divides c (solvable) over b (coefficient of y (non-zero)) from 1 to 36 and c (right-hand side) from 1 to 60 (logarithmic vertical axis): each of the 21 × 18 cells is one run of discrete-math-ai999x, coloured by the verdict it returned — yes: 208 cells, no: 170 cells. Other inputs as in the worked example: a = 12. Marked: the worked example, b = 18, c = 30 → yes.*
+
+![x0 (the solution with the smallest non-negative x) against a (coefficient of x (non-zero)) from 1 to 24](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/linear-diophantine-curve)
+
+*x0 (the solution with the smallest non-negative x) against a (coefficient of x (non-zero)) from 1 to 24. One curve for each value of b (coefficient of y (non-zero)): 18, 9, 36. Other inputs as in the worked example: c = 30. 22 points per curve computed by discrete-math-ai999x; marked: the worked example, a = 12, x0 = 1.*
+
 ```python
 discrete_math_ai999x.solve('linear_diophantine', a=12, b=18, c=30)
 # -> solvable = True, x0 = 1, y0 = 1, x_step = 3, y_step = -2   (SOLVED)
@@ -381,6 +401,10 @@ $$
 - **Assumes:** $m  \geq  1$; solvable exactly when gcd(a, m) divides b
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![smallest (smallest non-negative solution (none when there is no solution)) against a (coefficient of x) from 1 to 11](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/linear-congruence-curve)
+
+*smallest (smallest non-negative solution (none when there is no solution)) against a (coefficient of x) from 1 to 11. One curve for each value of m (modulus (at least 1)): 7, 3, 14. Other inputs as in the worked example: b = 4. 10 points per curve computed by discrete-math-ai999x; marked: the worked example, a = 3, smallest = 6.*
+
 ```python
 discrete_math_ai999x.solve('linear_congruence', a=3, b=4, m=7)
 # -> smallest = 6, count = 1, step = 7   (SOLVED)
@@ -427,6 +451,14 @@ $$
 - **Method:** trial division by primes up to 37, then Miller-Rabin to the bases 2, 325, 9375, 28178, 450775, 9780504, 1795265022 (deterministic below 2^64); the smallest factor by Pollard's rho
 - **Assumes:** $0  \leq  n < 2^{64}$ (questions accept n up to 10^15)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![true when n is prime (is_prime) along n (the whole number to test) from 1 to 194 (logarithmic axis): 55 runs of discrete-math-ai999x, each band coloured by the verdict returned (yes, no); it changes near n = 1](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/is-prime-decision)
+
+*true when n is prime (is_prime) along n (the whole number to test) from 1 to 194 (logarithmic axis): 55 runs of discrete-math-ai999x, each band coloured by the verdict returned (yes, no); it changes near n = 1.41421, 3.4641, 4.47214, 5.47723; the line is smallest_prime_factor (smallest prime dividing n (n itself when prime; none for n < 2)). Marked: the worked example, n = 97 → yes.*
+
+![smallest_prime_factor (smallest prime dividing n (n itself when prime; none for n < 2)) against n (the whole number to test) from 1 to 194 on a logarithmic axis](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/is-prime-curve)
+
+*smallest_prime_factor (smallest prime dividing n (n itself when prime; none for n < 2)) against n (the whole number to test) from 1 to 194 on a logarithmic axis. 32 points computed by discrete-math-ai999x; marked: the worked example, n = 97, smallest_prime_factor = 97.*
 
 ```python
 discrete_math_ai999x.solve('is_prime', n=97)
@@ -485,6 +517,14 @@ $$
 - **Assumes:** n a whole number, $2  \leq  n  \leq  10^{15}$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): factorization (returned)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/prime-factorization-matrix)
+
+*The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): factorization (returned). Returned with them by discrete-math-ai999x: distinct_primes = 3, prime_factors_with_multiplicity = 6, largest_prime_factor = 5, smallest_prime_factor = 2. Other inputs: n = 360.*
+
+![largest_prime_factor (largest prime factor) against n (the whole number to factor (at least 2)) from 1 to 720 on a logarithmic axis](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/prime-factorization-curve)
+
+*largest_prime_factor (largest prime factor) against n (the whole number to factor (at least 2)) from 1 to 720 on a logarithmic axis. 35 points computed by discrete-math-ai999x; marked: the worked example, n = 360, largest_prime_factor = 5.*
+
 ```python
 discrete_math_ai999x.solve('prime_factorization', n=360)
 # -> factorization = [[2, 3], [3, 2], [5, 1]], distinct_primes = 3, prime_factors_with_multiplicity = 6, largest_prime_factor = 5, smallest_prime_factor = 2, text = 2^3 × 3^2 × 5   (SOLVED)
@@ -530,6 +570,10 @@ $$
 - **Method:** product formula over the distinct prime factors of n
 - **Assumes:** n a whole number, $1  \leq  n  \leq  10^{15}$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![phi (Euler's totient phi(n)) against n (a positive integer) from 1 to 72 on a logarithmic axis](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/euler-phi-curve)
+
+*phi (Euler's totient phi(n)) against n (a positive integer) from 1 to 72 on a logarithmic axis. 29 points computed by discrete-math-ai999x; marked: the worked example, n = 36, phi = 12.*
 
 ```python
 discrete_math_ai999x.solve('euler_phi', n=36)
@@ -586,6 +630,14 @@ $$
 - **Assumes:** n a whole number, $1  \leq  n  \leq  10^{12}$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![perfect, abundant or deficient (classification) along n (a positive integer) from 1 to 720 (logarithmic axis): 63 runs of discrete-math-ai999x, each band coloured by the verdict returned (abundant, deficient, perfect); it changes near n = 5](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/divisor-functions-decision)
+
+*perfect, abundant or deficient (classification) along n (a positive integer) from 1 to 720 (logarithmic axis): 63 runs of discrete-math-ai999x, each band coloured by the verdict returned (abundant, deficient, perfect); it changes near n = 5.47723, 6.48074, 11.4891, 12.49; the line is count (number of divisors tau(n)). Marked: the worked example, n = 360 → abundant.*
+
+![every divisor, ascending (divisors) returned by discrete-math-ai999x for the worked example, one value for each position in the list (24 values, first 1, last 360, largest 360)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/divisor-functions-series)
+
+*every divisor, ascending (divisors) returned by discrete-math-ai999x for the worked example, one value for each position in the list (24 values, first 1, last 360, largest 360). Inputs: n = 360.*
+
 ```python
 discrete_math_ai999x.solve('divisor_functions', n=360)
 # -> count = 24, sum = 1170, proper_sum = 810, classification = abundant, divisors = [1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20, 24, 30, 36, 40, 45, 60, 72, 90, 120, 180, 360]   (SOLVED)
@@ -639,6 +691,14 @@ $$
 - **Assumes:** $m  \geq  1$; the remainder is never negative, also for negative a
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![remainder (r with 0 <= r < m) against a (the integer to reduce) from 1 to 34](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/mod-reduce-curve)
+
+*remainder (r with 0 <= r < m) against a (the integer to reduce) from 1 to 34. One curve for each value of m (the modulus (at least 1)): 5, 2, 10. 34 points per curve computed by discrete-math-ai999x; marked: the worked example, a = 17, remainder = 2.*
+
+![remainder (r with 0 <= r < m) over m (the modulus (at least 1)) from 1 to 13 and a (the integer to reduce) from 1 to 34: each of the 13 × 14 cells is one run of discrete-math-ai999x, shaded by its value (light 0 to dark 12); iso-lines at remainder = 2, 4, 6, 8](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/mod-reduce-field)
+
+*remainder (r with 0 <= r < m) over m (the modulus (at least 1)) from 1 to 13 and a (the integer to reduce) from 1 to 34: each of the 13 × 14 cells is one run of discrete-math-ai999x, shaded by its value (light 0 to dark 12); iso-lines at remainder = 2, 4, 6, 8. Marked: the worked example, m = 5, a = 17, remainder = 2.*
+
 ```python
 discrete_math_ai999x.solve('mod_reduce', a=17, m=5)
 # -> remainder = 2, quotient = 3   (SOLVED)
@@ -680,6 +740,10 @@ $$
 - **Method:** binary (square-and-multiply) exponentiation, reducing modulo m at every step
 - **Assumes:** $e  \geq  0$; $m  \geq  1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![result (a^e mod m, between 0 and m - 1) against base (the base a) from 1 to 11](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/mod-pow-curve)
+
+*result (a^e mod m, between 0 and m - 1) against base (the base a) from 1 to 11. One curve for each value of modulus (the modulus m (at least 1)): 13, 6, 26. Other inputs as in the worked example: exponent = 200. 11 points per curve computed by discrete-math-ai999x; marked: the worked example, base = 3, result = 9.*
 
 ```python
 discrete_math_ai999x.solve('mod_pow', base=3, exponent=200, modulus=13)
@@ -733,6 +797,10 @@ $$
 - **Assumes:** $m  \geq  2$; gcd(a, m) = 1 (otherwise no inverse exists)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![inverse (a^{-1} mod m) against m (the modulus (at least 2)) from 1 to 22](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/mod-inverse-curve)
+
+*inverse (a^{-1} mod m) against m (the modulus (at least 2)) from 1 to 22. One curve for each value of a (the integer to invert): 3, 4, 5. 14 points per curve computed by discrete-math-ai999x; marked: the worked example, m = 11, inverse = 4.*
+
 ```python
 discrete_math_ai999x.solve('mod_inverse', a=3, m=11)
 # -> inverse = 4   (SOLVED)
@@ -779,6 +847,10 @@ $$
 - **Method:** merge the congruences pairwise with the extended Euclidean algorithm (works for non-coprime moduli)
 - **Assumes:** one residue per modulus; the system is consistent (r_i ≡ r_j modulo gcd(m_i, m_j))
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The worked example of Chinese remainder theorem as inputs and results: stated residues = 2, 3, 2, moduli = 3, 5, 7; returned by discrete-math-ai999x: x = 23, modulus = 105](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/crt-io)
+
+*The worked example of Chinese remainder theorem as inputs and results: stated residues = 2, 3, 2, moduli = 3, 5, 7; returned by discrete-math-ai999x: x = 23, modulus = 105.*
 
 ```python
 discrete_math_ai999x.solve('crt', residues='2, 3, 2', moduli='3, 5, 7')
@@ -828,6 +900,10 @@ $$
 - **Assumes:** gcd(base, m) = 1; a solution exists
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![x (the smallest non-negative exponent with g^x ≡ h (mod m)) against target (the value h) from 1 to 26](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/discrete-log-curve)
+
+*x (the smallest non-negative exponent with g^x ≡ h (mod m)) against target (the value h) from 1 to 26. One curve for each value of base (the base g): 3, 5. Other inputs as in the worked example: modulus = 17. 25 points per curve computed by discrete-math-ai999x; marked: the worked example, target = 13, x = 4.*
+
 ```python
 discrete_math_ai999x.solve('discrete_log', base=3, target=13, modulus=17)
 # -> x = 4   (SOLVED)
@@ -873,6 +949,10 @@ $$
 - **Method:** quadratic reciprocity with the supplementary law for 2 (no factoring needed)
 - **Assumes:** p an odd prime
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Legendre symbol (a / p) returned by the package for a = 1 … 12 (columns) and the odd primes p = 3, 5, 7, 11, 13 (rows): +1 a quadratic residue, −1 a non-residue, 0 when p divides a](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/legendre-symbol-table)
+
+*Legendre symbol (a / p) returned by the package for a = 1 … 12 (columns) and the odd primes p = 3, 5, 7, 11, 13 (rows): +1 a quadratic residue, −1 a non-residue, 0 when p divides a. The worked example is a = 5, p = 11.*
 
 ```python
 discrete_math_ai999x.solve('legendre_symbol', a=5, p=11)
@@ -924,6 +1004,14 @@ $$
 - **Method:** quadratic reciprocity with the supplementary law for 2 (no factoring needed)
 - **Assumes:** n odd and positive
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![symbol (the Jacobi symbol (a/n): -1, 0 or 1) against a (the integer a) from 1 to 2002 on a logarithmic axis](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/jacobi-symbol-curve)
+
+*symbol (the Jacobi symbol (a/n): -1, 0 or 1) against a (the integer a) from 1 to 2002 on a logarithmic axis. Other inputs as in the worked example: n = 9907. 38 points computed by discrete-math-ai999x; marked: the worked example, a = 1001, symbol = -1.*
+
+![symbol (the Jacobi symbol (a/n): -1, 0 or 1) over a (the integer a) from 1 to 2002 and n (an odd positive integer) from 1 to 19814 (logarithmic axes): each of the 21 × 16 cells is one run of discrete-math-ai999x, shaded by its sign and magnitude (second colour negative); iso-lines at symbol = -0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/jacobi-symbol-field)
+
+*symbol (the Jacobi symbol (a/n): -1, 0 or 1) over a (the integer a) from 1 to 2002 and n (an odd positive integer) from 1 to 19814 (logarithmic axes): each of the 21 × 16 cells is one run of discrete-math-ai999x, shaded by its sign and magnitude (second colour negative); iso-lines at symbol = -0.5, 0, 0.5; blank cells: inputs the capability refuses. Marked: the worked example, a = 1001, n = 9907, symbol = -1.*
 
 ```python
 discrete_math_ai999x.solve('jacobi_symbol', a=1001, n=9907)
@@ -978,6 +1066,14 @@ $$
 - **Assumes:** p prime
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![all square roots of a modulo p, ascending (roots) returned by discrete-math-ai999x for the worked example (a = 10, p = 13), drawn in the complex plane: 6 + 0i, 7 + 0i](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/sqrt-mod-complex)
+
+*all square roots of a modulo p, ascending (roots) returned by discrete-math-ai999x for the worked example (a = 10, p = 13), drawn in the complex plane: 6 + 0i, 7 + 0i.*
+
+![smallest (the smallest root (none when a is a non-residue)) against a (the integer a) from 1 to 20](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/sqrt-mod-curve)
+
+*smallest (the smallest root (none when a is a non-residue)) against a (the integer a) from 1 to 20. Other inputs as in the worked example: p = 13. 10 points computed by discrete-math-ai999x; marked: the worked example, a = 10, smallest = 6.*
+
 ```python
 discrete_math_ai999x.solve('sqrt_mod', a=10, p=13)
 # -> roots = [6, 7], count = 2, smallest = 6   (SOLVED)
@@ -1025,6 +1121,10 @@ $$
 - **Assumes:** gcd(a, n) = 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![order (ord_n(a)) against n (the modulus (at least 2)) from 1 to 15](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/multiplicative-order-curve)
+
+*order (ord_n(a)) against n (the modulus (at least 2)) from 1 to 15. One curve for each value of a (the integer a (coprime to n)): 2, 3. 7 points per curve computed by discrete-math-ai999x; marked: the worked example, n = 7, order = 3.*
+
 ```python
 discrete_math_ai999x.solve('multiplicative_order', a=2, n=7)
 # -> order = 3   (SOLVED)
@@ -1069,6 +1169,10 @@ $$
 - **Method:** g is a primitive root iff g^((p-1)/q) ≢ 1 for every prime q dividing $p - 1$; test $g = 2$, 3, ...
 - **Assumes:** p prime (primitive roots also exist for 4, $p^{k}$ and $2p^{k}$, which this capability does not take)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![root (the smallest primitive root modulo p) against p (a prime) from 1 to 46](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/primitive-root-curve)
+
+*root (the smallest primitive root modulo p) against p (a prime) from 1 to 46. 10 points computed by discrete-math-ai999x; marked: the worked example, p = 23, root = 5.*
 
 ```python
 discrete_math_ai999x.solve('primitive_root', p=23)
@@ -1119,6 +1223,10 @@ $$
 - **Method:** sieve of Eratosthenes
 - **Assumes:** $0  \leq  x  \leq  5$,000,000; 'less than N' counts primes up to $N - 1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![count (number of primes p <= x) against x (the bound (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/prime-counting-curve)
+
+*count (number of primes p <= x) against x (the bound (0..5,000,000)) from 1 to 200 on a logarithmic axis. 33 points computed by discrete-math-ai999x; marked: the worked example, x = 100, count = 25.*
 
 ```python
 discrete_math_ai999x.solve('prime_counting', x=100)
@@ -1171,6 +1279,10 @@ $$
 - **Assumes:** $1  \leq  n  \leq  300$,000; $p_1 = 2$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![prime (the n-th prime) against n (the index n (1](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/nth-prime-curve)
+
+*prime (the n-th prime) against n (the index n (1..300,000)) from 1 to 9. 9 points computed by discrete-math-ai999x; marked: the worked example, n = 1, prime = 2.*
+
 ```python
 discrete_math_ai999x.solve('nth_prime', n=1)
 # -> prime = 2   (SOLVED)
@@ -1216,6 +1328,10 @@ $$
 - **Assumes:** $n  \geq  0$; strictly greater: the next prime after a prime p is not p
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![prime (the smallest prime p > n) against n (the whole number n (at least 0)) from 1 to 200 on a logarithmic axis](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/next-prime-curve)
+
+*prime (the smallest prime p > n) against n (the whole number n (at least 0)) from 1 to 200 on a logarithmic axis. 33 points computed by discrete-math-ai999x; marked: the worked example, n = 100, prime = 101.*
+
 ```python
 discrete_math_ai999x.solve('next_prime', n=100)
 # -> prime = 101   (SOLVED)
@@ -1259,6 +1375,10 @@ $$
 - **Method:** test $n - 1$, $n - 2$, ... with deterministic Miller-Rabin
 - **Assumes:** $n  \geq  3$; strictly less: the prime before a prime p is not p
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![prime (the largest prime p < n) against n (the whole number n (at least 3)) from 1 to 200 on a logarithmic axis](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/previous-prime-curve)
+
+*prime (the largest prime p < n) against n (the whole number n (at least 3)) from 1 to 200 on a logarithmic axis. 31 points computed by discrete-math-ai999x; marked: the worked example, n = 100, prime = 97.*
 
 ```python
 discrete_math_ai999x.solve('previous_prime', n=100)
@@ -1304,6 +1424,10 @@ $$
 - **Method:** lcm over prime powers: lambda(2^e) = 2^(e-2) for $e  \geq  3$, else phi(p^e)
 - **Assumes:** $n  \geq  1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![lambda (Carmichael's lambda(n)) against n (a positive integer) from 1 to 30](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/carmichael-lambda-curve)
+
+*lambda (Carmichael's lambda(n)) against n (a positive integer) from 1 to 30. 30 points computed by discrete-math-ai999x; marked: the worked example, n = 15, lambda = 4.*
 
 ```python
 discrete_math_ai999x.solve('carmichael_lambda', n=15)
@@ -1356,6 +1480,14 @@ $$
 - **Assumes:** $n  \geq  1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![true when no square > 1 divides n (squarefree) along n (a positive integer) from 1 to 60: 60 runs of discrete-math-ai999x, each band coloured by the verdict returned (yes, no); it changes near n = 3](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/mobius-decision)
+
+*true when no square > 1 divides n (squarefree) along n (a positive integer) from 1 to 60: 60 runs of discrete-math-ai999x, each band coloured by the verdict returned (yes, no); it changes near n = 3.5, 4.5, 7.5, 9.5; the line is mu (the Möbius function mu(n)). Marked: the worked example, n = 30 → yes.*
+
+![mu (the Möbius function mu(n)) against n (a positive integer) from 29 to 60 on a logarithmic axis](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/mobius-curve)
+
+*mu (the Möbius function mu(n)) against n (a positive integer) from 29 to 60 on a logarithmic axis. 9 points computed by discrete-math-ai999x; marked: the worked example, n = 30, mu = -1.*
+
 ```python
 discrete_math_ai999x.solve('mobius', n=30)
 # -> mu = -1, squarefree = True   (SOLVED)
@@ -1407,6 +1539,14 @@ $$
 - **Assumes:** $q  \geq  1$; a0 = floor(p/q) (negative for negative p); canonical: the last term is at least 2
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![the partial quotients [a0, a1, ](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/cf-rational-series)
+
+*the partial quotients [a0, a1, ..., an] (terms) returned by discrete-math-ai999x for the worked example, one value for each position in the list (4 values, first 4, last 7, largest 7). Inputs: numerator = 415, denominator = 93.*
+
+![length (number of partial quotients) against denominator (the denominator q (at least 1)) from 1 to 186 on a logarithmic axis](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/cf-rational-curve)
+
+*length (number of partial quotients) against denominator (the denominator q (at least 1)) from 1 to 186 on a logarithmic axis. One curve for each value of numerator (the numerator p): 415, 207, 830. 33 points per curve computed by discrete-math-ai999x; marked: the worked example, denominator = 93, length = 4.*
+
 ```python
 discrete_math_ai999x.solve('cf_rational', numerator=415, denominator=93)
 # -> terms = [4, 2, 6, 7], length = 4   (SOLVED)
@@ -1454,6 +1594,14 @@ $$
 - **Assumes:** d not a perfect square
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![the repeating block (ends with 2*a0) (period) returned by discrete-math-ai999x for the worked example, one value for each position in the list (4 values, first 1, last 8, largest 8)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/cf-sqrt-series)
+
+*the repeating block (ends with 2*a0) (period) returned by discrete-math-ai999x for the worked example, one value for each position in the list (4 values, first 1, last 8, largest 8). Inputs: d = 23.*
+
+![period_length (length of the period) against d (a positive non-square integer) from 1 to 46](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/cf-sqrt-curve)
+
+*period_length (length of the period) against d (a positive non-square integer) from 1 to 46. 23 points computed by discrete-math-ai999x; marked: the worked example, d = 23, period_length = 4.*
+
 ```python
 discrete_math_ai999x.solve('cf_sqrt', d=23)
 # -> a0 = 4, period = [1, 3, 1, 8], period_length = 4   (SOLVED)
@@ -1499,6 +1647,10 @@ $$
 - **Method:** convergent of the continued fraction of sqrt(d) at the end of the first period (squared when the period is odd)
 - **Assumes:** d not a perfect square; $2  \leq  d  \leq  1000$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![x (fundamental solution x) against d (a non-square positive integer (2](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/pell-equation-curve)
+
+*x (fundamental solution x) against d (a non-square positive integer (2..1000)) from 1 to 122 on a logarithmic axis, logarithmic output axis. 28 points computed by discrete-math-ai999x; marked: the worked example, d = 61, x = 1.7663e+09.*
 
 ```python
 discrete_math_ai999x.solve('pell_equation', d=61)
@@ -1552,6 +1704,14 @@ $$
 - **Assumes:** $0  \leq  n  \leq  10^{12}$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): representations (returned)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/two-squares-matrix)
+
+*The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): representations (returned). Returned with them by discrete-math-ai999x: count = 3, r2 = 24. Other inputs: n = 325.*
+
+![count (number of such pairs) against n (a whole number (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/two-squares-curve)
+
+*count (number of such pairs) against n (a whole number (0..10^12)) from 1 to 650 on a logarithmic axis. 36 points computed by discrete-math-ai999x; marked: the worked example, n = 325, count = 3.*
+
 ```python
 discrete_math_ai999x.solve('two_squares', n=325)
 # -> representations = [[1, 18], [6, 17], [10, 15]], count = 3, r2 = 24   (SOLVED)
@@ -1597,6 +1757,14 @@ $$
 - **Method:** exact integer Newton iteration (no floating point)
 - **Assumes:** $n  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![true when n is a perfect square (is_square) along n (a whole number (at least 0)) from 1 to 2000 (logarithmic axis): 67 runs of discrete-math-ai999x, each band coloured by the verdict returned (yes, no); it changes near n = 1](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/integer-sqrt-decision)
+
+*true when n is a perfect square (is_square) along n (a whole number (at least 0)) from 1 to 2000 (logarithmic axis): 67 runs of discrete-math-ai999x, each band coloured by the verdict returned (yes, no); it changes near n = 1.41421, 3.4641, 4.47214, 8.48528; the line is isqrt (floor(sqrt(n))). Marked: the worked example, n = 1000 → no.*
+
+![isqrt (floor(sqrt(n))) against n (a whole number (at least 0)) from 1 to 2000 on a logarithmic axis](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/integer-sqrt-curve)
+
+*isqrt (floor(sqrt(n))) against n (a whole number (at least 0)) from 1 to 2000 on a logarithmic axis. 38 points computed by discrete-math-ai999x; marked: the worked example, n = 1000, isqrt = 31.*
 
 ```python
 discrete_math_ai999x.solve('integer_sqrt', n=1000)
@@ -1645,6 +1813,10 @@ $$
 - **Method:** Horner evaluation in the source base, then repeated division by the target base
 - **Assumes:** 2 <= bases <= 36; every digit is valid in the source base; a leading minus sign is kept
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![decimal (its value in base 10) against from_base (the source base (2](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/base-convert-curve)
+
+*decimal (its value in base 10) against from_base (the source base (2..36)) from 1 to 10. Other inputs as in the worked example: digits = 1011, to_base = 10. 9 points computed by discrete-math-ai999x; marked: the worked example, from_base = 2, decimal = 11.*
 
 ```python
 discrete_math_ai999x.solve('base_convert', digits='1011', from_base=2, to_base=10)
@@ -1700,6 +1872,14 @@ $$
 - **Assumes:** $-2^{b-1}  \leq  n < 2^{b-1}$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![unsigned (the pattern read as an unsigned integer (n mod 2^b)) against n (the signed integer) from -15 to 5](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/twos-complement-curve)
+
+*unsigned (the pattern read as an unsigned integer (n mod 2^b)) against n (the signed integer) from -15 to 5. One curve for each value of bits (the word length b (2..64)): 8, 4, 16. 21 points per curve computed by discrete-math-ai999x; marked: the worked example, n = -5, unsigned = 251.*
+
+![unsigned (the pattern read as an unsigned integer (n mod 2^b)) over bits (the word length b (2](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/twos-complement-field)
+
+*unsigned (the pattern read as an unsigned integer (n mod 2^b)) over bits (the word length b (2..64)) from 1 to 16 and n (the signed integer) from -15 to 5: each of the 16 × 21 cells is one run of discrete-math-ai999x, shaded by its value (light 0 to dark 65535); iso-lines at unsigned = 20000, 40000, 60000; blank cells: inputs the capability refuses. Marked: the worked example, bits = 8, n = -5, unsigned = 251.*
+
 ```python
 discrete_math_ai999x.solve('twos_complement', n=-5, bits=8)
 # -> bits_text = 11111011, unsigned = 251   (SOLVED)
@@ -1745,6 +1925,14 @@ $$
 - **Method:** multiplicative formula with exact integer division at every step
 - **Assumes:** $0  \leq  k  \leq  n  \leq  1000$; result at most $10^{300}$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![combinations (C(n, k) = n! / (k! (n-k)!)) against k (number chosen (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/combinations-curve)
+
+*combinations (C(n, k) = n! / (k! (n-k)!)) against k (number chosen (0..n)) from 1 to 11. One curve for each value of n (number of items to choose from (0..1000)): 10, 20. 10 points per curve computed by discrete-math-ai999x; marked: the worked example, k = 3, combinations = 120.*
+
+![combinations (C(n, k) = n! / (k! (n-k)!)) over n (number of items to choose from (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/combinations-field)
+
+*combinations (C(n, k) = n! / (k! (n-k)!)) over n (number of items to choose from (0..1000)) from 1 to 20 and k (number chosen (0..n)) from 1 to 11: each of the 20 × 11 cells is one run of discrete-math-ai999x, shaded by its value (light 1 to dark 184756, logarithmic shading); iso-lines at combinations = 10, 100, 1000, 10000, 1.00e5; blank cells: inputs the capability refuses. Marked: the worked example, n = 10, k = 3, combinations = 120.*
 
 ```python
 discrete_math_ai999x.solve('combinations', n=10, k=3)
@@ -1793,6 +1981,14 @@ $$
 - **Assumes:** $0  \leq  k  \leq  n  \leq  170$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![permutations (P(n, k) = n! / (n-k)!) against k (number arranged (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/permutations-curve)
+
+*permutations (P(n, k) = n! / (n-k)!) against k (number arranged (0..n)) from 1 to 11, logarithmic output axis. One curve for each value of n (number of distinct items (0..170)): 10, 20. 10 points per curve computed by discrete-math-ai999x; marked: the worked example, k = 3, permutations = 720.*
+
+![permutations (P(n, k) = n! / (n-k)!) over k (number arranged (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/permutations-field)
+
+*permutations (P(n, k) = n! / (n-k)!) over k (number arranged (0..n)) from 1 to 11 and n (number of distinct items (0..170)) from 1 to 20: each of the 11 × 12 cells is one run of discrete-math-ai999x, shaded by its value (light 1 to dark 6.7044e+12, logarithmic shading); iso-lines at permutations = 10, 100, 1000, 10000, 1.00e5, 1.00e6; blank cells: inputs the capability refuses. Marked: the worked example, k = 3, n = 10, permutations = 720.*
+
 ```python
 discrete_math_ai999x.solve('permutations', n=10, k=3)
 # -> permutations = 720   (SOLVED)
@@ -1840,6 +2036,14 @@ $$
 - **Assumes:** $n  \geq  1$; result at most $10^{300}$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![sequences (n^k) against n (number of available symbols (at least 1)) from 1 to 20, logarithmic output axis](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/sequences-with-repetition-curve)
+
+*sequences (n^k) against n (number of available symbols (at least 1)) from 1 to 20, logarithmic output axis. One curve for each value of k (length of the sequence): 4, 2, 8. 20 points per curve computed by discrete-math-ai999x; marked: the worked example, n = 10, sequences = 10000.*
+
+![sequences (n^k) over k (length of the sequence) from 1 to 12 and n (number of available symbols (at least 1)) from 1 to 20: each of the 12 × 12 cells is one run of discrete-math-ai999x, shaded by its value (light 1 to dark 4](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/sequences-with-repetition-field)
+
+*sequences (n^k) over k (length of the sequence) from 1 to 12 and n (number of available symbols (at least 1)) from 1 to 20: each of the 12 × 12 cells is one run of discrete-math-ai999x, shaded by its value (light 1 to dark 4.0960e+15, logarithmic shading); iso-lines at sequences = 10, 100, 1000, 10000, 1.00e5, 1.00e6. Marked: the worked example, k = 4, n = 10, sequences = 10000.*
+
 ```python
 discrete_math_ai999x.solve('sequences_with_repetition', n=10, k=4)
 # -> sequences = 10000   (SOLVED)
@@ -1884,6 +2088,14 @@ $$
 - **Method:** stars and bars
 - **Assumes:** $n  \geq  1$; result at most $10^{300}$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![multisets (C(n + k - 1, k)) against k (number of items chosen) from 1 to 11](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/multisets-curve)
+
+*multisets (C(n + k - 1, k)) against k (number of items chosen) from 1 to 11. One curve for each value of n (number of types (at least 1)): 5, 2, 10. 11 points per curve computed by discrete-math-ai999x; marked: the worked example, k = 3, multisets = 35.*
+
+![multisets (C(n + k - 1, k)) over k (number of items chosen) from 1 to 11 and n (number of types (at least 1)) from 1 to 13: each of the 11 × 13 cells is one run of discrete-math-ai999x, shaded by its value (light 1 to dark 1](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/multisets-field)
+
+*multisets (C(n + k - 1, k)) over k (number of items chosen) from 1 to 11 and n (number of types (at least 1)) from 1 to 13: each of the 11 × 13 cells is one run of discrete-math-ai999x, shaded by its value (light 1 to dark 1.35208e+06, logarithmic shading); iso-lines at multisets = 10, 100, 1000, 10000, 1.00e5. Marked: the worked example, k = 3, n = 5, multisets = 35.*
 
 ```python
 discrete_math_ai999x.solve('multisets', n=5, k=3)
@@ -1931,6 +2143,10 @@ $$
 - **Assumes:** sizes are whole numbers >= 0 adding up to at most 170; a stated total must equal their sum
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The worked example of Multinomial coefficient as inputs and results: stated counts = 2, 3, 5; returned by discrete-math-ai999x: coefficient = 2520, total = 10](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/multinomial-io)
+
+*The worked example of Multinomial coefficient as inputs and results: stated counts = 2, 3, 5; returned by discrete-math-ai999x: coefficient = 2520, total = 10.*
+
 ```python
 discrete_math_ai999x.solve('multinomial', counts='2, 3, 5')
 # -> coefficient = 2520, total = 10   (SOLVED)
@@ -1977,6 +2193,10 @@ $$
 - **Method:** product of binomial coefficients, placing one letter type at a time
 - **Assumes:** letters A-Z only (upper and lower case are the same letter); at most 170 letters
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![how often each letter occurs (letter_counts) returned by discrete-math-ai999x for the worked example (word = MISSISSIPPI), one bar per entry: I = 4, M = 1, P = 2, S = 4](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/word-arrangements-bars)
+
+*how often each letter occurs (letter_counts) returned by discrete-math-ai999x for the worked example (word = MISSISSIPPI), one bar per entry: I = 4, M = 1, P = 2, S = 4.*
 
 ```python
 discrete_math_ai999x.solve('word_arrangements', word='MISSISSIPPI')
@@ -2028,6 +2248,10 @@ $$
 ![Stirling numbers of the second kind S(n, k) for n, k = 1 … 7 (row n, column k), each computed by the package: the ways to split n labelled objects into k non-empty groups; row 7 sums to the Bell number B(7) = 877, also computed by the package](https://huggingface.co/AI999X/discrete-math-ai999x/resolve/main/figures/stirling2-heatmap.svg)
 
 *Stirling numbers of the second kind S(n, k) for n, k = 1 … 7 (row n, column k), each computed by the package: the ways to split n labelled objects into k non-empty groups; row 7 sums to the Bell number B(7) = 877, also computed by the package.*
+
+![stirling2 (S(n, k)) against k (number of blocks (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/stirling2-curve)
+
+*stirling2 (S(n, k)) against k (number of blocks (0..100)) from 1 to 11. One curve for each value of n (size of the set (0..100)): 7, 3, 14. 11 points per curve computed by discrete-math-ai999x; marked: the worked example, k = 3, stirling2 = 301.*
 
 ```python
 discrete_math_ai999x.solve('stirling2', n=7, k=3)
@@ -2081,6 +2305,10 @@ $$
 - **Assumes:** $0  \leq  n$, $k  \leq  100$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![stirling1 (unsigned c(n, k)) against n (number of elements (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/stirling1-curve)
+
+*stirling1 (unsigned c(n, k)) against n (number of elements (0..100)) from 1 to 13. Other inputs as in the worked example: k = 2. 13 points computed by discrete-math-ai999x; marked: the worked example, n = 5, stirling1 = 50.*
+
 ```python
 discrete_math_ai999x.solve('stirling1', n=5, k=2)
 # -> stirling1 = 50, signed = -50   (SOLVED)
@@ -2125,6 +2353,10 @@ $$
 - **Assumes:** $0  \leq  n  \leq  200$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![bell (the Bell number B_n) against n (size of the set (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/bell-curve)
+
+*bell (the Bell number B_n) against n (size of the set (0..200)) from 1 to 13, logarithmic output axis. 13 points computed by discrete-math-ai999x; marked: the worked example, n = 5, bell = 52.*
+
 ```python
 discrete_math_ai999x.solve('bell', n=5)
 # -> bell = 52   (SOLVED)
@@ -2168,6 +2400,10 @@ $$
 - **Method:** closed form binomial(2n, n)/(n + 1)
 - **Assumes:** $0  \leq  n  \leq  500$; a convex polygon with s sides has C_(s-2) triangulations
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![catalan (the Catalan number C_n) against n (the index n (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/catalan-curve)
+
+*catalan (the Catalan number C_n) against n (the index n (0..500)) from 1 to 20, logarithmic output axis. 20 points computed by discrete-math-ai999x; marked: the worked example, n = 10, catalan = 16796.*
 
 ```python
 discrete_math_ai999x.solve('catalan', n=10)
@@ -2214,6 +2450,10 @@ $$
 - **Assumes:** $0  \leq  n  \leq  1000$; $F_0 = 0$, $F_1 = 1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![fibonacci (F_n) against n (the index n (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/fibonacci-curve)
+
+*fibonacci (F_n) against n (the index n (0..1000)) from 20 to 35, logarithmic output axis. 16 points computed by discrete-math-ai999x; marked: the worked example, n = 30, fibonacci = 832040.*
+
 ```python
 discrete_math_ai999x.solve('fibonacci', n=30)
 # -> fibonacci = 832040   (SOLVED)
@@ -2259,6 +2499,10 @@ $$
 - **Assumes:** $0  \leq  n  \leq  1000$; $L_0 = 2$, $L_1 = 1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![lucas (L_n) against n (the index n (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/lucas-curve)
+
+*lucas (L_n) against n (the index n (0..1000)) from 1 to 20, logarithmic output axis. 20 points computed by discrete-math-ai999x; marked: the worked example, n = 10, lucas = 123.*
+
 ```python
 discrete_math_ai999x.solve('lucas', n=10)
 # -> lucas = 123   (SOLVED)
@@ -2303,6 +2547,10 @@ $$
 - **Method:** recurrence D(n) = (n-1)(D(n-1) + D(n-2))
 - **Assumes:** $0  \leq  n  \leq  170$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![derangements (!n) against n (number of items (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/derangements-curve)
+
+*derangements (!n) against n (number of items (0..170)) from 1 to 13. 13 points computed by discrete-math-ai999x; marked: the worked example, n = 5, derangements = 44.*
 
 ```python
 discrete_math_ai999x.solve('derangements', n=5)
@@ -2357,6 +2605,10 @@ $$
 
 *The number of ways to write n as a sum of positive integers, p(n), and as a sum of distinct ones, q(n), for n = 1 … 20, each counted by the package (logarithmic scale): p(10) = 42, q(10) = 10; marked: p(20) = 627 (q(20) = 64).*
 
+![partitions (p(n)) against n (the integer n (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/integer-partitions-curve)
+
+*partitions (p(n)) against n (the integer n (0..2000)) from 1 to 20. 20 points computed by discrete-math-ai999x; marked: the worked example, n = 10, partitions = 42.*
+
 ```python
 discrete_math_ai999x.solve('integer_partitions', n=10)
 # -> partitions = 42   (SOLVED)
@@ -2403,6 +2655,14 @@ $$
 - **Assumes:** $0  \leq  n$, $k  \leq  300$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![partitions (p(n, k)) against k (the number of parts (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/partitions-k-curve)
+
+*partitions (p(n, k)) against k (the number of parts (0..300)) from 1 to 11. One curve for each value of n (the integer n (0..300)): 10, 5, 20. 11 points per curve computed by discrete-math-ai999x; marked: the worked example, k = 3, partitions = 8.*
+
+![partitions (p(n, k)) over n (the integer n (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/partitions-k-field)
+
+*partitions (p(n, k)) over n (the integer n (0..300)) from 1 to 20 and k (the number of parts (0..300)) from 1 to 11: each of the 20 × 11 cells is one run of discrete-math-ai999x, shaded by its value (light 0 to dark 90); iso-lines at partitions = 20, 40, 60, 80. Marked: the worked example, n = 10, k = 3, partitions = 8.*
+
 ```python
 discrete_math_ai999x.solve('partitions_k', n=10, k=3)
 # -> partitions = 8   (SOLVED)
@@ -2446,6 +2706,10 @@ $$
 - **Method:** $0/1$ knapsack counting over the parts 1..n
 - **Assumes:** $0  \leq  n  \leq  1000$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![partitions (q(n)) against n (the integer n (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/partitions-distinct-curve)
+
+*partitions (q(n)) against n (the integer n (0..1000)) from 1 to 20. 20 points computed by discrete-math-ai999x; marked: the worked example, n = 10, partitions = 10.*
 
 ```python
 discrete_math_ai999x.solve('partitions_distinct', n=10)
@@ -2493,6 +2757,10 @@ $$
 - **Method:** stars and bars after shifting by the lower bound; inclusion-exclusion over variables exceeding the upper bound
 - **Assumes:** the bounds apply to every variable; a question must say non-negative or positive
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![solutions (number of solutions) against lower (lower bound for every variable (0 = non-negative, 1 = positive)) from -10 to 10](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/stars-and-bars-curve)
+
+*solutions (number of solutions) against lower (lower bound for every variable (0 = non-negative, 1 = positive)) from -10 to 10. One curve for each value of variables (the number of variables or boxes k (1..50)): 3, 4, 5. Other inputs as in the worked example: total = 10. 11 points per curve computed by discrete-math-ai999x; marked: the worked example, lower = 0, solutions = 66.*
 
 ```python
 discrete_math_ai999x.solve('stars_and_bars', total=10, variables=3, lower=0)
@@ -2543,6 +2811,10 @@ $$
 - **Assumes:** $n  \geq  1$; 1 to 12 divisors, each >= 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![divisible_by_any (count divisible by at least one divisor) against n (the upper end of the range 1](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/inclusion-exclusion-curve)
+
+*divisible_by_any (count divisible by at least one divisor) against n (the upper end of the range 1..n) from 1 to 2000 on a logarithmic axis. Other inputs as in the worked example: divisors = 3, 5, 7. 38 points computed by discrete-math-ai999x; marked: the worked example, n = 1000, divisible_by_any = 543.*
+
 ```python
 discrete_math_ai999x.solve('inclusion_exclusion', n=1000, divisors='3, 5, 7')
 # -> divisible_by_any = 543, divisible_by_none = 457   (SOLVED)
@@ -2588,6 +2860,14 @@ $$
 - **Assumes:** n, $k  \geq  1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![guaranteed (ceil(n / k): the largest load every placement must reach in some box) against boxes (number of boxes k) from 1 to 15](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/pigeonhole-max-curve)
+
+*guaranteed (ceil(n / k): the largest load every placement must reach in some box) against boxes (number of boxes k) from 1 to 15. One curve for each value of items (number of objects n): 25, 12, 50. 15 points per curve computed by discrete-math-ai999x; marked: the worked example, boxes = 7, guaranteed = 4.*
+
+![guaranteed (ceil(n / k): the largest load every placement must reach in some box) over boxes (number of boxes k) from 1 to 15 and items (number of objects n) from 1 to 50: each of the 15 × 14 cells is one run of discrete-math-ai999x, shaded by its value (light 1 to dark 50); iso-lines at guaranteed = 10, 20, 30](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/pigeonhole-max-field)
+
+*guaranteed (ceil(n / k): the largest load every placement must reach in some box) over boxes (number of boxes k) from 1 to 15 and items (number of objects n) from 1 to 50: each of the 15 × 14 cells is one run of discrete-math-ai999x, shaded by its value (light 1 to dark 50); iso-lines at guaranteed = 10, 20, 30. Marked: the worked example, boxes = 7, items = 25, guaranteed = 4.*
+
 ```python
 discrete_math_ai999x.solve('pigeonhole_max', items=25, boxes=7)
 # -> guaranteed = 4   (SOLVED)
@@ -2632,6 +2912,14 @@ $$
 - **Method:** pigeonhole: k $(r - 1)$ objects can avoid r in every category
 - **Assumes:** k, $r  \geq  1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![needed (k (r - 1) + 1) against boxes (number of categories k) from 1 to 12](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/pigeonhole-needed-curve)
+
+*needed (k (r - 1) + 1) against boxes (number of categories k) from 1 to 12. One curve for each value of at_least (the guaranteed count r in one category): 3, 4, 5. 12 points per curve computed by discrete-math-ai999x; marked: the worked example, boxes = 4, needed = 9.*
+
+![needed (k (r - 1) + 1) over at_least (the guaranteed count r in one category) from 1 to 11 and boxes (number of categories k) from 1 to 12: each of the 11 × 12 cells is one run of discrete-math-ai999x, shaded by its value (light 1 to dark 121); iso-lines at needed = 20, 40, 60, 80](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/pigeonhole-needed-field)
+
+*needed (k (r - 1) + 1) over at_least (the guaranteed count r in one category) from 1 to 11 and boxes (number of categories k) from 1 to 12: each of the 11 × 12 cells is one run of discrete-math-ai999x, shaded by its value (light 1 to dark 121); iso-lines at needed = 20, 40, 60, 80. Marked: the worked example, at_least = 3, boxes = 4, needed = 9.*
 
 ```python
 discrete_math_ai999x.solve('pigeonhole_needed', boxes=4, at_least=3)
@@ -2679,6 +2967,14 @@ $$
 - **Assumes:** $1  \leq  n$, $k  \leq  60$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![necklaces (classes under rotation) against beads (number of beads n (1](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/necklaces-curve)
+
+*necklaces (classes under rotation) against beads (number of beads n (1..60)) from 1 to 14. One curve for each value of colours (number of colours k (1..60)): 2, 3, 4. 14 points per curve computed by discrete-math-ai999x; marked: the worked example, beads = 6, necklaces = 14.*
+
+![necklaces (classes under rotation) over colours (number of colours k (1](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/necklaces-field)
+
+*necklaces (classes under rotation) over colours (number of colours k (1..60)) from 1 to 10 and beads (number of beads n (1..60)) from 1 to 14: each of the 10 × 14 cells is one run of discrete-math-ai999x, shaded by its value (light 1 to dark 7.1429e+12, logarithmic shading); iso-lines at necklaces = 10, 100, 1000, 10000, 1.00e5, 1.00e6. Marked: the worked example, colours = 2, beads = 6, necklaces = 14.*
+
 ```python
 discrete_math_ai999x.solve('necklaces', beads=6, colours=2)
 # -> necklaces = 14, bracelets = 13   (SOLVED)
@@ -2724,6 +3020,14 @@ $$
 - **Method:** Burnside's lemma over the dihedral group
 - **Assumes:** $1  \leq  n$, $k  \leq  60$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![bracelets (classes under rotation and reflection) against beads (number of beads n (1](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/bracelets-curve)
+
+*bracelets (classes under rotation and reflection) against beads (number of beads n (1..60)) from 1 to 14. One curve for each value of colours (number of colours k (1..60)): 2, 3, 4. 14 points per curve computed by discrete-math-ai999x; marked: the worked example, beads = 6, bracelets = 13.*
+
+![bracelets (classes under rotation and reflection) over colours (number of colours k (1](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/bracelets-field)
+
+*bracelets (classes under rotation and reflection) over colours (number of colours k (1..60)) from 1 to 10 and beads (number of beads n (1..60)) from 1 to 14: each of the 10 × 14 cells is one run of discrete-math-ai999x, shaded by its value (light 1 to dark 3.5715e+12, logarithmic shading); iso-lines at bracelets = 10, 100, 1000, 10000, 1.00e5, 1.00e6. Marked: the worked example, colours = 2, beads = 6, bracelets = 13.*
 
 ```python
 discrete_math_ai999x.solve('bracelets', beads=6, colours=2)
@@ -2772,6 +3076,10 @@ $$
 - **Assumes:** integer a, b; $0  \leq  k  \leq  n  \leq  1000$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![coefficient (C(n, k) a^k b^(n-k)) against a (coefficient of x inside the bracket) from 1 to 10](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/binomial-term-curve)
+
+*coefficient (C(n, k) a^k b^(n-k)) against a (coefficient of x inside the bracket) from 1 to 10. One curve for each value of n (the power n (0..1000)): 5, 10. Other inputs as in the worked example: b = 3, k = 3. 10 points per curve computed by discrete-math-ai999x; marked: the worked example, a = 2, coefficient = 720.*
+
 ```python
 discrete_math_ai999x.solve('binomial_term', a=2, b=3, n=5, k=3)
 # -> coefficient = 720   (SOLVED)
@@ -2817,6 +3125,14 @@ $$
 - **Method:** choose which of the m + n steps go right
 - **Assumes:** m, $n  \geq  0$ (the end point is up and to the right); an a by b grid of squares has C(a + b, a) corner-to-corner paths
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![paths (C(m + n, m)) against up (number of steps up n) from 1 to 11](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/lattice-paths-curve)
+
+*paths (C(m + n, m)) against up (number of steps up n) from 1 to 11. One curve for each value of right (number of steps right m): 5, 2, 10. 11 points per curve computed by discrete-math-ai999x; marked: the worked example, up = 3, paths = 56.*
+
+![paths (C(m + n, m)) over up (number of steps up n) from 1 to 11 and right (number of steps right m) from 1 to 13: each of the 11 × 13 cells is one run of discrete-math-ai999x, shaded by its value (light 2 to dark 2](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/lattice-paths-field)
+
+*paths (C(m + n, m)) over up (number of steps up n) from 1 to 11 and right (number of steps right m) from 1 to 13: each of the 11 × 13 cells is one run of discrete-math-ai999x, shaded by its value (light 2 to dark 2.49614e+06, logarithmic shading); iso-lines at paths = 10, 100, 1000, 10000, 1.00e5, 1.00e6. Marked: the worked example, up = 3, right = 5, paths = 56.*
 
 ```python
 discrete_math_ai999x.solve('lattice_paths', right=5, up=3)
@@ -2865,6 +3181,10 @@ $$
 - **Method:** exact recurrence sum_{$k=0$}^{m} C($m+1$, k) $B_k = 0$ in rational arithmetic
 - **Assumes:** $0  \leq  n  \leq  200$; $B_1 = -1/2$ (the 'first' Bernoulli numbers)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![value (B_n as a decimal) against n (the index n (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/bernoulli-curve)
+
+*value (B_n as a decimal) against n (the index n (0..200)) from 1 to 15. 15 points computed by discrete-math-ai999x; marked: the worked example, n = 10, value = 0.0757576.*
 
 ```python
 discrete_math_ai999x.solve('bernoulli', n=10)
@@ -2920,6 +3240,14 @@ $$
 - **Assumes:** undirected simple graph (no loops, no repeated edges), unweighted; the vertices are those named in the edges
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![degrees in descending order (degree_sequence) returned by discrete-math-ai999x for the worked example, one value for each position in the list (4 values, first 3, last 1, largest 3)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/graph-degrees-series)
+
+*degrees in descending order (degree_sequence) returned by discrete-math-ai999x for the worked example, one value for each position in the list (4 values, first 3, last 1, largest 3). Inputs: edges = A-B, A-C, B-C, C-D.*
+
+![degree of each vertex (degrees) returned by discrete-math-ai999x for the worked example (edges = A-B, A-C, B-C, C-D), one bar per entry: A = 2, B = 2, C = 3, D = 1](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/graph-degrees-bars)
+
+*degree of each vertex (degrees) returned by discrete-math-ai999x for the worked example (edges = A-B, A-C, B-C, C-D), one bar per entry: A = 2, B = 2, C = 3, D = 1.*
+
 ```python
 discrete_math_ai999x.solve('graph_degrees', edges='A-B, A-C, B-C, C-D')
 # -> vertices = 4, edges = 4, degrees = {'A': 2, 'B': 2, 'C': 3, 'D': 1}, degree_sequence = [3, 2, 2, 1], max_degree = 3, min_degree = 1   (SOLVED)
@@ -2962,6 +3290,10 @@ $$
 - **Method:** graph search from each unvisited vertex
 - **Assumes:** undirected simple graph, unweighted; the vertices are those named in the edges
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 3 edges, laid out on a circle)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/connected-components-graph)
+
+*The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 3 edges, laid out on a circle). Returned: count = 2.*
 
 ```python
 discrete_math_ai999x.solve('connected_components', edges='A-B, C-D, D-E')
@@ -3010,6 +3342,14 @@ $$
 
 *Breadth-first search from A on a graph of 9 vertices and 12 edges, each vertex placed in the column of its distance from A as returned by the package (visit order A, B, C, D, E, F, G, H, I; 9 reached); highlighted, one edge per vertex to a neighbour one layer closer.*
 
+![number of edges from the source to each reached vertex (distances) returned by discrete-math-ai999x for the worked example (edges = A-B, A-C, B-D, C-D, D-E, source = A), one bar per entry: A = 0, B = 1, C = 1, D = 2, E = 3](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/bfs-order-bars)
+
+*number of edges from the source to each reached vertex (distances) returned by discrete-math-ai999x for the worked example (edges = A-B, A-C, B-D, C-D, D-E, source = A), one bar per entry: A = 0, B = 1, C = 1, D = 2, E = 3.*
+
+![The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 5 edges, laid out on a circle); highlighted: the returned path A → B → C → D → E](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/bfs-order-graph-2)
+
+*The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 5 edges, laid out on a circle); highlighted: the returned path A → B → C → D → E. Returned: reached = 5. Other inputs: source = A.*
+
 ```python
 discrete_math_ai999x.solve('bfs_order', edges='A-B, A-C, B-D, C-D, D-E', source='A')
 # -> order = ['A', 'B', 'C', 'D', 'E'], reached = 5, distances = {'A': 0, 'B': 1, 'C': 1, 'D': 2, 'E': 3}   (SOLVED)
@@ -3053,6 +3393,10 @@ $$
 - **Assumes:** simple unweighted graph; TIE RULE: recursive DFS that tries neighbours in ascending order of their names (numerically when the names are integers)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 5 edges, laid out on a circle); highlighted: the returned path A → B → D → C → E](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/dfs-order-graph)
+
+*The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 5 edges, laid out on a circle); highlighted: the returned path A → B → D → C → E. Returned: reached = 5. Other inputs: source = A.*
+
 ```python
 discrete_math_ai999x.solve('dfs_order', edges='A-B, A-C, B-D, C-D, D-E', source='A')
 # -> order = ['A', 'B', 'D', 'C', 'E'], reached = 5   (SOLVED)
@@ -3095,6 +3439,10 @@ $$
 - **Assumes:** connected undirected simple graph, unweighted (distances count edges)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (6 nodes, 5 edges, laid out on a circle); highlighted: the returned path A → E → F](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/graph-diameter-graph)
+
+*The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (6 nodes, 5 edges, laid out on a circle); highlighted: the returned path A → E → F. Returned: diameter = 4, radius = 2.*
+
 ```python
 discrete_math_ai999x.solve('graph_diameter', edges='A-B, B-C, C-D, D-E, B-F')
 # -> diameter = 4, radius = 2, center = ['C'], periphery = ['A', 'E', 'F']   (SOLVED)
@@ -3136,6 +3484,10 @@ $$
 - **Assumes:** directed acyclic simple graph, unweighted; TIE RULE: among the vertices free at each step the smallest name comes first (numerically when integers): the lexicographically smallest order
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The network edges (the directed graph as edges u->v) of the worked example (4 nodes, 4 edges, laid out on a circle); highlighted: the returned path A → B → C → D](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/topological-sort-graph)
+
+*The network edges (the directed graph as edges u->v) of the worked example (4 nodes, 4 edges, laid out on a circle); highlighted: the returned path A → B → C → D. Returned: vertices = 4.*
+
 ```python
 discrete_math_ai999x.solve('topological_sort', edges=[['A', 'C'], ['B', 'C'], ['C', 'D'], ['B', 'D']])
 # -> order = ['A', 'B', 'C', 'D'], vertices = 4   (SOLVED)
@@ -3175,6 +3527,10 @@ $$
 - **Method:** count components; every edge beyond a spanning forest closes one independent cycle
 - **Assumes:** undirected simple graph, unweighted
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 4 edges, laid out on a circle)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/cycle-rank-graph)
+
+*The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 4 edges, laid out on a circle). Returned: cyclomatic_number = 1.*
 
 ```python
 discrete_math_ai999x.solve('cycle_rank', edges='A-B, B-C, C-A, D-E')
@@ -3216,6 +3572,10 @@ $$
 - **Assumes:** directed simple graph, unweighted
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The network edges (the directed graph as edges u->v) of the worked example (3 nodes, 3 edges, laid out on a circle)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/directed-cycle-graph)
+
+*The network edges (the directed graph as edges u->v) of the worked example (3 nodes, 3 edges, laid out on a circle).*
+
 ```python
 discrete_math_ai999x.solve('directed_cycle', edges=[['A', 'B'], ['B', 'C'], ['C', 'A']])
 # -> has_cycle = True, is_dag = False   (SOLVED)
@@ -3254,6 +3614,10 @@ $$
 - **Method:** 2-colouring by graph search; a conflict exposes an odd cycle
 - **Assumes:** undirected simple graph, unweighted
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (4 nodes, 4 edges, laid out on a circle)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/bipartite-graph)
+
+*The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (4 nodes, 4 edges, laid out on a circle).*
 
 ```python
 discrete_math_ai999x.solve('bipartite', edges='A-B, B-C, C-D, D-A')
@@ -3296,6 +3660,10 @@ $$
 - **Method:** Euler's theorem: degrees and connectivity
 - **Assumes:** undirected simple graph, unweighted; the vertices are those named in the edges
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 6 edges, laid out on a circle)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/eulerian-graph)
+
+*The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 6 edges, laid out on a circle). Returned: odd_vertices = 0.*
 
 ```python
 discrete_math_ai999x.solve('eulerian', edges='A-B, B-C, C-A, C-D, D-E, E-C')
@@ -3341,6 +3709,14 @@ $$
 
 *A wheel graph on 7 vertices with the chord A–C (13 edges): the package finds the chromatic number 4 and the colouring drawn here — no edge joins two vertices of the same colour (colour 1: A, D; colour 2: B, E; colour 3: C, F; colour 4: G).*
 
+![an optimal colouring (colours 1](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/chromatic-number-bars)
+
+*an optimal colouring (colours 1..chi) (colouring) returned by discrete-math-ai999x for the worked example (edges = A-B, B-C, C-A, C-D), one bar per entry: A = 1, B = 2, C = 3, D = 1.*
+
+![The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (4 nodes, 4 edges, laid out on a circle)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/chromatic-number-graph-2)
+
+*The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (4 nodes, 4 edges, laid out on a circle). Returned: chromatic_number = 3.*
+
 ```python
 discrete_math_ai999x.solve('chromatic_number', edges='A-B, B-C, C-A, C-D')
 # -> chromatic_number = 3, colouring = {'A': 1, 'B': 2, 'C': 3, 'D': 1}   (SOLVED)
@@ -3384,6 +3760,10 @@ $$
 - **Method:** Kirchhoff's matrix-tree theorem: any cofactor of the Laplacian, by exact rational elimination
 - **Assumes:** undirected simple graph, unweighted, at most 60 vertices
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (4 nodes, 5 edges, laid out on a circle)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/spanning-tree-count-graph)
+
+*The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (4 nodes, 5 edges, laid out on a circle). Returned: spanning_trees = 8.*
 
 ```python
 discrete_math_ai999x.solve('spanning_tree_count', edges='A-B, B-C, C-D, D-A, A-C')
@@ -3430,6 +3810,10 @@ $$
 - **Assumes:** undirected simple graph, unweighted
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 5 edges, laid out on a circle); highlighted: the returned path C → D](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/articulation-points-graph)
+
+*The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 5 edges, laid out on a circle); highlighted: the returned path C → D. Returned: count = 2.*
+
 ```python
 discrete_math_ai999x.solve('articulation_points', edges='A-B, B-C, C-A, C-D, D-E')
 # -> count = 2, points = ['C', 'D']   (SOLVED)
@@ -3469,6 +3853,10 @@ $$
 - **Method:** Tarjan's depth-first lowlink algorithm
 - **Assumes:** undirected simple graph, unweighted
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 5 edges, laid out on a circle)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/bridges-graph)
+
+*The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 5 edges, laid out on a circle). Returned: count = 2.*
 
 ```python
 discrete_math_ai999x.solve('bridges', edges='A-B, B-C, C-A, C-D, D-E')
@@ -3511,6 +3899,10 @@ $$
 - **Assumes:** directed simple graph, unweighted
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The network edges (the directed graph as edges u->v) of the worked example (4 nodes, 4 edges, laid out on a circle)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/strongly-connected-graph)
+
+*The network edges (the directed graph as edges u->v) of the worked example (4 nodes, 4 edges, laid out on a circle). Returned: count = 2.*
+
 ```python
 discrete_math_ai999x.solve('strongly_connected', edges=[['A', 'B'], ['B', 'C'], ['C', 'A'], ['C', 'D']])
 # -> count = 2, sizes = [3, 1], components = [['A', 'B', 'C'], ['D']]   (SOLVED)
@@ -3550,6 +3942,10 @@ $$
 - **Method:** backtracking search from the smallest vertex
 - **Assumes:** undirected simple graph, unweighted, at most 12 vertices; the cycle shown is the first found extending through neighbours in ascending order
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (4 nodes, 5 edges, laid out on a circle); highlighted: the returned path A → B → C → D → A](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/hamiltonian-cycle-graph)
+
+*The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (4 nodes, 5 edges, laid out on a circle); highlighted: the returned path A → B → C → D → A.*
 
 ```python
 discrete_math_ai999x.solve('hamiltonian_cycle', edges='A-B, B-C, C-D, D-A, A-C')
@@ -3591,6 +3987,10 @@ $$
 - **Assumes:** undirected simple graph, unweighted, at most 60 vertices
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 7 edges, laid out on a circle); highlighted: the returned path A → B → C → D](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/clique-number-graph)
+
+*The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 7 edges, laid out on a circle); highlighted: the returned path A → B → C → D. Returned: clique_number = 4.*
+
 ```python
 discrete_math_ai999x.solve('clique_number', edges='A-B, B-C, C-A, C-D, B-D, A-D, D-E')
 # -> clique_number = 4, clique = ['A', 'B', 'C', 'D']   (SOLVED)
@@ -3631,6 +4031,10 @@ $$
 - **Assumes:** undirected simple graph, unweighted, at most 60 vertices; the vertices are those named in the edges
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 5 edges, laid out on a circle); highlighted: the returned path 1 → 3](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/independence-number-graph)
+
+*The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 5 edges, laid out on a circle); highlighted: the returned path 1 → 3. Returned: independence_number = 2.*
+
 ```python
 discrete_math_ai999x.solve('independence_number', edges='1-2, 2-3, 3-4, 4-5, 5-1')
 # -> independence_number = 2, independent_set = ['1', '3']   (SOLVED)
@@ -3669,6 +4073,10 @@ $$
 - **Method:** breadth-first search from every vertex; a non-tree edge (u, v) closes a cycle of length d(u) + d(v) + 1
 - **Assumes:** undirected simple graph, unweighted
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (6 nodes, 7 edges, laid out on a circle)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/girth-graph)
+
+*The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (6 nodes, 7 edges, laid out on a circle). Returned: girth = 3.*
 
 ```python
 discrete_math_ai999x.solve('girth', edges='A-B, B-C, C-D, D-A, A-E, E-F, F-A')
@@ -3715,6 +4123,14 @@ $$
 - **Assumes:** a tree whose vertices are numbered 1..n or $0..n-1$; the smallest leaf is removed at every step
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![the Prüfer sequence (sequence) returned by discrete-math-ai999x for the worked example, one value for each position in the list (4 values, first 4, last 5, largest 5)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/prufer-encode-series)
+
+*the Prüfer sequence (sequence) returned by discrete-math-ai999x for the worked example, one value for each position in the list (4 values, first 4, last 5, largest 5). Inputs: edges = 1-4, 2-4, 3-4, 4-5, 5-6.*
+
+![The network edges (the tree's edges, vertices numbered 1](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/prufer-encode-graph)
+
+*The network edges (the tree's edges, vertices numbered 1..n (or 0..n-1)) of the worked example (6 nodes, 5 edges, laid out on a circle); highlighted: the returned path 4 → 4 → 4 → 5. Returned: vertices = 6.*
+
 ```python
 discrete_math_ai999x.solve('prufer_encode', edges='1-4, 2-4, 3-4, 4-5, 5-6')
 # -> sequence = [4, 4, 4, 5], vertices = 6   (SOLVED)
@@ -3759,6 +4175,10 @@ $$
 
 *The labelled tree that the package decodes from the Prüfer sequence (3, 3, 3, 7, 7, 8, 8): 9 vertices, edges 1–3, 2–3, 3–4, 3–7, 5–7, 6–8, 7–8, 8–9. A vertex appears in the sequence one time fewer than its degree, so the leaves are exactly the labels the sequence never names.*
 
+![The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): edges (returned)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/prufer-decode-matrix)
+
+*The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): edges (returned). Returned with them by discrete-math-ai999x: vertices = 6. Other inputs: sequence = 4, 4, 4, 5.*
+
 ```python
 discrete_math_ai999x.solve('prufer_decode', sequence='4, 4, 4, 5')
 # -> edges = [[1, 4], [2, 4], [3, 4], [4, 5], [5, 6]], vertices = 6   (SOLVED)
@@ -3798,6 +4218,10 @@ $$
 - **Method:** Havel-Hakimi reduction
 - **Assumes:** whole numbers >= 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The worked example of Graphical degree sequence as inputs and results: stated degrees = 3, 3, 2, 2, 2; returned by discrete-math-ai999x: is_graphical = True](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/graphical-sequence-io)
+
+*The worked example of Graphical degree sequence as inputs and results: stated degrees = 3, 3, 2, 2, 2; returned by discrete-math-ai999x: is_graphical = True.*
 
 ```python
 discrete_math_ai999x.solve('graphical_sequence', degrees='3, 3, 2, 2, 2')
@@ -3847,6 +4271,14 @@ $$
 - **Assumes:** simple unweighted graph; vertices may repeat along a walk
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (3 nodes, 3 edges, laid out on a circle)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/walks-count-graph)
+
+*The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (3 nodes, 3 edges, laid out on a circle). Returned: walks = 3. Other inputs: source = A, target = B, length = 3.*
+
+![walks (number of walks of length k from u to v) against length (the walk length k (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/walks-count-curve)
+
+*walks (number of walks of length k from u to v) against length (the walk length k (0..200)) from 1 to 11. One curve for each value of directed (true for a directed graph (edges u->v)): None, yes. Other inputs as in the worked example: edges = A-B, B-C, C-A, source = A, target = B. 11 points per curve computed by discrete-math-ai999x; marked: the worked example, length = 3, walks = 3.*
+
 ```python
 discrete_math_ai999x.solve('walks_count', edges='A-B, B-C, C-A', source='A', target='B', length=3)
 # -> walks = 3   (SOLVED)
@@ -3885,6 +4317,10 @@ $$
 - **Method:** for each edge, count common neighbours; every triangle is seen from its three edges
 - **Assumes:** undirected simple graph, unweighted
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (4 nodes, 5 edges, laid out on a circle)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/graph-triangles-graph)
+
+*The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (4 nodes, 5 edges, laid out on a circle). Returned: triangles = 2.*
 
 ```python
 discrete_math_ai999x.solve('graph_triangles', edges='A-B, B-C, C-A, C-D, D-A')
@@ -3928,6 +4364,10 @@ $$
 - **Assumes:** undirected simple graph, unweighted; the vertices are those named in the edges
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 4 edges, laid out on a circle)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/is-tree-graph)
+
+*The network edges (the graph as a list of edges u-v (an optional third entry is the weight)) of the worked example (5 nodes, 4 edges, laid out on a circle). Returned: vertices = 5, edges = 4.*
+
 ```python
 discrete_math_ai999x.solve('is_tree', edges='1-2, 1-3, 3-4, 3-5')
 # -> is_tree = True, vertices = 5, edges = 4, connected = True   (SOLVED)
@@ -3967,6 +4407,10 @@ $$
 - **Method:** recursive-descent parse into a syntax tree, evaluated bottom-up
 - **Assumes:** every variable gets a value and no other name is given; precedence: ~ binds tightest, then &, ^, |, -> (right-associative), <-> loosest
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Truth table of (p -> q) & ~r (1 = true), every row a run of the package; the stated assignment (p = true, q = false, r = false) is row 4 (◀), for which the package returned False](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/logic-evaluate-truth)
+
+*Truth table of (p -> q) & ~r (1 = true), every row a run of the package; the stated assignment (p = true, q = false, r = false) is row 4 (◀), for which the package returned False. Marked: that row.*
 
 ```python
 discrete_math_ai999x.solve('logic_evaluate', formula='(p -> q) & ~r', assignment='p = true, q = false, r = false')
@@ -4016,6 +4460,10 @@ $$
 - **Assumes:** at most 12 variables; row r assigns the binary digits of r to the variables, the first (alphabetically) variable being the most significant bit
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The worked example of Truth table and minterms as inputs and results: stated formula = p -> q; returned by discrete-math-ai999x: variables = ["p", "q"], values = 1101, true_rows = 3, minterms = [0, 1, 3]](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/truth-table-io)
+
+*The worked example of Truth table and minterms as inputs and results: stated formula = p -> q; returned by discrete-math-ai999x: variables = ["p", "q"], values = 1101, true_rows = 3, minterms = [0, 1, 3].*
+
 ```python
 discrete_math_ai999x.solve('truth_table', formula='p -> q')
 # -> variables = ['p', 'q'], values = 1101, true_rows = 3, minterms = [0, 1, 3]   (SOLVED)
@@ -4058,6 +4506,10 @@ $$
 - **Assumes:** at most 12 variables; rows are numbered with the first (alphabetical) variable as the most significant bit
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![Truth table of (p | q) & ~p & ~q over every assignment of p, q (1 = true, 0 = false; rows from all true to all false); each formula column is the value the package's evaluator returned for that row (4 runs)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/logic-satisfiable-truth)
+
+*Truth table of (p | q) & ~p & ~q over every assignment of p, q (1 = true, 0 = false; rows from all true to all false); each formula column is the value the package's evaluator returned for that row (4 runs). Satisfiable: the package returned satisfiable = False, models = 0, first_model = None.*
+
 ```python
 discrete_math_ai999x.solve('logic_satisfiable', formula='(p | q) & ~p & ~q')
 # -> satisfiable = False, models = 0, first_model = none   (SOLVED)
@@ -4098,6 +4550,10 @@ $$
 - **Method:** exhaustive truth table
 - **Assumes:** at most 12 variables
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Truth table of (p -> q) | (q -> p) over every assignment of p, q (1 = true, 0 = false; rows from all true to all false); each formula column is the value the package's evaluator returned for that row (4 runs)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/logic-tautology-truth)
+
+*Truth table of (p -> q) | (q -> p) over every assignment of p, q (1 = true, 0 = false; rows from all true to all false); each formula column is the value the package's evaluator returned for that row (4 runs). Tautology: the package returned tautology = True, false_rows = 0, counterexample = None.*
 
 ```python
 discrete_math_ai999x.solve('logic_tautology', formula='(p -> q) | (q -> p)')
@@ -4144,6 +4600,10 @@ $$
 - **Method:** exhaustive truth table
 - **Assumes:** at most 12 variables
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Truth table of p & ~p over every assignment of p (1 = true, 0 = false; rows from all true to all false); each formula column is the value the package's evaluator returned for that row (2 runs)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/logic-contradiction-truth)
+
+*Truth table of p & ~p over every assignment of p (1 = true, 0 = false; rows from all true to all false); each formula column is the value the package's evaluator returned for that row (2 runs). Contradiction: the package returned contradiction = True, true_rows = 0, witness = None.*
 
 ```python
 discrete_math_ai999x.solve('logic_contradiction', formula='p & ~p')
@@ -4192,6 +4652,10 @@ $$
 - **Assumes:** at most 12 variables in total; rows range over the union of both formulas' variables
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![Truth table of p -> q and ~p | q over every assignment of p, q (1 = true, 0 = false; rows from all true to all false); each formula column is the value the package's evaluator returned for that row (8 runs)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/logic-equivalence-truth)
+
+*Truth table of p -> q and ~p | q over every assignment of p, q (1 = true, 0 = false; rows from all true to all false); each formula column is the value the package's evaluator returned for that row (8 runs). Equivalent: the package returned equivalent = True, differing_rows = 0, counterexample = None.*
+
 ```python
 discrete_math_ai999x.solve('logic_equivalence', formula1='p -> q', formula2='~p | q')
 # -> equivalent = True, differing_rows = 0, counterexample = none   (SOLVED)
@@ -4233,6 +4697,10 @@ $$
 - **Method:** Quine-McCluskey prime implicants, then an exact branch-and-bound minimum cover
 - **Assumes:** at most 6 variables; cost: fewest terms first, then fewest literals; when several minimal forms exist one is shown (all have these counts)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Truth table of (A & B) | (A & ~B & C) and A & B | A & C over every assignment of A, B, C (1 = true, 0 = false; rows from all true to all false); each formula column is the value the package's evaluator returned for that row (16 runs)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/minimal-dnf-truth)
+
+*Truth table of (A & B) | (A & ~B & C) and A & B | A & C over every assignment of A, B, C (1 = true, 0 = false; rows from all true to all false); each formula column is the value the package's evaluator returned for that row (16 runs). Minimal form (last column): the package returned expression = A & B | A & C, terms = 2, literals = 4.*
 
 ```python
 discrete_math_ai999x.solve('minimal_dnf', formula='(A & B) | (A & ~B & C)')
@@ -4280,6 +4748,10 @@ $$
 - **Assumes:** at most 6 variables; cost: fewest clauses first, then fewest literals
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![Truth table of (A | B) & (A | ~B | C) and (A | B) & (A | C) over every assignment of A, B, C (1 = true, 0 = false; rows from all true to all false); each formula column is the value the package's evaluator returned for that row (16 runs)](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/minimal-cnf-truth)
+
+*Truth table of (A | B) & (A | ~B | C) and (A | B) & (A | C) over every assignment of A, B, C (1 = true, 0 = false; rows from all true to all false); each formula column is the value the package's evaluator returned for that row (16 runs). Minimal form (last column): the package returned expression = (A | B) & (A | C), clauses = 2, literals = 4.*
+
 ```python
 discrete_math_ai999x.solve('minimal_cnf', formula='(A | B) & (A | ~B | C)')
 # -> expression = (A | B) & (A | C), clauses = 2, literals = 4   (SOLVED)
@@ -4322,6 +4794,10 @@ $$
 - **Method:** Quine-McCluskey prime implicants (don't-cares included), exact minimum cover of the minterms
 - **Assumes:** 1..6 variables named A, B, C, D, E, F with A the most significant bit of the row number; cost: fewest terms first, then fewest literals; don't-cares may be used or not
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The worked example of Minimal sum of products from minterms (with don't-cares) as inputs and results: stated minterms = 1, 3, 5, 7, variables = 3; returned by discrete-math-ai999x: expression = C, terms = 1, literals = 1](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/minimal-sop-minterms-io)
+
+*The worked example of Minimal sum of products from minterms (with don't-cares) as inputs and results: stated minterms = 1, 3, 5, 7, variables = 3; returned by discrete-math-ai999x: expression = C, terms = 1, literals = 1.*
 
 ```python
 discrete_math_ai999x.solve('minimal_sop_minterms', minterms='1, 3, 5, 7', variables=3)
@@ -4372,6 +4848,10 @@ $$
 - **Assumes:** p, q distinct primes; $1 < e < \phi$(n) and gcd(e, phi(n)) = 1; d is taken modulo phi(n) (not lambda(n))
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![d (private exponent e^(-1) mod phi(n)) against p (first prime) from 1 to 122 on a logarithmic axis](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/rsa-keygen-curve)
+
+*d (private exponent e^(-1) mod phi(n)) against p (first prime) from 1 to 122 on a logarithmic axis. Other inputs as in the worked example: q = 53, e = 17. 13 points computed by discrete-math-ai999x; marked: the worked example, p = 61, d = 2753.*
+
 ```python
 discrete_math_ai999x.solve('rsa_keygen', p=61, q=53, e=17)
 # -> n = 3233, phi = 3120, d = 2753   (SOLVED)
@@ -4414,6 +4894,10 @@ $$
 - **Assumes:** $0  \leq  m < n$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![c (ciphertext m^e mod n) against e (public exponent) from 1 to 34](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/rsa-encrypt-curve)
+
+*c (ciphertext m^e mod n) against e (public exponent) from 1 to 34. One curve for each value of n (modulus): 3233, 1616, 6466. Other inputs as in the worked example: m = 65. 34 points per curve computed by discrete-math-ai999x; marked: the worked example, e = 17, c = 2790.*
+
 ```python
 discrete_math_ai999x.solve('rsa_encrypt', m=65, e=17, n=3233)
 # -> c = 2790   (SOLVED)
@@ -4454,6 +4938,10 @@ $$
 - **Method:** modular exponentiation
 - **Assumes:** $0  \leq  c < n$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![m (plaintext c^d mod n) against c (the ciphertext (0 <= c < n)) from 1 to 5580 on a logarithmic axis](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/rsa-decrypt-curve)
+
+*m (plaintext c^d mod n) against c (the ciphertext (0 <= c < n)) from 1 to 5580 on a logarithmic axis. One curve for each value of n (modulus): 3233, 1616, 6466. Other inputs as in the worked example: d = 2753. 36 points per curve computed by discrete-math-ai999x; marked: the worked example, c = 2790, m = 65.*
 
 ```python
 discrete_math_ai999x.solve('rsa_decrypt', c=2790, d=2753, n=3233)
@@ -4498,6 +4986,10 @@ $$
 - **Assumes:** p, q distinct primes; gcd(e, phi(n)) = 1; $0  \leq  c < n$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![m (the plaintext) against c (the ciphertext (0 <= c < n)) from 1 to 5580 on a logarithmic axis](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/rsa-decrypt-pq-curve)
+
+*m (the plaintext) against c (the ciphertext (0 <= c < n)) from 1 to 5580 on a logarithmic axis. Other inputs as in the worked example: p = 61, q = 53, e = 17. 36 points computed by discrete-math-ai999x; marked: the worked example, c = 2790, m = 65.*
+
 ```python
 discrete_math_ai999x.solve('rsa_decrypt_pq', c=2790, p=61, q=53, e=17)
 # -> m = 65, d = 2753, n = 3233   (SOLVED)
@@ -4535,6 +5027,10 @@ $$
 - **Method:** modular exponentiation: $B^{a} = A^{b} = g^{ab}$
 - **Assumes:** p prime; $1 < g < p$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![shared (shared secret g^(ab) mod p) against p (the prime modulus) from 1 to 46](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/diffie-hellman-curve)
+
+*shared (shared secret g^(ab) mod p) against p (the prime modulus) from 1 to 46. Other inputs as in the worked example: g = 5, a = 6, b = 15. 7 points computed by discrete-math-ai999x; marked: the worked example, p = 23, shared = 2.*
 
 ```python
 discrete_math_ai999x.solve('diffie_hellman', p=23, g=5, a=6, b=15)
@@ -4576,6 +5072,10 @@ $$
 - **Assumes:** p prime; $1 < g < p$; $1  \leq  m < p$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![c2 (m h^k mod p) against x (the private key) from 1 to 14](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/elgamal-encrypt-curve)
+
+*c2 (m h^k mod p) against x (the private key) from 1 to 14. One curve for each value of m (the message (1 <= m < p)): 10, 5, 20. Other inputs as in the worked example: p = 23, g = 5, k = 3. 14 points per curve computed by discrete-math-ai999x; marked: the worked example, x = 6, c2 = 14.*
+
 ```python
 discrete_math_ai999x.solve('elgamal_encrypt', p=23, g=5, x=6, k=3, m=10)
 # -> h = 8, c1 = 10, c2 = 14   (SOLVED)
@@ -4610,6 +5110,10 @@ $$
 - **Method:** each letter x becomes x + k (mod 26); decryption subtracts k
 - **Assumes:** letters A-Z only are enciphered; other characters are removed; output is upper case
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The stated message 'HELLO WORLD' (letters only, top) and the text the package returned (shift = 3, mode = encrypt): 'KHOORZRUOG', letter by letter](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/caesar-cipher-letters)
+
+*The stated message 'HELLO WORLD' (letters only, top) and the text the package returned (shift = 3, mode = encrypt): 'KHOORZRUOG', letter by letter. Marked: each letter's image.*
 
 ```python
 discrete_math_ai999x.solve('caesar_cipher', message='HELLO WORLD', shift=3, mode='encrypt')
@@ -4654,6 +5158,10 @@ $$
 - **Assumes:** gcd(a, 26) = 1; letters A-Z only; other characters are removed; output is upper case
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The stated message 'AFFINE CIPHER' (letters only, top) and the text the package returned (a = 5, b = 8, mode = encrypt): 'IHHWVCSWFRCP', letter by letter](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/affine-cipher-letters)
+
+*The stated message 'AFFINE CIPHER' (letters only, top) and the text the package returned (a = 5, b = 8, mode = encrypt): 'IHHWVCSWFRCP', letter by letter. Marked: each letter's image.*
+
 ```python
 discrete_math_ai999x.solve('affine_cipher', message='AFFINE CIPHER', a=5, b=8, mode='encrypt')
 # -> result = IHHWVCSWFRCP   (SOLVED)
@@ -4695,6 +5203,10 @@ $$
 - **Method:** add (encrypt) or subtract (decrypt) the repeating key letters modulo 26
 - **Assumes:** letters A-Z only; other characters are removed first, so the key runs over letters only; output is upper case
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The stated message 'ATTACK AT DAWN' (letters only, top) and the text the package returned (key = LEMON, mode = encrypt): 'LXFOPVEFRNHR', letter by letter](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/vigenere-cipher-letters)
+
+*The stated message 'ATTACK AT DAWN' (letters only, top) and the text the package returned (key = LEMON, mode = encrypt): 'LXFOPVEFRNHR', letter by letter. Marked: each letter's image.*
 
 ```python
 discrete_math_ai999x.solve('vigenere_cipher', message='ATTACK AT DAWN', key='LEMON', mode='encrypt')
