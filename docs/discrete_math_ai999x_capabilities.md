@@ -208,7 +208,7 @@ Call `solve("<id>", **inputs)` with plain numbers; the result's `values` holds e
 
 <a id="gcd_lcm"></a>
 
-### Greatest common divisor and least common multiple — `gcd_lcm`
+### Greatest common divisor and least common multiple, `gcd_lcm`
 
 The gcd and lcm of two or more positive integers (Euclid's algorithm).
 
@@ -260,7 +260,7 @@ discrete_math_ai999x.solve('gcd_lcm', numbers=[17, 5])
 
 <a id="extended_gcd"></a>
 
-### Extended Euclidean algorithm (Bezout coefficients) — `extended_gcd`
+### Extended Euclidean algorithm (Bezout coefficients), `extended_gcd`
 
 gcd(a, b) and integers x, y with a*x + b*y = gcd(a, b).
 
@@ -318,7 +318,7 @@ discrete_math_ai999x.solve('extended_gcd', a=12, b=18)
 
 <a id="linear_diophantine"></a>
 
-### Linear Diophantine equation ax + by = c — `linear_diophantine`
+### Linear Diophantine equation ax + by = c, `linear_diophantine`
 
 Whether $a x + b y = c$ has integer solutions, and the general solution $x = x_{0} + (b/g)$ t, $y = y_{0} - (a/g)$ t.
 
@@ -344,9 +344,9 @@ $$
 - **Assumes:** a, b non-zero integers; solutions exist exactly when gcd(a, b) divides c
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![true when gcd(a, b) divides c (solvable) over b (coefficient of y (non-zero)) from 1 to 36 and c (right-hand side) from 1 to 60 (logarithmic vertical axis): each of the 21 × 18 cells is one run of discrete-math-ai999x, coloured by the verdict it returned — yes: 208 cells, no: 170 cells](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/linear-diophantine-decision)
+![true when gcd(a, b) divides c (solvable) over b (coefficient of y (non-zero)) from 1 to 36 and c (right-hand side) from 1 to 60 (logarithmic vertical axis): each of the 21 × 18 cells is one run of discrete-math-ai999x, coloured by the verdict it returned, yes: 208 cells, no: 170 cells](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/linear-diophantine-decision)
 
-*true when gcd(a, b) divides c (solvable) over b (coefficient of y (non-zero)) from 1 to 36 and c (right-hand side) from 1 to 60 (logarithmic vertical axis): each of the 21 × 18 cells is one run of discrete-math-ai999x, coloured by the verdict it returned — yes: 208 cells, no: 170 cells. Other inputs as in the worked example: a = 12. Marked: the worked example, b = 18, c = 30 → yes.*
+*true when gcd(a, b) divides c (solvable) over b (coefficient of y (non-zero)) from 1 to 36 and c (right-hand side) from 1 to 60 (logarithmic vertical axis): each of the 21 × 18 cells is one run of discrete-math-ai999x, coloured by the verdict it returned, yes: 208 cells, no: 170 cells. Other inputs as in the worked example: a = 12. Marked: the worked example, b = 18, c = 30 → yes.*
 
 ![x0 (the solution with the smallest non-negative x) against a (coefficient of x (non-zero)) from 1 to 24](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/linear-diophantine-curve)
 
@@ -377,7 +377,7 @@ discrete_math_ai999x.solve('linear_diophantine', a=6, b=9, c=4)
 
 <a id="linear_congruence"></a>
 
-### Linear congruence ax ≡ b (mod m) — `linear_congruence`
+### Linear congruence ax ≡ b (mod m), `linear_congruence`
 
 All solutions of $a x$ ≡ b (mod m): how many there are modulo m, the smallest, and their spacing.
 
@@ -431,7 +431,7 @@ discrete_math_ai999x.solve('linear_congruence', a=4, b=3, m=6)
 
 <a id="is_prime"></a>
 
-### Primality test — `is_prime`
+### Primality test: `is_prime`
 
 Whether n is prime (deterministic Miller-Rabin, exact for every n below 2^64), with its smallest prime factor.
 
@@ -492,7 +492,7 @@ discrete_math_ai999x.solve('is_prime', n=999999999989)
 
 <a id="prime_factorization"></a>
 
-### Prime factorization — `prime_factorization`
+### Prime factorization: `prime_factorization`
 
 The prime factorization of n, its largest and smallest prime factors and the number of prime factors.
 
@@ -551,7 +551,7 @@ discrete_math_ai999x.solve('prime_factorization', n=600851475143)
 
 <a id="euler_phi"></a>
 
-### Euler's totient function — `euler_phi`
+### Euler's totient function: `euler_phi`
 
 phi(n): how many integers in 1..n are coprime to n.
 
@@ -606,7 +606,7 @@ discrete_math_ai999x.solve('euler_phi', n=1000000)
 
 <a id="divisor_functions"></a>
 
-### Divisors, divisor count and divisor sum — `divisor_functions`
+### Divisors, divisor count and divisor sum: `divisor_functions`
 
 All positive divisors of n, their number tau(n), their sum sigma(n), and whether n is perfect, abundant or deficient.
 
@@ -669,7 +669,7 @@ discrete_math_ai999x.solve('divisor_functions', n=1)
 
 <a id="mod_reduce"></a>
 
-### Remainder modulo m (Euclidean division) — `mod_reduce`
+### Remainder modulo m (Euclidean division): `mod_reduce`
 
 a mod m as the least non-negative residue, with the floor quotient: $a = q m + r$, $0  \leq  r < m.$
 
@@ -719,7 +719,7 @@ discrete_math_ai999x.solve('mod_reduce', a=-17, m=5)
 
 <a id="mod_pow"></a>
 
-### Modular exponentiation — `mod_pow`
+### Modular exponentiation: `mod_pow`
 
 $a^{e}$ mod m by repeated squaring (also the last k digits of a power).
 
@@ -776,7 +776,7 @@ discrete_math_ai999x.solve('mod_pow', base=5, exponent=0, modulus=1)
 
 <a id="mod_inverse"></a>
 
-### Modular multiplicative inverse — `mod_inverse`
+### Modular multiplicative inverse: `mod_inverse`
 
 The x in $0..m-1$ with $a x$ ≡ 1 (mod m); it exists exactly when gcd(a, m) = 1.
 
@@ -826,7 +826,7 @@ discrete_math_ai999x.solve('mod_inverse', a=-3, m=7)
 
 <a id="crt"></a>
 
-### Chinese remainder theorem — `crt`
+### Chinese remainder theorem: `crt`
 
 The x with x ≡ r_i (mod m_i) for every i, unique modulo lcm(m_i); moduli need not be coprime.
 
@@ -878,7 +878,7 @@ discrete_math_ai999x.solve('crt', residues='3, 5', moduli='4, 6')
 
 <a id="discrete_log"></a>
 
-### Discrete logarithm — `discrete_log`
+### Discrete logarithm: `discrete_log`
 
 The smallest $x  \geq  0$ with base^x ≡ target (mod m).
 
@@ -929,7 +929,7 @@ discrete_math_ai999x.solve('discrete_log', base=5, target=8, modulus=23)
 
 <a id="legendre_symbol"></a>
 
-### Legendre symbol — `legendre_symbol`
+### Legendre symbol: `legendre_symbol`
 
 (a/p) for an odd prime p: 1 if a is a non-zero quadratic residue mod p, -1 if not, 0 if p divides a.
 
@@ -984,7 +984,7 @@ discrete_math_ai999x.solve('legendre_symbol', a=14, p=7)
 
 <a id="jacobi_symbol"></a>
 
-### Jacobi symbol — `jacobi_symbol`
+### Jacobi symbol: `jacobi_symbol`
 
 (a/n) for an odd positive n, the product of Legendre symbols over the prime factors of n.
 
@@ -1043,7 +1043,7 @@ discrete_math_ai999x.solve('jacobi_symbol', a=3, n=9)
 
 <a id="sqrt_mod"></a>
 
-### Square roots modulo a prime — `sqrt_mod`
+### Square roots modulo a prime: `sqrt_mod`
 
 Every x in $0..p-1$ with $x^{2}$ ≡ a (mod p), for a prime p.
 
@@ -1100,7 +1100,7 @@ discrete_math_ai999x.solve('sqrt_mod', a=3, p=7)
 
 <a id="multiplicative_order"></a>
 
-### Multiplicative order — `multiplicative_order`
+### Multiplicative order: `multiplicative_order`
 
 The smallest $k  \geq  1$ with $a^{k}$ ≡ 1 (mod n).
 
@@ -1150,7 +1150,7 @@ discrete_math_ai999x.solve('multiplicative_order', a=10, n=7)
 
 <a id="primitive_root"></a>
 
-### Smallest primitive root modulo a prime — `primitive_root`
+### Smallest primitive root modulo a prime: `primitive_root`
 
 The smallest g whose powers run through every non-zero residue modulo the prime p.
 
@@ -1204,7 +1204,7 @@ discrete_math_ai999x.solve('primitive_root', p=2)
 
 <a id="prime_counting"></a>
 
-### Prime-counting function — `prime_counting`
+### Prime-counting function: `prime_counting`
 
 pi(x): how many primes are at most x.
 
@@ -1259,7 +1259,7 @@ discrete_math_ai999x.solve('prime_counting', x=1000000)
 
 <a id="nth_prime"></a>
 
-### The n-th prime — `nth_prime`
+### The n-th prime: `nth_prime`
 
 The n-th prime number p_n $(p_1 = 2)$.
 
@@ -1308,7 +1308,7 @@ discrete_math_ai999x.solve('nth_prime', n=10001)
 
 <a id="next_prime"></a>
 
-### Next prime — `next_prime`
+### Next prime: `next_prime`
 
 The smallest prime strictly greater than n.
 
@@ -1356,7 +1356,7 @@ discrete_math_ai999x.solve('next_prime', n=0)
 
 <a id="previous_prime"></a>
 
-### Previous prime — `previous_prime`
+### Previous prime: `previous_prime`
 
 The largest prime strictly less than n.
 
@@ -1405,7 +1405,7 @@ discrete_math_ai999x.solve('previous_prime', n=3)
 
 <a id="carmichael_lambda"></a>
 
-### Carmichael function — `carmichael_lambda`
+### Carmichael function: `carmichael_lambda`
 
 lambda(n): the smallest m with $a^{m}$ ≡ 1 (mod n) for every a coprime to n (the exponent of the unit group).
 
@@ -1459,7 +1459,7 @@ discrete_math_ai999x.solve('carmichael_lambda', n=100)
 
 <a id="mobius"></a>
 
-### Möbius function — `mobius`
+### Möbius function, `mobius`
 
 mu(n): 0 if a square divides n, otherwise (-1)^(number of prime factors).
 
@@ -1517,7 +1517,7 @@ discrete_math_ai999x.solve('mobius', n=35)
 
 <a id="cf_rational"></a>
 
-### Continued fraction of a rational number — `cf_rational`
+### Continued fraction of a rational number: `cf_rational`
 
 The finite simple continued fraction [a0; a1, ..., an] of p/q (canonical form: last term >= 2).
 
@@ -1572,7 +1572,7 @@ discrete_math_ai999x.solve('cf_rational', numerator=-7, denominator=3)
 
 <a id="cf_sqrt"></a>
 
-### Continued fraction of a square root — `cf_sqrt`
+### Continued fraction of a square root: `cf_sqrt`
 
 The periodic continued fraction sqrt(d) = [a0; (a1, ..., ak)] of a non-square d, and its period length.
 
@@ -1627,7 +1627,7 @@ discrete_math_ai999x.solve('cf_sqrt', d=14)
 
 <a id="pell_equation"></a>
 
-### Pell's equation (fundamental solution) — `pell_equation`
+### Pell's equation (fundamental solution): `pell_equation`
 
 The smallest positive solution (x, y) of $x^{2} - d$ $y^{2} = 1$ for a non-square d.
 
@@ -1682,7 +1682,7 @@ discrete_math_ai999x.solve('pell_equation', d=13)
 
 <a id="two_squares"></a>
 
-### Sums of two squares — `two_squares`
+### Sums of two squares: `two_squares`
 
 Every way to write $n = x^{2} + y^{2}$ with $0  \leq  x  \leq  y$, and r2(n), the number of ordered signed representations.
 
@@ -1736,7 +1736,7 @@ discrete_math_ai999x.solve('two_squares', n=3)
 
 <a id="integer_sqrt"></a>
 
-### Integer square root and perfect squares — `integer_sqrt`
+### Integer square root and perfect squares: `integer_sqrt`
 
 floor(sqrt(n)) computed exactly, the remainder n - floor(sqrt(n))^2, and whether n is a perfect square.
 
@@ -1791,7 +1791,7 @@ discrete_math_ai999x.solve('integer_sqrt', n=0)
 
 <a id="base_convert"></a>
 
-### Base (radix) conversion — `base_convert`
+### Base (radix) conversion: `base_convert`
 
 Rewrite an integer from one base (2..36) to another, with its decimal value.
 
@@ -1850,7 +1850,7 @@ discrete_math_ai999x.solve('base_convert', digits='-100', from_base=10, to_base=
 
 <a id="twos_complement"></a>
 
-### Two's complement representation — `twos_complement`
+### Two's complement representation: `twos_complement`
 
 The b-bit two's complement bit pattern of a signed integer, and that pattern read as an unsigned number.
 
@@ -1905,7 +1905,7 @@ discrete_math_ai999x.solve('twos_complement', n=5, bits=4)
 
 <a id="combinations"></a>
 
-### Combinations C(n, k) — `combinations`
+### Combinations C(n, k): `combinations`
 
 The number of ways to choose k of n distinct items when order does not matter (exact integer).
 
@@ -1960,7 +1960,7 @@ discrete_math_ai999x.solve('combinations', n=0, k=0)
 
 <a id="permutations"></a>
 
-### Permutations P(n, k) — `permutations`
+### Permutations P(n, k): `permutations`
 
 The number of ordered arrangements of k of n distinct items (exact integer); P(n, n) = n!.
 
@@ -2015,7 +2015,7 @@ discrete_math_ai999x.solve('permutations', n=7, k=0)
 
 <a id="sequences_with_repetition"></a>
 
-### Sequences with repetition (n^k) — `sequences_with_repetition`
+### Sequences with repetition (n^k), `sequences_with_repetition`
 
 The number of length-k sequences over n symbols when symbols may repeat.
 
@@ -2068,7 +2068,7 @@ discrete_math_ai999x.solve('sequences_with_repetition', n=2, k=10)
 
 <a id="multisets"></a>
 
-### Combinations with repetition (multisets) — `multisets`
+### Combinations with repetition (multisets): `multisets`
 
 The number of ways to choose k items from n types when types may repeat and order does not matter.
 
@@ -2121,7 +2121,7 @@ discrete_math_ai999x.solve('multisets', n=1, k=7)
 
 <a id="multinomial"></a>
 
-### Multinomial coefficient — `multinomial`
+### Multinomial coefficient: `multinomial`
 
 n! / (k1! k2! ... km!): ways to split n distinct items into labelled groups of the given sizes.
 
@@ -2172,7 +2172,7 @@ discrete_math_ai999x.solve('multinomial', counts=[3, 3], total=6)
 
 <a id="word_arrangements"></a>
 
-### Distinct arrangements of the letters of a word — `word_arrangements`
+### Distinct arrangements of the letters of a word, `word_arrangements`
 
 The number of distinct orderings of a word's letters, repeated letters counted once (multiset permutations).
 
@@ -2223,7 +2223,7 @@ discrete_math_ai999x.solve('word_arrangements', word='ABC')
 
 <a id="stirling2"></a>
 
-### Stirling numbers of the second kind — `stirling2`
+### Stirling numbers of the second kind: `stirling2`
 
 S(n, k): ways to partition an n-element set into k non-empty unlabelled blocks; k! S(n, k) onto functions.
 
@@ -2283,7 +2283,7 @@ discrete_math_ai999x.solve('stirling2', n=3, k=5)
 
 <a id="stirling1"></a>
 
-### Stirling numbers of the first kind — `stirling1`
+### Stirling numbers of the first kind: `stirling1`
 
 c(n, k): permutations of n elements with exactly k cycles (unsigned), and the signed s(n, k).
 
@@ -2333,7 +2333,7 @@ discrete_math_ai999x.solve('stirling1', n=4, k=4)
 
 <a id="bell"></a>
 
-### Bell numbers — `bell`
+### Bell numbers: `bell`
 
 B_n: the number of partitions of an n-element set into any number of non-empty blocks.
 
@@ -2381,7 +2381,7 @@ discrete_math_ai999x.solve('bell', n=10)
 
 <a id="catalan"></a>
 
-### Catalan numbers — `catalan`
+### Catalan numbers: `catalan`
 
 C_n: balanced parenthesizations with n pairs, triangulations of an (n+2)-gon, full binary trees with $n+1$ leaves.
 
@@ -2430,7 +2430,7 @@ discrete_math_ai999x.solve('catalan', n=0)
 
 <a id="fibonacci"></a>
 
-### Fibonacci numbers — `fibonacci`
+### Fibonacci numbers: `fibonacci`
 
 F_n with $F_0 = 0$, $F_1 = 1$, $F_n = F_$(n-1) + F_(n-2) (exact integer).
 
@@ -2479,7 +2479,7 @@ discrete_math_ai999x.solve('fibonacci', n=100)
 
 <a id="lucas"></a>
 
-### Lucas numbers — `lucas`
+### Lucas numbers: `lucas`
 
 L_n with $L_0 = 2$, $L_1 = 1$, $L_n = L_$(n-1) + L_(n-2) (exact integer).
 
@@ -2527,7 +2527,7 @@ discrete_math_ai999x.solve('lucas', n=20)
 
 <a id="derangements"></a>
 
-### Derangements — `derangements`
+### Derangements: `derangements`
 
 !n: permutations of n items with no item in its original place, and the probability !n/n!.
 
@@ -2581,7 +2581,7 @@ discrete_math_ai999x.solve('derangements', n=6)
 
 <a id="integer_partitions"></a>
 
-### Integer partitions p(n) — `integer_partitions`
+### Integer partitions p(n): `integer_partitions`
 
 p(n): the number of ways to write n as a sum of positive integers, order ignored.
 
@@ -2634,7 +2634,7 @@ discrete_math_ai999x.solve('integer_partitions', n=0)
 
 <a id="partitions_k"></a>
 
-### Partitions into exactly k parts — `partitions_k`
+### Partitions into exactly k parts: `partitions_k`
 
 p(n, k): the number of ways to write n as a sum of exactly k positive integers, order ignored.
 
@@ -2687,7 +2687,7 @@ discrete_math_ai999x.solve('partitions_k', n=5, k=7)
 
 <a id="partitions_distinct"></a>
 
-### Partitions into distinct parts — `partitions_distinct`
+### Partitions into distinct parts: `partitions_distinct`
 
 q(n): the number of ways to write n as a sum of distinct positive integers (equal to partitions into odd parts).
 
@@ -2735,7 +2735,7 @@ discrete_math_ai999x.solve('partitions_distinct', n=0)
 
 <a id="stars_and_bars"></a>
 
-### Integer solutions of x1 + ... + xk = n (stars and bars) — `stars_and_bars`
+### Integer solutions of x1 + ... + xk = n (stars and bars), `stars_and_bars`
 
 How many integer solutions $x_{1} + ... + xk = n$ have every xi between a lower and an optional upper bound (identical objects into distinct boxes).
 
@@ -2789,7 +2789,7 @@ discrete_math_ai999x.solve('stars_and_bars', total=12, variables=4, lower=0, upp
 
 <a id="inclusion_exclusion"></a>
 
-### Counting multiples by inclusion-exclusion — `inclusion_exclusion`
+### Counting multiples by inclusion-exclusion: `inclusion_exclusion`
 
 How many integers in 1..n are divisible by at least one of the given numbers (and how many by none).
 
@@ -2839,7 +2839,7 @@ discrete_math_ai999x.solve('inclusion_exclusion', n=30, divisors='4, 6')
 
 <a id="pigeonhole_max"></a>
 
-### Pigeonhole principle: guaranteed load — `pigeonhole_max`
+### Pigeonhole principle: guaranteed load, `pigeonhole_max`
 
 Placing n objects into k boxes, some box must hold at least ceil(n / k) objects (and this is the best guarantee).
 
@@ -2892,7 +2892,7 @@ discrete_math_ai999x.solve('pigeonhole_max', items=12, boxes=4)
 
 <a id="pigeonhole_needed"></a>
 
-### Pigeonhole principle: objects needed for a guarantee — `pigeonhole_needed`
+### Pigeonhole principle: objects needed for a guarantee, `pigeonhole_needed`
 
 How many objects drawn from k categories guarantee at least r of one category: k $(r - 1) + 1.$
 
@@ -2945,7 +2945,7 @@ discrete_math_ai999x.solve('pigeonhole_needed', boxes=12, at_least=2)
 
 <a id="necklaces"></a>
 
-### Necklaces (rotations identified) — `necklaces`
+### Necklaces (rotations identified): `necklaces`
 
 Distinct necklaces of n beads in k colours when rotations count as the same (and bracelets, also flips).
 
@@ -2999,7 +2999,7 @@ discrete_math_ai999x.solve('necklaces', beads=5, colours=3)
 
 <a id="bracelets"></a>
 
-### Bracelets (rotations and reflections identified) — `bracelets`
+### Bracelets (rotations and reflections identified), `bracelets`
 
 Distinct bracelets of n beads in k colours when rotations and flips count as the same.
 
@@ -3053,7 +3053,7 @@ discrete_math_ai999x.solve('bracelets', beads=5, colours=3)
 
 <a id="binomial_term"></a>
 
-### Coefficient in a binomial expansion — `binomial_term`
+### Coefficient in a binomial expansion: `binomial_term`
 
 The coefficient of $x^{k}$ in (a x + b)^n by the binomial theorem (exact integer).
 
@@ -3105,7 +3105,7 @@ discrete_math_ai999x.solve('binomial_term', a=1, b=1, n=10, k=5)
 
 <a id="lattice_paths"></a>
 
-### Lattice paths in a grid — `lattice_paths`
+### Lattice paths in a grid: `lattice_paths`
 
 Monotone lattice paths using unit steps right and up from (0, 0) to (m, n): C(m + n, m).
 
@@ -3160,7 +3160,7 @@ discrete_math_ai999x.solve('lattice_paths', right=0, up=7)
 
 <a id="bernoulli"></a>
 
-### Bernoulli numbers — `bernoulli`
+### Bernoulli numbers: `bernoulli`
 
 The Bernoulli number B_n as an exact fraction (convention B_1 = -1/2).
 
@@ -3215,7 +3215,7 @@ discrete_math_ai999x.solve('bernoulli', n=3)
 
 <a id="graph_degrees"></a>
 
-### Vertex degrees and degree sequence — `graph_degrees`
+### Vertex degrees and degree sequence: `graph_degrees`
 
 The degree of every vertex of an undirected simple graph, its degree sequence, maximum and minimum degree.
 
@@ -3268,7 +3268,7 @@ discrete_math_ai999x.solve('graph_degrees', edges='1-2, 2-3, 3-1')
 
 <a id="connected_components"></a>
 
-### Connected components — `connected_components`
+### Connected components: `connected_components`
 
 The connected components of an undirected graph: how many, their sizes and members, and whether it is connected.
 
@@ -3314,7 +3314,7 @@ discrete_math_ai999x.solve('connected_components', edges='1-2, 2-3, 3-1')
 
 <a id="bfs_order"></a>
 
-### Breadth-first search order — `bfs_order`
+### Breadth-first search order: `bfs_order`
 
 The order in which breadth-first search from a source visits the vertices, and each vertex's distance in edges.
 
@@ -3370,7 +3370,7 @@ discrete_math_ai999x.solve('bfs_order', edges='1-10, 1-2, 2-3', source='1')
 
 <a id="dfs_order"></a>
 
-### Depth-first search order — `dfs_order`
+### Depth-first search order: `dfs_order`
 
 The preorder in which depth-first search from a source visits the vertices.
 
@@ -3416,7 +3416,7 @@ discrete_math_ai999x.solve('dfs_order', edges='1-2, 1-3, 2-4, 3-4', source='1')
 
 <a id="graph_diameter"></a>
 
-### Diameter, radius and center — `graph_diameter`
+### Diameter, radius and center: `graph_diameter`
 
 Eccentricities of a connected unweighted graph: the diameter (largest), radius (smallest), center and periphery.
 
@@ -3463,7 +3463,7 @@ discrete_math_ai999x.solve('graph_diameter', edges='1-2, 2-3, 3-1')
 
 <a id="topological_sort"></a>
 
-### Topological sort — `topological_sort`
+### Topological sort: `topological_sort`
 
 An ordering of a directed acyclic graph's vertices in which every edge u->v has u before v.
 
@@ -3507,7 +3507,7 @@ discrete_math_ai999x.solve('topological_sort', edges=[['5', '11'], ['7', '11'], 
 
 <a id="cycle_rank"></a>
 
-### Cycles in an undirected graph (cyclomatic number) — `cycle_rank`
+### Cycles in an undirected graph (cyclomatic number), `cycle_rank`
 
 Whether an undirected graph has a cycle, and its cyclomatic number m - n + c (independent cycles).
 
@@ -3551,7 +3551,7 @@ discrete_math_ai999x.solve('cycle_rank', edges='1-2, 2-3, 3-4')
 
 <a id="directed_cycle"></a>
 
-### Cycle detection in a directed graph — `directed_cycle`
+### Cycle detection in a directed graph: `directed_cycle`
 
 Whether a directed graph contains a directed cycle (equivalently, whether it is a DAG).
 
@@ -3595,7 +3595,7 @@ discrete_math_ai999x.solve('directed_cycle', edges=[['1', '2'], ['1', '3'], ['2'
 
 <a id="bipartite"></a>
 
-### Bipartiteness test — `bipartite`
+### Bipartiteness test: `bipartite`
 
 Whether the vertices of an undirected graph split into two sets with every edge between them (no odd cycle).
 
@@ -3638,7 +3638,7 @@ discrete_math_ai999x.solve('bipartite', edges='1-2, 2-3, 3-4, 4-5, 5-1')
 
 <a id="eulerian"></a>
 
-### Eulerian circuits and paths — `eulerian`
+### Eulerian circuits and paths: `eulerian`
 
 Whether an undirected graph has an Euler circuit (closed trail using every edge once) or an Euler path.
 
@@ -3684,7 +3684,7 @@ discrete_math_ai999x.solve('eulerian', edges='1-2, 2-3, 3-4')
 
 <a id="chromatic_number"></a>
 
-### Chromatic number of a small graph — `chromatic_number`
+### Chromatic number of a small graph: `chromatic_number`
 
 The fewest colours needed so that adjacent vertices differ, with one optimal colouring.
 
@@ -3705,9 +3705,9 @@ $$
 - **Assumes:** undirected simple graph, unweighted, at most 12 vertices; the colouring is the first one found trying vertices in ascending name order, colours 1, 2, ...
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A wheel graph on 7 vertices with the chord A–C (13 edges): the package finds the chromatic number 4 and the colouring drawn here — no edge joins two vertices of the same colour (colour 1: A, D; colour 2: B, E; colour 3: C, F; colour 4: G)](https://huggingface.co/AI999X/discrete-math-ai999x/resolve/main/figures/chromatic-number-graph.svg)
+![A wheel graph on 7 vertices with the chord A–C (13 edges): the package finds the chromatic number 4 and the colouring drawn here, no edge joins two vertices of the same colour (colour 1: A, D; colour 2: B, E; colour 3: C, F; colour 4: G)](https://huggingface.co/AI999X/discrete-math-ai999x/resolve/main/figures/chromatic-number-graph.svg)
 
-*A wheel graph on 7 vertices with the chord A–C (13 edges): the package finds the chromatic number 4 and the colouring drawn here — no edge joins two vertices of the same colour (colour 1: A, D; colour 2: B, E; colour 3: C, F; colour 4: G).*
+*A wheel graph on 7 vertices with the chord A–C (13 edges): the package finds the chromatic number 4 and the colouring drawn here, no edge joins two vertices of the same colour (colour 1: A, D; colour 2: B, E; colour 3: C, F; colour 4: G).*
 
 ![an optimal colouring (colours 1](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/chromatic-number-bars)
 
@@ -3741,7 +3741,7 @@ discrete_math_ai999x.solve('chromatic_number', edges='1-2, 2-3, 3-4, 4-1')
 
 <a id="spanning_tree_count"></a>
 
-### Number of spanning trees (Kirchhoff) — `spanning_tree_count`
+### Number of spanning trees (Kirchhoff): `spanning_tree_count`
 
 How many spanning trees an undirected simple graph has (0 if it is disconnected).
 
@@ -3789,7 +3789,7 @@ discrete_math_ai999x.solve('spanning_tree_count', edges='1-2, 3-4')
 
 <a id="articulation_points"></a>
 
-### Articulation points (cut vertices) — `articulation_points`
+### Articulation points (cut vertices): `articulation_points`
 
 The vertices whose removal increases the number of connected components.
 
@@ -3833,7 +3833,7 @@ discrete_math_ai999x.solve('articulation_points', edges='1-2, 2-3, 3-1')
 
 <a id="bridges"></a>
 
-### Bridges (cut edges) — `bridges`
+### Bridges (cut edges): `bridges`
 
 The edges whose removal increases the number of connected components.
 
@@ -3877,7 +3877,7 @@ discrete_math_ai999x.solve('bridges', edges='1-2, 2-3, 3-1')
 
 <a id="strongly_connected"></a>
 
-### Strongly connected components — `strongly_connected`
+### Strongly connected components: `strongly_connected`
 
 The strongly connected components of a directed graph (vertices mutually reachable).
 
@@ -3922,7 +3922,7 @@ discrete_math_ai999x.solve('strongly_connected', edges=[['1', '2'], ['2', '3']])
 
 <a id="hamiltonian_cycle"></a>
 
-### Hamiltonian cycle of a small graph — `hamiltonian_cycle`
+### Hamiltonian cycle of a small graph: `hamiltonian_cycle`
 
 Whether an undirected graph has a cycle through every vertex exactly once, with one such cycle.
 
@@ -3966,7 +3966,7 @@ discrete_math_ai999x.solve('hamiltonian_cycle', edges='1-2, 2-3, 3-1, 3-4')
 
 <a id="clique_number"></a>
 
-### Clique number — `clique_number`
+### Clique number: `clique_number`
 
 The size of a largest complete subgraph, with one maximum clique.
 
@@ -4010,7 +4010,7 @@ discrete_math_ai999x.solve('clique_number', edges='1-2, 2-3, 3-4')
 
 <a id="independence_number"></a>
 
-### Independence number — `independence_number`
+### Independence number: `independence_number`
 
 The size of a largest set of pairwise non-adjacent vertices, with one maximum independent set.
 
@@ -4054,7 +4054,7 @@ discrete_math_ai999x.solve('independence_number', edges='A-B, A-C, A-D')
 
 <a id="girth"></a>
 
-### Girth (shortest cycle length) — `girth`
+### Girth (shortest cycle length): `girth`
 
 The length of a shortest cycle of an undirected graph (none for a forest).
 
@@ -4102,7 +4102,7 @@ discrete_math_ai999x.solve('girth', edges='1-2, 2-3')
 
 <a id="prufer_encode"></a>
 
-### Prüfer code of a labelled tree — `prufer_encode`
+### Prüfer code of a labelled tree, `prufer_encode`
 
 The Prüfer sequence (length n - 2) of a tree on vertices labelled 1..n.
 
@@ -4150,7 +4150,7 @@ discrete_math_ai999x.solve('prufer_encode', edges='1-2, 2-3, 3-4')
 
 <a id="prufer_decode"></a>
 
-### Tree from a Prüfer code — `prufer_decode`
+### Tree from a Prüfer code, `prufer_decode`
 
 The labelled tree on 1..n (n = length + 2) whose Prüfer sequence is given.
 
@@ -4199,7 +4199,7 @@ discrete_math_ai999x.solve('prufer_decode', sequence='3, 3, 3')
 
 <a id="graphical_sequence"></a>
 
-### Graphical degree sequence — `graphical_sequence`
+### Graphical degree sequence: `graphical_sequence`
 
 Whether a list of non-negative integers is the degree sequence of some simple graph.
 
@@ -4247,7 +4247,7 @@ discrete_math_ai999x.solve('graphical_sequence', degrees='3, 3, 3, 1')
 
 <a id="walks_count"></a>
 
-### Number of walks of a given length — `walks_count`
+### Number of walks of a given length: `walks_count`
 
 How many walks of exactly k edges lead from u to v (the (u, v) entry of A^k).
 
@@ -4298,7 +4298,7 @@ discrete_math_ai999x.solve('walks_count', edges='1-2, 2-3', source='1', target='
 
 <a id="graph_triangles"></a>
 
-### Number of triangles — `graph_triangles`
+### Number of triangles: `graph_triangles`
 
 How many triangles (3-cycles) an undirected graph contains.
 
@@ -4341,7 +4341,7 @@ discrete_math_ai999x.solve('graph_triangles', edges='1-2, 1-3, 1-4, 2-3, 2-4, 3-
 
 <a id="is_tree"></a>
 
-### Tree test — `is_tree`
+### Tree test: `is_tree`
 
 Whether an undirected graph is a tree: connected with exactly $n - 1$ edges (equivalently, connected and acyclic).
 
@@ -4387,7 +4387,7 @@ discrete_math_ai999x.solve('is_tree', edges='A-B, B-C, C-A, D-E')
 
 <a id="logic_evaluate"></a>
 
-### Evaluate a propositional formula — `logic_evaluate`
+### Evaluate a propositional formula: `logic_evaluate`
 
 The truth value of a propositional formula under a given assignment of true/false to its variables.
 
@@ -4437,7 +4437,7 @@ discrete_math_ai999x.solve('logic_evaluate', formula='A <-> ~B', assignment='A =
 
 <a id="truth_table"></a>
 
-### Truth table and minterms — `truth_table`
+### Truth table and minterms: `truth_table`
 
 The full truth table of a propositional formula, the number of true rows and its minterms.
 
@@ -4484,7 +4484,7 @@ discrete_math_ai999x.solve('truth_table', formula='A & ~B | C')
 
 <a id="logic_satisfiable"></a>
 
-### Satisfiability of a propositional formula — `logic_satisfiable`
+### Satisfiability of a propositional formula: `logic_satisfiable`
 
 Whether some assignment makes the formula true, how many do, and the first such assignment.
 
@@ -4529,7 +4529,7 @@ discrete_math_ai999x.solve('logic_satisfiable', formula='(A | B) & (~A | C) & ~C
 
 <a id="logic_tautology"></a>
 
-### Tautology test — `logic_tautology`
+### Tautology test: `logic_tautology`
 
 Whether a formula is true under every assignment, and the first assignment that falsifies it if not.
 
@@ -4579,7 +4579,7 @@ discrete_math_ai999x.solve('logic_tautology', formula='((p -> q) -> p) -> p')
 
 <a id="logic_contradiction"></a>
 
-### Contradiction test — `logic_contradiction`
+### Contradiction test: `logic_contradiction`
 
 Whether a formula is false under every assignment (unsatisfiable), with a satisfying assignment if not.
 
@@ -4629,7 +4629,7 @@ discrete_math_ai999x.solve('logic_contradiction', formula='p & q')
 
 <a id="logic_equivalence"></a>
 
-### Logical equivalence of two formulas — `logic_equivalence`
+### Logical equivalence of two formulas: `logic_equivalence`
 
 Whether two formulas have the same truth value under every assignment, with a distinguishing assignment if not.
 
@@ -4676,7 +4676,7 @@ discrete_math_ai999x.solve('logic_equivalence', formula1='p -> q', formula2='q -
 
 <a id="minimal_dnf"></a>
 
-### Minimal sum of products (DNF) — `minimal_dnf`
+### Minimal sum of products (DNF): `minimal_dnf`
 
 A minimum disjunctive normal form of a formula: fewest product terms, then fewest literals.
 
@@ -4726,7 +4726,7 @@ discrete_math_ai999x.solve('minimal_dnf', formula='p | ~p')
 
 <a id="minimal_cnf"></a>
 
-### Minimal product of sums (CNF) — `minimal_cnf`
+### Minimal product of sums (CNF): `minimal_cnf`
 
 A minimum conjunctive normal form of a formula: fewest clauses, then fewest literals.
 
@@ -4771,7 +4771,7 @@ discrete_math_ai999x.solve('minimal_cnf', formula='p ^ q')
 
 <a id="minimal_sop_minterms"></a>
 
-### Minimal sum of products from minterms (with don't-cares) — `minimal_sop_minterms`
+### Minimal sum of products from minterms (with don't-cares), `minimal_sop_minterms`
 
 The minimal sum of products of a Boolean function given by its minterms and optional don't-care rows (Karnaugh-map problems).
 
@@ -4824,7 +4824,7 @@ discrete_math_ai999x.solve('minimal_sop_minterms', minterms='0, 1, 2, 5, 6, 7', 
 
 <a id="rsa_keygen"></a>
 
-### RSA key from p, q and e — `rsa_keygen`
+### RSA key from p, q and e: `rsa_keygen`
 
 The RSA modulus $n = p$ q, phi(n) = (p-1)$(q-1)$ and the private exponent $d = e^{-1}$ mod phi(n).
 
@@ -4872,7 +4872,7 @@ discrete_math_ai999x.solve('rsa_keygen', p=11, q=13, e=7)
 
 <a id="rsa_encrypt"></a>
 
-### RSA encryption — `rsa_encrypt`
+### RSA encryption: `rsa_encrypt`
 
 The RSA ciphertext $c = m^{e}$ mod n of a message number m.
 
@@ -4917,7 +4917,7 @@ discrete_math_ai999x.solve('rsa_encrypt', m=9, e=7, n=143)
 
 <a id="rsa_decrypt"></a>
 
-### RSA decryption — `rsa_decrypt`
+### RSA decryption: `rsa_decrypt`
 
 The RSA plaintext $m = c^{d}$ mod n of a ciphertext c.
 
@@ -4961,7 +4961,7 @@ discrete_math_ai999x.solve('rsa_decrypt', c=48, d=103, n=143)
 
 <a id="rsa_decrypt_pq"></a>
 
-### RSA decryption from p, q and e (CRT) — `rsa_decrypt_pq`
+### RSA decryption from p, q and e (CRT): `rsa_decrypt_pq`
 
 Decrypt an RSA ciphertext knowing the primes: compute d, then m by the Chinese remainder theorem.
 
@@ -5003,7 +5003,7 @@ discrete_math_ai999x.solve('rsa_decrypt_pq', c=2790, p=61, q=53, e=17)
 
 <a id="diffie_hellman"></a>
 
-### Diffie-Hellman key exchange — `diffie_hellman`
+### Diffie-Hellman key exchange: `diffie_hellman`
 
 The public values $A = g^{a}$, $B = g^{b}$ (mod p) and the shared secret $g^{ab}$ mod p.
 
@@ -5046,7 +5046,7 @@ discrete_math_ai999x.solve('diffie_hellman', p=23, g=5, a=6, b=15)
 
 <a id="elgamal_encrypt"></a>
 
-### ElGamal encryption — `elgamal_encrypt`
+### ElGamal encryption: `elgamal_encrypt`
 
 ElGamal ciphertext (c1, $c_{2}) = (g^{k}$, m h^k) mod p with public key $h = g^{x.}$
 
@@ -5089,7 +5089,7 @@ discrete_math_ai999x.solve('elgamal_encrypt', p=23, g=5, x=6, k=3, m=10)
 
 <a id="caesar_cipher"></a>
 
-### Caesar (shift) cipher — `caesar_cipher`
+### Caesar (shift) cipher: `caesar_cipher`
 
 Encrypt or decrypt a message with a Caesar shift of k letters.
 
@@ -5135,7 +5135,7 @@ discrete_math_ai999x.solve('caesar_cipher', message='khoor', shift=3, mode='decr
 
 <a id="affine_cipher"></a>
 
-### Affine cipher — `affine_cipher`
+### Affine cipher: `affine_cipher`
 
 Encrypt or decrypt with the affine cipher E(x) = a x + b (mod 26).
 
@@ -5182,7 +5182,7 @@ discrete_math_ai999x.solve('affine_cipher', message='IHHWVCSWFRCP', a=5, b=8, mo
 
 <a id="vigenere_cipher"></a>
 
-### Vigenère cipher — `vigenere_cipher`
+### Vigenère cipher, `vigenere_cipher`
 
 Encrypt or decrypt with the Vigenère cipher under a keyword.
 

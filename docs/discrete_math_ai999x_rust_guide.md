@@ -1,4 +1,4 @@
-# discrete-math: the Discrete Math program — user guide
+# discrete-math: the Discrete Math program, user guide
 
 **discrete-math-ai999x 1.1.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
@@ -17,63 +17,63 @@ Discrete Math covers number theory, modular arithmetic, combinatorics, graph the
 
 ## 1. Get it
 
-Version 1.4.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
+Version 1.5.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
 
 | what | system | download |
 |---|---|---|
-| Desktop app: Discrete Math | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-discrete-math-1.4.0-windows-x86_64.zip |
-| Desktop app: Discrete Math | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-discrete-math-1.4.0-linux-x86_64.tar.gz |
-| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-windows-x86_64.zip |
-| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz |
-| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-windows-x86_64.zip |
-| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz |
+| Desktop app: Discrete Math | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-discrete-math-1.5.0-windows-x86_64.zip |
+| Desktop app: Discrete Math | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-discrete-math-1.5.0-linux-x86_64.tar.gz |
+| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip |
+| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz |
+| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip |
+| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz |
 
 ### Desktop app
 
-Discrete Math in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-discrete-math-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-discrete-math.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+Discrete Math in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-discrete-math-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-discrete-math.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-discrete-math-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-discrete-math-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-discrete-math-1.4.0-linux-x86_64.tar.gz
-./ai999x-discrete-math-1.4.0-linux-x86_64/ai999x-discrete-math
+tar xzf ai999x-discrete-math-1.5.0-linux-x86_64.tar.gz
+./ai999x-discrete-math-1.5.0-linux-x86_64/ai999x-discrete-math
 ```
 
-It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-1.4.0-linux-x86_64.tar.gz
-./ai999x-1.4.0-linux-x86_64/ai999x
+tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
+./ai999x-1.5.0-linux-x86_64/ai999x
 ```
 
-### Command line — Linux
+### Command line: Linux
 
 The bundle holds one program per model; `discrete-math` is this one. The checksum line should print OK.
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.4.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.4.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 discrete-math --version
 ```
 
-### Command line — Windows (PowerShell)
+### Command line: Windows (PowerShell)
 
 The fourth line should print True.
 
 ```powershell
-$F = "ai999x-cli-1.4.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.4.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 discrete-math --version
 ```
@@ -96,7 +96,7 @@ Prints the model, its version and that this is the Rust build.
 
 ```shell
 $ discrete-math --version
-discrete-math-ai999x 1.0.3 (Rust build, ax-engine 0.1.0)
+discrete-math-ai999x 1.5.0 (Rust build, ax-engine 1.5.0)
 ```
 
 ### 2.2 Ask in words
@@ -187,29 +187,7 @@ $ discrete-math solve mod_inverse a=3
 NEEDS_INPUT: mod_inverse needs m (the modulus (at least 2)). Example: solve('mod_inverse', a=3, m=11).
 ```
 
-### 2.9 Draw the figures
-
-The live figures for your own inputs, written as SVG files into the folder given with --out (here the current folder); open them in any browser. Without --out the SVG text comes back as JSON.
-
-```shell
-$ discrete-math figures mod_inverse a=3 m=11 --out .
-[
-  {
-    "slug": "mod-inverse-live-1",
-    "title": "A^{-1} mod m as the integer to invert varies",
-    "caption": "A^{-1} mod m as a runs from 1 to 7, every other input as you entered it (7 solutions). Marked: your a = 3 gives inverse = 4. Your inputs: a = 3, m = 11.",
-    "file": ".\\mod-inverse-live-1.svg"
-  },
-  {
-    "slug": "mod-inverse-live-2",
-    "title": "A^{-1} mod m as the modulus (at least 2) varies",
-    "caption": "A^{-1} mod m as m runs from 2 to 28, every other input as you entered it (11 solutions). Values in this range where the inputs admit no answer (4 of 15) are left out. Marked: your m = 11 gives inverse = 4. Your inputs: a = 3, m = 11.",
-    "file": ".\\mod-inverse-live-2.svg"
-  }
-]
-```
-
-### 2.10 Many questions at once
+### 2.9 Many questions at once
 
 One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | discrete-math batch
 
@@ -282,24 +260,6 @@ answers = [json.loads(line) for line in out.splitlines()]
 
 `discrete-math figures <capability> name=value ... --out DIR` draws the live figures for those inputs and writes each as an SVG file into DIR (an existing folder); without `--out` the SVG text comes back as JSON. The desktop app and the model page draw the same figures as soon as you press Compute.
 
-```shell
-$ discrete-math figures mod_inverse a=3 m=11 --out .
-[
-  {
-    "slug": "mod-inverse-live-1",
-    "title": "A^{-1} mod m as the integer to invert varies",
-    "caption": "A^{-1} mod m as a runs from 1 to 7, every other input as you entered it (7 solutions). Marked: your a = 3 gives inverse = 4. Your inputs: a = 3, m = 11.",
-    "file": ".\\mod-inverse-live-1.svg"
-  },
-  {
-    "slug": "mod-inverse-live-2",
-    "title": "A^{-1} mod m as the modulus (at least 2) varies",
-    "caption": "A^{-1} mod m as m runs from 2 to 28, every other input as you entered it (11 solutions). Values in this range where the inputs admit no answer (4 of 15) are left out. Marked: your m = 11 gives inverse = 4. Your inputs: a = 3, m = 11.",
-    "file": ".\\mod-inverse-live-2.svg"
-  }
-]
-```
-
 ## 7. In a web page or Node.js: WebAssembly
 
 The same model is a WebAssembly module, `discrete_math_ai999x.wasm` (https://www.ai999x.com/compute/rust/discrete_math_ai999x.wasm), with a small loader, `ax-wasm.js` (https://www.ai999x.com/compute/rust/ax-wasm.js). It runs in a browser, a Web Worker or Node.js, with no server.
@@ -323,7 +283,7 @@ By topic. For each: what it does, what it needs and gives, when it applies, and 
 
 <a id="bell"></a>
 
-#### Bell numbers — `bell`
+#### Bell numbers: `bell`
 
 B_n: the number of partitions of an n-element set into any number of non-empty blocks.
 
@@ -333,8 +293,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | size of the set (0..200) | — |
-| `bell` | out | the Bell number B_n | — |
+| `n` | in | size of the set (0..200) | - |
+| `bell` | out | the Bell number B_n | - |
 
 **Applies when:** 0 <= n <= 200.
 
@@ -349,7 +309,7 @@ bell = 52
 
 <a id="bernoulli"></a>
 
-#### Bernoulli numbers — `bernoulli`
+#### Bernoulli numbers: `bernoulli`
 
 The Bernoulli number B_n as an exact fraction (convention B_1 = -1/2).
 
@@ -359,10 +319,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | the index n (0..200) | — |
-| `value` | out | B_n as a decimal | — |
-| `numerator` | out | numerator of B_n in lowest terms | — |
-| `denominator` | out | denominator of B_n (positive) | — |
+| `n` | in | the index n (0..200) | - |
+| `value` | out | B_n as a decimal | - |
+| `numerator` | out | numerator of B_n in lowest terms | - |
+| `denominator` | out | denominator of B_n (positive) | - |
 
 **Applies when:** 0 <= n <= 200; B_1 = -1/2 (the 'first' Bernoulli numbers).
 
@@ -379,7 +339,7 @@ value = 0.07575757576
 
 <a id="bracelets"></a>
 
-#### Bracelets (rotations and reflections identified) — `bracelets`
+#### Bracelets (rotations and reflections identified), `bracelets`
 
 Distinct bracelets of n beads in k colours when rotations and flips count as the same.
 
@@ -389,10 +349,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `beads` | in | number of beads n (1..60) | — |
-| `colours` | in | number of colours k (1..60) | — |
-| `bracelets` | out | classes under rotation and reflection | — |
-| `necklaces` | out | classes under rotation only | — |
+| `beads` | in | number of beads n (1..60) | - |
+| `colours` | in | number of colours k (1..60) | - |
+| `bracelets` | out | classes under rotation and reflection | - |
+| `necklaces` | out | classes under rotation only | - |
 
 **Applies when:** 1 <= n, k <= 60.
 
@@ -408,7 +368,7 @@ necklaces = 14
 
 <a id="catalan"></a>
 
-#### Catalan numbers — `catalan`
+#### Catalan numbers: `catalan`
 
 C_n: balanced parenthesizations with n pairs, triangulations of an (n+2)-gon, full binary trees with n+1 leaves.
 
@@ -418,8 +378,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | the index n (0..500) | — |
-| `catalan` | out | the Catalan number C_n | — |
+| `n` | in | the index n (0..500) | - |
+| `catalan` | out | the Catalan number C_n | - |
 
 **Applies when:** 0 <= n <= 500; a convex polygon with s sides has C_(s-2) triangulations.
 
@@ -434,7 +394,7 @@ catalan = 16796
 
 <a id="binomial_term"></a>
 
-#### Coefficient in a binomial expansion — `binomial_term`
+#### Coefficient in a binomial expansion: `binomial_term`
 
 The coefficient of x^k in (a x + b)^n by the binomial theorem (exact integer).
 
@@ -444,11 +404,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x inside the bracket | — |
-| `b` | in | constant inside the bracket | — |
-| `n` | in | the power n (0..1000) | — |
-| `k` | in | the power of x asked for | — |
-| `coefficient` | out | C(n, k) a^k b^(n-k) | — |
+| `a` | in | coefficient of x inside the bracket | - |
+| `b` | in | constant inside the bracket | - |
+| `n` | in | the power n (0..1000) | - |
+| `k` | in | the power of x asked for | - |
+| `coefficient` | out | C(n, k) a^k b^(n-k) | - |
 
 **Applies when:** integer a, b; 0 <= k <= n <= 1000.
 
@@ -463,7 +423,7 @@ coefficient = 720
 
 <a id="combinations"></a>
 
-#### Combinations C(n, k) — `combinations`
+#### Combinations C(n, k): `combinations`
 
 The number of ways to choose k of n distinct items when order does not matter (exact integer).
 
@@ -473,9 +433,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | number of items to choose from (0..1000) | — |
-| `k` | in | number chosen (0..n) | — |
-| `combinations` | out | C(n, k) = n! / (k! (n-k)!) | — |
+| `n` | in | number of items to choose from (0..1000) | - |
+| `k` | in | number chosen (0..n) | - |
+| `combinations` | out | C(n, k) = n! / (k! (n-k)!) | - |
 
 **Applies when:** 0 <= k <= n <= 1000; result at most 10^300.
 
@@ -490,7 +450,7 @@ combinations = 120
 
 <a id="multisets"></a>
 
-#### Combinations with repetition (multisets) — `multisets`
+#### Combinations with repetition (multisets): `multisets`
 
 The number of ways to choose k items from n types when types may repeat and order does not matter.
 
@@ -500,9 +460,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | number of types (at least 1) | — |
-| `k` | in | number of items chosen | — |
-| `multisets` | out | C(n + k - 1, k) | — |
+| `n` | in | number of types (at least 1) | - |
+| `k` | in | number of items chosen | - |
+| `multisets` | out | C(n + k - 1, k) | - |
 
 **Applies when:** n >= 1; result at most 10^300.
 
@@ -517,7 +477,7 @@ multisets = 35
 
 <a id="inclusion_exclusion"></a>
 
-#### Counting multiples by inclusion-exclusion — `inclusion_exclusion`
+#### Counting multiples by inclusion-exclusion: `inclusion_exclusion`
 
 How many integers in 1..n are divisible by at least one of the given numbers (and how many by none).
 
@@ -527,10 +487,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | the upper end of the range 1..n | — |
-| `divisors` | in | the divisors (whole numbers >= 1) | — |
-| `divisible_by_any` | out | count divisible by at least one divisor | — |
-| `divisible_by_none` | out | count divisible by none | — |
+| `n` | in | the upper end of the range 1..n | - |
+| `divisors` | in | the divisors (whole numbers >= 1) | - |
+| `divisible_by_any` | out | count divisible by at least one divisor | - |
+| `divisible_by_none` | out | count divisible by none | - |
 
 **Applies when:** n >= 1; 1 to 12 divisors, each >= 1.
 
@@ -546,7 +506,7 @@ divisible_by_none = 457
 
 <a id="derangements"></a>
 
-#### Derangements — `derangements`
+#### Derangements: `derangements`
 
 !n: permutations of n items with no item in its original place, and the probability !n/n!.
 
@@ -556,9 +516,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | number of items (0..170) | — |
-| `derangements` | out | !n | — |
-| `probability` | out | !n / n! (tends to 1/e) | — |
+| `n` | in | number of items (0..170) | - |
+| `derangements` | out | !n | - |
+| `probability` | out | !n / n! (tends to 1/e) | - |
 
 **Applies when:** 0 <= n <= 170.
 
@@ -574,7 +534,7 @@ probability = 0.3666666667
 
 <a id="word_arrangements"></a>
 
-#### Distinct arrangements of the letters of a word — `word_arrangements`
+#### Distinct arrangements of the letters of a word, `word_arrangements`
 
 The number of distinct orderings of a word's letters, repeated letters counted once (multiset permutations).
 
@@ -584,10 +544,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `word` | in | the word (letters A-Z; case is ignored) | — |
-| `arrangements` | out | n! / (n1! n2! ...) over the letter multiplicities | — |
-| `length` | out | number of letters | — |
-| `letter_counts` | out | how often each letter occurs | — |
+| `word` | in | the word (letters A-Z; case is ignored) | - |
+| `arrangements` | out | n! / (n1! n2! ...) over the letter multiplicities | - |
+| `length` | out | number of letters | - |
+| `letter_counts` | out | how often each letter occurs | - |
 
 **Applies when:** letters A-Z only (upper and lower case are the same letter); at most 170 letters.
 
@@ -605,7 +565,7 @@ letter_counts = {"I":4,"M":1,"P":2,"S":4}
 
 <a id="fibonacci"></a>
 
-#### Fibonacci numbers — `fibonacci`
+#### Fibonacci numbers: `fibonacci`
 
 F_n with F_0 = 0, F_1 = 1, F_n = F_(n-1) + F_(n-2) (exact integer).
 
@@ -615,8 +575,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | the index n (0..1000) | — |
-| `fibonacci` | out | F_n | — |
+| `n` | in | the index n (0..1000) | - |
+| `fibonacci` | out | F_n | - |
 
 **Applies when:** 0 <= n <= 1000; F_0 = 0, F_1 = 1.
 
@@ -631,7 +591,7 @@ fibonacci = 832040
 
 <a id="integer_partitions"></a>
 
-#### Integer partitions p(n) — `integer_partitions`
+#### Integer partitions p(n): `integer_partitions`
 
 p(n): the number of ways to write n as a sum of positive integers, order ignored.
 
@@ -641,8 +601,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | the integer n (0..2000) | — |
-| `partitions` | out | p(n) | — |
+| `n` | in | the integer n (0..2000) | - |
+| `partitions` | out | p(n) | - |
 
 **Applies when:** 0 <= n <= 2000.
 
@@ -657,7 +617,7 @@ partitions = 42
 
 <a id="stars_and_bars"></a>
 
-#### Integer solutions of x1 + ... + xk = n (stars and bars) — `stars_and_bars`
+#### Integer solutions of x1 + ... + xk = n (stars and bars), `stars_and_bars`
 
 How many integer solutions x1 + ... + xk = n have every xi between a lower and an optional upper bound (identical objects into distinct boxes).
 
@@ -667,11 +627,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `total` | in | the total n (0..2000) | — |
-| `variables` | in | the number of variables or boxes k (1..50) | — |
-| `lower` | in | lower bound for every variable (0 = non-negative, 1 = positive) (optional) | — |
-| `upper` | in | optional upper bound for every variable (optional) | — |
-| `solutions` | out | number of solutions | — |
+| `total` | in | the total n (0..2000) | - |
+| `variables` | in | the number of variables or boxes k (1..50) | - |
+| `lower` | in | lower bound for every variable (0 = non-negative, 1 = positive) (optional) | - |
+| `upper` | in | optional upper bound for every variable (optional) | - |
+| `solutions` | out | number of solutions | - |
 
 **Applies when:** the bounds apply to every variable; a question must say non-negative or positive.
 
@@ -686,7 +646,7 @@ solutions = 66
 
 <a id="lattice_paths"></a>
 
-#### Lattice paths in a grid — `lattice_paths`
+#### Lattice paths in a grid: `lattice_paths`
 
 Monotone lattice paths using unit steps right and up from (0, 0) to (m, n): C(m + n, m).
 
@@ -696,9 +656,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `right` | in | number of steps right m | — |
-| `up` | in | number of steps up n | — |
-| `paths` | out | C(m + n, m) | — |
+| `right` | in | number of steps right m | - |
+| `up` | in | number of steps up n | - |
+| `paths` | out | C(m + n, m) | - |
 
 **Applies when:** m, n >= 0 (the end point is up and to the right); an a by b grid of squares has C(a + b, a) corner-to-corner paths.
 
@@ -713,7 +673,7 @@ paths = 56
 
 <a id="lucas"></a>
 
-#### Lucas numbers — `lucas`
+#### Lucas numbers: `lucas`
 
 L_n with L_0 = 2, L_1 = 1, L_n = L_(n-1) + L_(n-2) (exact integer).
 
@@ -723,8 +683,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | the index n (0..1000) | — |
-| `lucas` | out | L_n | — |
+| `n` | in | the index n (0..1000) | - |
+| `lucas` | out | L_n | - |
 
 **Applies when:** 0 <= n <= 1000; L_0 = 2, L_1 = 1.
 
@@ -739,7 +699,7 @@ lucas = 123
 
 <a id="multinomial"></a>
 
-#### Multinomial coefficient — `multinomial`
+#### Multinomial coefficient: `multinomial`
 
 n! / (k1! k2! ... km!): ways to split n distinct items into labelled groups of the given sizes.
 
@@ -749,10 +709,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `counts` | in | the group sizes k1, ..., km (whole numbers) | — |
-| `total` | in | the stated total n (optional; must equal the sum of the sizes) (optional) | — |
-| `coefficient` | out | the multinomial coefficient | — |
-| `total` | out | n = k1 + ... + km | — |
+| `counts` | in | the group sizes k1, ..., km (whole numbers) | - |
+| `total` | in | the stated total n (optional; must equal the sum of the sizes) (optional) | - |
+| `coefficient` | out | the multinomial coefficient | - |
+| `total` | out | n = k1 + ... + km | - |
 
 **Applies when:** sizes are whole numbers >= 0 adding up to at most 170; a stated total must equal their sum.
 
@@ -768,7 +728,7 @@ total = 10
 
 <a id="necklaces"></a>
 
-#### Necklaces (rotations identified) — `necklaces`
+#### Necklaces (rotations identified): `necklaces`
 
 Distinct necklaces of n beads in k colours when rotations count as the same (and bracelets, also flips).
 
@@ -778,10 +738,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `beads` | in | number of beads n (1..60) | — |
-| `colours` | in | number of colours k (1..60) | — |
-| `necklaces` | out | classes under rotation | — |
-| `bracelets` | out | classes under rotation and reflection | — |
+| `beads` | in | number of beads n (1..60) | - |
+| `colours` | in | number of colours k (1..60) | - |
+| `necklaces` | out | classes under rotation | - |
+| `bracelets` | out | classes under rotation and reflection | - |
 
 **Applies when:** 1 <= n, k <= 60.
 
@@ -797,7 +757,7 @@ bracelets = 13
 
 <a id="partitions_distinct"></a>
 
-#### Partitions into distinct parts — `partitions_distinct`
+#### Partitions into distinct parts: `partitions_distinct`
 
 q(n): the number of ways to write n as a sum of distinct positive integers (equal to partitions into odd parts).
 
@@ -807,8 +767,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | the integer n (0..1000) | — |
-| `partitions` | out | q(n) | — |
+| `n` | in | the integer n (0..1000) | - |
+| `partitions` | out | q(n) | - |
 
 **Applies when:** 0 <= n <= 1000.
 
@@ -823,7 +783,7 @@ partitions = 10
 
 <a id="partitions_k"></a>
 
-#### Partitions into exactly k parts — `partitions_k`
+#### Partitions into exactly k parts: `partitions_k`
 
 p(n, k): the number of ways to write n as a sum of exactly k positive integers, order ignored.
 
@@ -833,9 +793,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | the integer n (0..300) | — |
-| `k` | in | the number of parts (0..300) | — |
-| `partitions` | out | p(n, k) | — |
+| `n` | in | the integer n (0..300) | - |
+| `k` | in | the number of parts (0..300) | - |
+| `partitions` | out | p(n, k) | - |
 
 **Applies when:** 0 <= n, k <= 300.
 
@@ -850,7 +810,7 @@ In the worked example, n = 10, k = 3 go through the equation above and give part
 
 <a id="permutations"></a>
 
-#### Permutations P(n, k) — `permutations`
+#### Permutations P(n, k): `permutations`
 
 The number of ordered arrangements of k of n distinct items (exact integer); P(n, n) = n!.
 
@@ -860,9 +820,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | number of distinct items (0..170) | — |
-| `k` | in | number arranged (0..n) | — |
-| `permutations` | out | P(n, k) = n! / (n-k)! | — |
+| `n` | in | number of distinct items (0..170) | - |
+| `k` | in | number arranged (0..n) | - |
+| `permutations` | out | P(n, k) = n! / (n-k)! | - |
 
 **Applies when:** 0 <= k <= n <= 170.
 
@@ -877,7 +837,7 @@ permutations = 720
 
 <a id="pigeonhole_max"></a>
 
-#### Pigeonhole principle: guaranteed load — `pigeonhole_max`
+#### Pigeonhole principle: guaranteed load, `pigeonhole_max`
 
 Placing n objects into k boxes, some box must hold at least ceil(n / k) objects (and this is the best guarantee).
 
@@ -887,9 +847,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `items` | in | number of objects n | — |
-| `boxes` | in | number of boxes k | — |
-| `guaranteed` | out | ceil(n / k): the largest load every placement must reach in some box | — |
+| `items` | in | number of objects n | - |
+| `boxes` | in | number of boxes k | - |
+| `guaranteed` | out | ceil(n / k): the largest load every placement must reach in some box | - |
 
 **Applies when:** n, k >= 1.
 
@@ -904,7 +864,7 @@ guaranteed = 4
 
 <a id="pigeonhole_needed"></a>
 
-#### Pigeonhole principle: objects needed for a guarantee — `pigeonhole_needed`
+#### Pigeonhole principle: objects needed for a guarantee, `pigeonhole_needed`
 
 How many objects drawn from k categories guarantee at least r of one category: k (r - 1) + 1.
 
@@ -914,9 +874,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `boxes` | in | number of categories k | — |
-| `at_least` | in | the guaranteed count r in one category | — |
-| `needed` | out | k (r - 1) + 1 | — |
+| `boxes` | in | number of categories k | - |
+| `at_least` | in | the guaranteed count r in one category | - |
+| `needed` | out | k (r - 1) + 1 | - |
 
 **Applies when:** k, r >= 1.
 
@@ -931,7 +891,7 @@ needed = 9
 
 <a id="sequences_with_repetition"></a>
 
-#### Sequences with repetition (n^k) — `sequences_with_repetition`
+#### Sequences with repetition (n^k), `sequences_with_repetition`
 
 The number of length-k sequences over n symbols when symbols may repeat.
 
@@ -941,9 +901,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | number of available symbols (at least 1) | — |
-| `k` | in | length of the sequence | — |
-| `sequences` | out | n^k | — |
+| `n` | in | number of available symbols (at least 1) | - |
+| `k` | in | length of the sequence | - |
+| `sequences` | out | n^k | - |
 
 **Applies when:** n >= 1; result at most 10^300.
 
@@ -958,7 +918,7 @@ sequences = 10000
 
 <a id="stirling1"></a>
 
-#### Stirling numbers of the first kind — `stirling1`
+#### Stirling numbers of the first kind: `stirling1`
 
 c(n, k): permutations of n elements with exactly k cycles (unsigned), and the signed s(n, k).
 
@@ -968,10 +928,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | number of elements (0..100) | — |
-| `k` | in | number of cycles (0..100) | — |
-| `stirling1` | out | unsigned c(n, k) | — |
-| `signed` | out | signed s(n, k) = (-1)^(n-k) c(n, k) | — |
+| `n` | in | number of elements (0..100) | - |
+| `k` | in | number of cycles (0..100) | - |
+| `stirling1` | out | unsigned c(n, k) | - |
+| `signed` | out | signed s(n, k) = (-1)^(n-k) c(n, k) | - |
 
 **Applies when:** 0 <= n, k <= 100.
 
@@ -987,7 +947,7 @@ signed = -50
 
 <a id="stirling2"></a>
 
-#### Stirling numbers of the second kind — `stirling2`
+#### Stirling numbers of the second kind: `stirling2`
 
 S(n, k): ways to partition an n-element set into k non-empty unlabelled blocks; k! S(n, k) onto functions.
 
@@ -997,10 +957,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | size of the set (0..100) | — |
-| `k` | in | number of blocks (0..100) | — |
-| `stirling2` | out | S(n, k) | — |
-| `surjections` | out | k! S(n, k): onto functions from an n-set to a k-set | — |
+| `n` | in | size of the set (0..100) | - |
+| `k` | in | number of blocks (0..100) | - |
+| `stirling2` | out | S(n, k) | - |
+| `surjections` | out | k! S(n, k): onto functions from an n-set to a k-set | - |
 
 **Applies when:** 0 <= n, k <= 100.
 
@@ -1018,7 +978,7 @@ surjections = 1806
 
 <a id="affine_cipher"></a>
 
-#### Affine cipher — `affine_cipher`
+#### Affine cipher: `affine_cipher`
 
 Encrypt or decrypt with the affine cipher E(x) = a x + b (mod 26).
 
@@ -1028,11 +988,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `message` | in | the message (letters are kept, everything else is dropped) | — |
-| `a` | in | multiplier (coprime to 26) | — |
-| `b` | in | shift | — |
-| `mode` | in | encrypt or decrypt | — |
-| `result` | out | the result in capital letters, without spaces or punctuation | — |
+| `message` | in | the message (letters are kept, everything else is dropped) | - |
+| `a` | in | multiplier (coprime to 26) | - |
+| `b` | in | shift | - |
+| `mode` | in | encrypt or decrypt | - |
+| `result` | out | the result in capital letters, without spaces or punctuation | - |
 
 **Applies when:** gcd(a, 26) = 1; letters A-Z only; other characters are removed; output is upper case.
 
@@ -1049,7 +1009,7 @@ result = IHHWVCSWFRCP
 
 <a id="caesar_cipher"></a>
 
-#### Caesar (shift) cipher — `caesar_cipher`
+#### Caesar (shift) cipher: `caesar_cipher`
 
 Encrypt or decrypt a message with a Caesar shift of k letters.
 
@@ -1059,10 +1019,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `message` | in | the message (letters are kept, everything else is dropped) | — |
-| `shift` | in | the shift k | — |
-| `mode` | in | encrypt or decrypt | — |
-| `result` | out | the result in capital letters, without spaces or punctuation | — |
+| `message` | in | the message (letters are kept, everything else is dropped) | - |
+| `shift` | in | the shift k | - |
+| `mode` | in | encrypt or decrypt | - |
+| `result` | out | the result in capital letters, without spaces or punctuation | - |
 
 **Applies when:** letters A-Z only are enciphered; other characters are removed; output is upper case.
 
@@ -1079,7 +1039,7 @@ result = KHOORZRUOG
 
 <a id="diffie_hellman"></a>
 
-#### Diffie-Hellman key exchange — `diffie_hellman`
+#### Diffie-Hellman key exchange: `diffie_hellman`
 
 The public values A = g^a, B = g^b (mod p) and the shared secret g^(ab) mod p.
 
@@ -1089,13 +1049,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `p` | in | the prime modulus | — |
-| `g` | in | the generator (1 < g < p) | — |
-| `a` | in | Alice's secret exponent | — |
-| `b` | in | Bob's secret exponent | — |
-| `A` | out | Alice's public value g^a mod p | — |
-| `B` | out | Bob's public value g^b mod p | — |
-| `shared` | out | shared secret g^(ab) mod p | — |
+| `p` | in | the prime modulus | - |
+| `g` | in | the generator (1 < g < p) | - |
+| `a` | in | Alice's secret exponent | - |
+| `b` | in | Bob's secret exponent | - |
+| `A` | out | Alice's public value g^a mod p | - |
+| `B` | out | Bob's public value g^b mod p | - |
+| `shared` | out | shared secret g^(ab) mod p | - |
 
 **Applies when:** p prime; 1 < g < p.
 
@@ -1112,7 +1072,7 @@ shared = 2
 
 <a id="elgamal_encrypt"></a>
 
-#### ElGamal encryption — `elgamal_encrypt`
+#### ElGamal encryption: `elgamal_encrypt`
 
 ElGamal ciphertext (c1, c2) = (g^k, m h^k) mod p with public key h = g^x.
 
@@ -1122,14 +1082,14 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `p` | in | the prime modulus | — |
-| `g` | in | the generator | — |
-| `x` | in | the private key | — |
-| `k` | in | the ephemeral exponent | — |
-| `m` | in | the message (1 <= m < p) | — |
-| `h` | out | public key g^x mod p | — |
-| `c1` | out | g^k mod p | — |
-| `c2` | out | m h^k mod p | — |
+| `p` | in | the prime modulus | - |
+| `g` | in | the generator | - |
+| `x` | in | the private key | - |
+| `k` | in | the ephemeral exponent | - |
+| `m` | in | the message (1 <= m < p) | - |
+| `h` | out | public key g^x mod p | - |
+| `c1` | out | g^k mod p | - |
+| `c2` | out | m h^k mod p | - |
 
 **Applies when:** p prime; 1 < g < p; 1 <= m < p.
 
@@ -1146,7 +1106,7 @@ c2 = 14
 
 <a id="rsa_decrypt"></a>
 
-#### RSA decryption — `rsa_decrypt`
+#### RSA decryption: `rsa_decrypt`
 
 The RSA plaintext m = c^d mod n of a ciphertext c.
 
@@ -1156,10 +1116,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `c` | in | the ciphertext (0 <= c < n) | — |
-| `d` | in | private exponent | — |
-| `n` | in | modulus | — |
-| `m` | out | plaintext c^d mod n | — |
+| `c` | in | the ciphertext (0 <= c < n) | - |
+| `d` | in | private exponent | - |
+| `n` | in | modulus | - |
+| `m` | out | plaintext c^d mod n | - |
 
 **Applies when:** 0 <= c < n.
 
@@ -1174,7 +1134,7 @@ m = 65
 
 <a id="rsa_decrypt_pq"></a>
 
-#### RSA decryption from p, q and e (CRT) — `rsa_decrypt_pq`
+#### RSA decryption from p, q and e (CRT): `rsa_decrypt_pq`
 
 Decrypt an RSA ciphertext knowing the primes: compute d, then m by the Chinese remainder theorem.
 
@@ -1184,13 +1144,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `c` | in | the ciphertext (0 <= c < n) | — |
-| `p` | in | first prime | — |
-| `q` | in | second prime | — |
-| `e` | in | public exponent | — |
-| `m` | out | the plaintext | — |
-| `d` | out | private exponent e^(-1) mod phi(n) | — |
-| `n` | out | modulus p q | — |
+| `c` | in | the ciphertext (0 <= c < n) | - |
+| `p` | in | first prime | - |
+| `q` | in | second prime | - |
+| `e` | in | public exponent | - |
+| `m` | out | the plaintext | - |
+| `d` | out | private exponent e^(-1) mod phi(n) | - |
+| `n` | out | modulus p q | - |
 
 **Applies when:** p, q distinct primes; gcd(e, phi(n)) = 1; 0 <= c < n.
 
@@ -1207,7 +1167,7 @@ n = 3233
 
 <a id="rsa_encrypt"></a>
 
-#### RSA encryption — `rsa_encrypt`
+#### RSA encryption: `rsa_encrypt`
 
 The RSA ciphertext c = m^e mod n of a message number m.
 
@@ -1217,10 +1177,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `m` | in | the message as a number (0 <= m < n) | — |
-| `e` | in | public exponent | — |
-| `n` | in | modulus | — |
-| `c` | out | ciphertext m^e mod n | — |
+| `m` | in | the message as a number (0 <= m < n) | - |
+| `e` | in | public exponent | - |
+| `n` | in | modulus | - |
+| `c` | out | ciphertext m^e mod n | - |
 
 **Applies when:** 0 <= m < n.
 
@@ -1235,7 +1195,7 @@ c = 2790
 
 <a id="rsa_keygen"></a>
 
-#### RSA key from p, q and e — `rsa_keygen`
+#### RSA key from p, q and e: `rsa_keygen`
 
 The RSA modulus n = p q, phi(n) = (p-1)(q-1) and the private exponent d = e^(-1) mod phi(n).
 
@@ -1245,12 +1205,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `p` | in | first prime | — |
-| `q` | in | second prime | — |
-| `e` | in | public exponent | — |
-| `n` | out | modulus p q | — |
-| `phi` | out | Euler's phi(n) = (p-1)(q-1) | — |
-| `d` | out | private exponent e^(-1) mod phi(n) | — |
+| `p` | in | first prime | - |
+| `q` | in | second prime | - |
+| `e` | in | public exponent | - |
+| `n` | out | modulus p q | - |
+| `phi` | out | Euler's phi(n) = (p-1)(q-1) | - |
+| `d` | out | private exponent e^(-1) mod phi(n) | - |
 
 **Applies when:** p, q distinct primes; 1 < e < phi(n) and gcd(e, phi(n)) = 1; d is taken modulo phi(n) (not lambda(n)).
 
@@ -1267,7 +1227,7 @@ d = 2753
 
 <a id="vigenere_cipher"></a>
 
-#### Vigenère cipher — `vigenere_cipher`
+#### Vigenère cipher, `vigenere_cipher`
 
 Encrypt or decrypt with the Vigenère cipher under a keyword.
 
@@ -1277,10 +1237,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `message` | in | the message (letters are kept, everything else is dropped) | — |
-| `key` | in | the keyword (letters) | — |
-| `mode` | in | encrypt or decrypt | — |
-| `result` | out | the result in capital letters, without spaces or punctuation | — |
+| `message` | in | the message (letters are kept, everything else is dropped) | - |
+| `key` | in | the keyword (letters) | - |
+| `mode` | in | encrypt or decrypt | - |
+| `result` | out | the result in capital letters, without spaces or punctuation | - |
 
 **Applies when:** letters A-Z only; other characters are removed first, so the key runs over letters only; output is upper case.
 
@@ -1288,8 +1248,8 @@ $$
 $ discrete-math solve vigenere_cipher key=LEMON "message=ATTACK AT DAWN" mode=encrypt
 result = LXFOPVEFRNHR
   by: Vigenère cipher  (add (encrypt) or subtract (decrypt) the repeating key letters modulo 26)
-  key = LEMON
   message = ATTACK AT DAWN
+  key = LEMON
   mode = encrypt
   assumes: letters A-Z only; other characters are removed first, so the key runs over letters only; output is upper case
 ```
@@ -1300,7 +1260,7 @@ result = LXFOPVEFRNHR
 
 <a id="articulation_points"></a>
 
-#### Articulation points (cut vertices) — `articulation_points`
+#### Articulation points (cut vertices): `articulation_points`
 
 The vertices whose removal increases the number of connected components.
 
@@ -1310,9 +1270,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `count` | out | number of articulation points | — |
-| `points` | out | the articulation points, ascending | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `count` | out | number of articulation points | - |
+| `points` | out | the articulation points, ascending | - |
 
 **Applies when:** undirected simple graph, unweighted.
 
@@ -1328,7 +1288,7 @@ points = ["C","D"]
 
 <a id="bipartite"></a>
 
-#### Bipartiteness test — `bipartite`
+#### Bipartiteness test: `bipartite`
 
 Whether the vertices of an undirected graph split into two sets with every edge between them (no odd cycle).
 
@@ -1338,8 +1298,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `is_bipartite` | out | true when the graph is 2-colourable | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `is_bipartite` | out | true when the graph is 2-colourable | - |
 
 **Applies when:** undirected simple graph, unweighted.
 
@@ -1354,7 +1314,7 @@ is_bipartite = true
 
 <a id="bfs_order"></a>
 
-#### Breadth-first search order — `bfs_order`
+#### Breadth-first search order: `bfs_order`
 
 The order in which breadth-first search from a source visits the vertices, and each vertex's distance in edges.
 
@@ -1364,12 +1324,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `source` | in | the start vertex | — |
-| `directed` | in | true for a directed graph (edges u->v) (optional) | — |
-| `order` | out | visiting order | — |
-| `reached` | out | number of vertices reached | — |
-| `distances` | out | number of edges from the source to each reached vertex | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `source` | in | the start vertex | - |
+| `directed` | in | true for a directed graph (edges u->v) (optional) | - |
+| `order` | out | visiting order | - |
+| `reached` | out | number of vertices reached | - |
+| `distances` | out | number of edges from the source to each reached vertex | - |
 
 **Applies when:** simple unweighted graph; TIE RULE: neighbours are visited in ascending order of their names (numerically when the names are integers).
 
@@ -1387,7 +1347,7 @@ distances = {"A":0,"B":1,"C":1,"D":2,"E":3}
 
 <a id="bridges"></a>
 
-#### Bridges (cut edges) — `bridges`
+#### Bridges (cut edges): `bridges`
 
 The edges whose removal increases the number of connected components.
 
@@ -1397,9 +1357,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `count` | out | number of bridges | — |
-| `bridges` | out | the bridges [u, v] with u < v, sorted | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `count` | out | number of bridges | - |
+| `bridges` | out | the bridges [u, v] with u < v, sorted | - |
 
 **Applies when:** undirected simple graph, unweighted.
 
@@ -1415,7 +1375,7 @@ bridges = [["C","D"],["D","E"]]
 
 <a id="chromatic_number"></a>
 
-#### Chromatic number of a small graph — `chromatic_number`
+#### Chromatic number of a small graph: `chromatic_number`
 
 The fewest colours needed so that adjacent vertices differ, with one optimal colouring.
 
@@ -1425,9 +1385,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `chromatic_number` | out | chi(G) | — |
-| `colouring` | out | an optimal colouring (colours 1..chi) | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `chromatic_number` | out | chi(G) | - |
+| `colouring` | out | an optimal colouring (colours 1..chi) | - |
 
 **Applies when:** undirected simple graph, unweighted, at most 12 vertices; the colouring is the first one found trying vertices in ascending name order, colours 1, 2, ....
 
@@ -1443,7 +1403,7 @@ colouring = {"A":1,"B":2,"C":3,"D":1}
 
 <a id="clique_number"></a>
 
-#### Clique number — `clique_number`
+#### Clique number: `clique_number`
 
 The size of a largest complete subgraph, with one maximum clique.
 
@@ -1453,9 +1413,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `clique_number` | out | omega(G) | — |
-| `clique` | out | a maximum clique (the lexicographically smallest), ascending | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `clique_number` | out | omega(G) | - |
+| `clique` | out | a maximum clique (the lexicographically smallest), ascending | - |
 
 **Applies when:** undirected simple graph, unweighted, at most 60 vertices.
 
@@ -1471,7 +1431,7 @@ clique = ["A","B","C","D"]
 
 <a id="connected_components"></a>
 
-#### Connected components — `connected_components`
+#### Connected components: `connected_components`
 
 The connected components of an undirected graph: how many, their sizes and members, and whether it is connected.
 
@@ -1481,11 +1441,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `count` | out | number of connected components | — |
-| `sizes` | out | component sizes, descending | — |
-| `is_connected` | out | true when there is one component | — |
-| `components` | out | members of each component (ascending), components ordered by their first member | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `count` | out | number of connected components | - |
+| `sizes` | out | component sizes, descending | - |
+| `is_connected` | out | true when there is one component | - |
+| `components` | out | members of each component (ascending), components ordered by their first member | - |
 
 **Applies when:** undirected simple graph, unweighted; the vertices are those named in the edges.
 
@@ -1503,7 +1463,7 @@ components = [["A","B"],["C","D","E"]]
 
 <a id="directed_cycle"></a>
 
-#### Cycle detection in a directed graph — `directed_cycle`
+#### Cycle detection in a directed graph: `directed_cycle`
 
 Whether a directed graph contains a directed cycle (equivalently, whether it is a DAG).
 
@@ -1513,9 +1473,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the directed graph as edges u->v | — |
-| `has_cycle` | out | true when a directed cycle exists | — |
-| `is_dag` | out | true when the graph is acyclic | — |
+| `edges` | in | the directed graph as edges u->v | - |
+| `has_cycle` | out | true when a directed cycle exists | - |
+| `is_dag` | out | true when the graph is acyclic | - |
 
 **Applies when:** directed simple graph, unweighted.
 
@@ -1531,7 +1491,7 @@ is_dag = false
 
 <a id="cycle_rank"></a>
 
-#### Cycles in an undirected graph (cyclomatic number) — `cycle_rank`
+#### Cycles in an undirected graph (cyclomatic number), `cycle_rank`
 
 Whether an undirected graph has a cycle, and its cyclomatic number m - n + c (independent cycles).
 
@@ -1541,9 +1501,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `cyclomatic_number` | out | m - n + c: the number of independent cycles | — |
-| `has_cycle` | out | true when the graph contains a cycle | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `cyclomatic_number` | out | m - n + c: the number of independent cycles | - |
+| `has_cycle` | out | true when the graph contains a cycle | - |
 
 **Applies when:** undirected simple graph, unweighted.
 
@@ -1559,7 +1519,7 @@ has_cycle = true
 
 <a id="dfs_order"></a>
 
-#### Depth-first search order — `dfs_order`
+#### Depth-first search order: `dfs_order`
 
 The preorder in which depth-first search from a source visits the vertices.
 
@@ -1569,11 +1529,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `source` | in | the start vertex | — |
-| `directed` | in | true for a directed graph (edges u->v) (optional) | — |
-| `order` | out | visiting order (preorder) | — |
-| `reached` | out | number of vertices reached | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `source` | in | the start vertex | - |
+| `directed` | in | true for a directed graph (edges u->v) (optional) | - |
+| `order` | out | visiting order (preorder) | - |
+| `reached` | out | number of vertices reached | - |
 
 **Applies when:** simple unweighted graph; TIE RULE: recursive DFS that tries neighbours in ascending order of their names (numerically when the names are integers).
 
@@ -1590,7 +1550,7 @@ reached = 5
 
 <a id="graph_diameter"></a>
 
-#### Diameter, radius and center — `graph_diameter`
+#### Diameter, radius and center: `graph_diameter`
 
 Eccentricities of a connected unweighted graph: the diameter (largest), radius (smallest), center and periphery.
 
@@ -1600,11 +1560,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `diameter` | out | largest distance between two vertices | — |
-| `radius` | out | smallest eccentricity | — |
-| `center` | out | vertices of smallest eccentricity (ascending) | — |
-| `periphery` | out | vertices of largest eccentricity (ascending) | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `diameter` | out | largest distance between two vertices | - |
+| `radius` | out | smallest eccentricity | - |
+| `center` | out | vertices of smallest eccentricity (ascending) | - |
+| `periphery` | out | vertices of largest eccentricity (ascending) | - |
 
 **Applies when:** connected undirected simple graph, unweighted (distances count edges).
 
@@ -1622,7 +1582,7 @@ periphery = ["A","E","F"]
 
 <a id="eulerian"></a>
 
-#### Eulerian circuits and paths — `eulerian`
+#### Eulerian circuits and paths: `eulerian`
 
 Whether an undirected graph has an Euler circuit (closed trail using every edge once) or an Euler path.
 
@@ -1632,11 +1592,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `odd_vertices` | out | number of vertices of odd degree | — |
-| `connected` | out | true when the graph is connected | — |
-| `has_circuit` | out | Euler circuit exists: connected and no odd vertex | — |
-| `has_path` | out | Euler path exists: connected and 0 or 2 odd vertices | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `odd_vertices` | out | number of vertices of odd degree | - |
+| `connected` | out | true when the graph is connected | - |
+| `has_circuit` | out | Euler circuit exists: connected and no odd vertex | - |
+| `has_path` | out | Euler path exists: connected and 0 or 2 odd vertices | - |
 
 **Applies when:** undirected simple graph, unweighted; the vertices are those named in the edges.
 
@@ -1654,7 +1614,7 @@ has_path = true
 
 <a id="girth"></a>
 
-#### Girth (shortest cycle length) — `girth`
+#### Girth (shortest cycle length): `girth`
 
 The length of a shortest cycle of an undirected graph (none for a forest).
 
@@ -1664,8 +1624,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `girth` | out | length of the shortest cycle (none when the graph is acyclic) | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `girth` | out | length of the shortest cycle (none when the graph is acyclic) | - |
 
 **Applies when:** undirected simple graph, unweighted.
 
@@ -1680,7 +1640,7 @@ girth = 3
 
 <a id="graphical_sequence"></a>
 
-#### Graphical degree sequence — `graphical_sequence`
+#### Graphical degree sequence: `graphical_sequence`
 
 Whether a list of non-negative integers is the degree sequence of some simple graph.
 
@@ -1690,8 +1650,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `degrees` | in | the proposed degrees (whole numbers >= 0) | — |
-| `is_graphical` | out | true when a simple graph has exactly these degrees | — |
+| `degrees` | in | the proposed degrees (whole numbers >= 0) | - |
+| `is_graphical` | out | true when a simple graph has exactly these degrees | - |
 
 **Applies when:** whole numbers >= 0.
 
@@ -1706,7 +1666,7 @@ is_graphical = true
 
 <a id="hamiltonian_cycle"></a>
 
-#### Hamiltonian cycle of a small graph — `hamiltonian_cycle`
+#### Hamiltonian cycle of a small graph: `hamiltonian_cycle`
 
 Whether an undirected graph has a cycle through every vertex exactly once, with one such cycle.
 
@@ -1716,9 +1676,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `exists` | out | true when a Hamiltonian cycle exists | — |
-| `cycle` | out | a Hamiltonian cycle starting and ending at the smallest vertex (none if it does not exist) | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `exists` | out | true when a Hamiltonian cycle exists | - |
+| `cycle` | out | a Hamiltonian cycle starting and ending at the smallest vertex (none if it does not exist) | - |
 
 **Applies when:** undirected simple graph, unweighted, at most 12 vertices; the cycle shown is the first found extending through neighbours in ascending order.
 
@@ -1734,7 +1694,7 @@ cycle = ["A","B","C","D","A"]
 
 <a id="independence_number"></a>
 
-#### Independence number — `independence_number`
+#### Independence number: `independence_number`
 
 The size of a largest set of pairwise non-adjacent vertices, with one maximum independent set.
 
@@ -1744,9 +1704,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `independence_number` | out | alpha(G) | — |
-| `independent_set` | out | a maximum independent set (the lexicographically smallest), ascending | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `independence_number` | out | alpha(G) | - |
+| `independent_set` | out | a maximum independent set (the lexicographically smallest), ascending | - |
 
 **Applies when:** undirected simple graph, unweighted, at most 60 vertices; the vertices are those named in the edges.
 
@@ -1762,7 +1722,7 @@ independent_set = ["1","3"]
 
 <a id="spanning_tree_count"></a>
 
-#### Number of spanning trees (Kirchhoff) — `spanning_tree_count`
+#### Number of spanning trees (Kirchhoff): `spanning_tree_count`
 
 How many spanning trees an undirected simple graph has (0 if it is disconnected).
 
@@ -1772,8 +1732,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `spanning_trees` | out | number of spanning trees tau(G) | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `spanning_trees` | out | number of spanning trees tau(G) | - |
 
 **Applies when:** undirected simple graph, unweighted, at most 60 vertices.
 
@@ -1788,7 +1748,7 @@ spanning_trees = 8
 
 <a id="graph_triangles"></a>
 
-#### Number of triangles — `graph_triangles`
+#### Number of triangles: `graph_triangles`
 
 How many triangles (3-cycles) an undirected graph contains.
 
@@ -1798,8 +1758,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `triangles` | out | number of triangles | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `triangles` | out | number of triangles | - |
 
 **Applies when:** undirected simple graph, unweighted.
 
@@ -1814,7 +1774,7 @@ triangles = 2
 
 <a id="walks_count"></a>
 
-#### Number of walks of a given length — `walks_count`
+#### Number of walks of a given length: `walks_count`
 
 How many walks of exactly k edges lead from u to v (the (u, v) entry of A^k).
 
@@ -1824,12 +1784,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `source` | in | start vertex u | — |
-| `target` | in | end vertex v | — |
-| `length` | in | the walk length k (0..200) | — |
-| `directed` | in | true for a directed graph (edges u->v) (optional) | — |
-| `walks` | out | number of walks of length k from u to v | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `source` | in | start vertex u | - |
+| `target` | in | end vertex v | - |
+| `length` | in | the walk length k (0..200) | - |
+| `directed` | in | true for a directed graph (edges u->v) (optional) | - |
+| `walks` | out | number of walks of length k from u to v | - |
 
 **Applies when:** simple unweighted graph; vertices may repeat along a walk.
 
@@ -1839,7 +1799,7 @@ Run `discrete-math info walks_count` for its inputs, then `discrete-math solve w
 
 <a id="prufer_encode"></a>
 
-#### Prüfer code of a labelled tree — `prufer_encode`
+#### Prüfer code of a labelled tree, `prufer_encode`
 
 The Prüfer sequence (length n - 2) of a tree on vertices labelled 1..n.
 
@@ -1849,9 +1809,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the tree's edges, vertices numbered 1..n (or 0..n-1) | — |
-| `sequence` | out | the Prüfer sequence | — |
-| `vertices` | out | number of vertices n | — |
+| `edges` | in | the tree's edges, vertices numbered 1..n (or 0..n-1) | - |
+| `sequence` | out | the Prüfer sequence | - |
+| `vertices` | out | number of vertices n | - |
 
 **Applies when:** a tree whose vertices are numbered 1..n or 0..n-1; the smallest leaf is removed at every step.
 
@@ -1867,7 +1827,7 @@ vertices = 6
 
 <a id="strongly_connected"></a>
 
-#### Strongly connected components — `strongly_connected`
+#### Strongly connected components: `strongly_connected`
 
 The strongly connected components of a directed graph (vertices mutually reachable).
 
@@ -1877,10 +1837,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the directed graph as edges u->v | — |
-| `count` | out | number of strongly connected components | — |
-| `sizes` | out | component sizes, descending | — |
-| `components` | out | members of each component (ascending), ordered by first member | — |
+| `edges` | in | the directed graph as edges u->v | - |
+| `count` | out | number of strongly connected components | - |
+| `sizes` | out | component sizes, descending | - |
+| `components` | out | members of each component (ascending), ordered by first member | - |
 
 **Applies when:** directed simple graph, unweighted.
 
@@ -1897,7 +1857,7 @@ components = [["A","B","C"],["D"]]
 
 <a id="topological_sort"></a>
 
-#### Topological sort — `topological_sort`
+#### Topological sort: `topological_sort`
 
 An ordering of a directed acyclic graph's vertices in which every edge u->v has u before v.
 
@@ -1907,9 +1867,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the directed graph as edges u->v | — |
-| `order` | out | the lexicographically smallest topological order | — |
-| `vertices` | out | number of vertices | — |
+| `edges` | in | the directed graph as edges u->v | - |
+| `order` | out | the lexicographically smallest topological order | - |
+| `vertices` | out | number of vertices | - |
 
 **Applies when:** directed acyclic simple graph, unweighted; TIE RULE: among the vertices free at each step the smallest name comes first (numerically when integers): the lexicographically smallest order.
 
@@ -1925,7 +1885,7 @@ vertices = 4
 
 <a id="prufer_decode"></a>
 
-#### Tree from a Prüfer code — `prufer_decode`
+#### Tree from a Prüfer code, `prufer_decode`
 
 The labelled tree on 1..n (n = length + 2) whose Prüfer sequence is given.
 
@@ -1935,9 +1895,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `sequence` | in | the Prüfer sequence (entries between 1 and n) | — |
-| `edges` | out | the tree's edges [u, v] with u < v, sorted | — |
-| `vertices` | out | number of vertices n | — |
+| `sequence` | in | the Prüfer sequence (entries between 1 and n) | - |
+| `edges` | out | the tree's edges [u, v] with u < v, sorted | - |
+| `vertices` | out | number of vertices n | - |
 
 **Applies when:** vertices are numbered 1..n with n = length + 2.
 
@@ -1953,7 +1913,7 @@ vertices = 6
 
 <a id="is_tree"></a>
 
-#### Tree test — `is_tree`
+#### Tree test: `is_tree`
 
 Whether an undirected graph is a tree: connected with exactly n - 1 edges (equivalently, connected and acyclic).
 
@@ -1963,11 +1923,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `is_tree` | out | true when the graph is a tree | — |
-| `vertices` | out | number of vertices | — |
-| `edges` | out | number of edges | — |
-| `connected` | out | true when the graph is connected | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `is_tree` | out | true when the graph is a tree | - |
+| `vertices` | out | number of vertices | - |
+| `edges` | out | number of edges | - |
+| `connected` | out | true when the graph is connected | - |
 
 **Applies when:** undirected simple graph, unweighted; the vertices are those named in the edges.
 
@@ -1985,7 +1945,7 @@ connected = true
 
 <a id="graph_degrees"></a>
 
-#### Vertex degrees and degree sequence — `graph_degrees`
+#### Vertex degrees and degree sequence: `graph_degrees`
 
 The degree of every vertex of an undirected simple graph, its degree sequence, maximum and minimum degree.
 
@@ -1995,13 +1955,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | — |
-| `vertices` | out | number of vertices (those named in the edges) | — |
-| `edges` | out | number of edges | — |
-| `degrees` | out | degree of each vertex | — |
-| `degree_sequence` | out | degrees in descending order | — |
-| `max_degree` | out | maximum degree | — |
-| `min_degree` | out | minimum degree | — |
+| `edges` | in | the graph as a list of edges u-v (an optional third entry is the weight) | - |
+| `vertices` | out | number of vertices (those named in the edges) | - |
+| `edges` | out | number of edges | - |
+| `degrees` | out | degree of each vertex | - |
+| `degree_sequence` | out | degrees in descending order | - |
+| `max_degree` | out | maximum degree | - |
+| `min_degree` | out | minimum degree | - |
 
 **Applies when:** undirected simple graph (no loops, no repeated edges), unweighted; the vertices are those named in the edges.
 
@@ -2023,7 +1983,7 @@ min_degree = 1
 
 <a id="logic_contradiction"></a>
 
-#### Contradiction test — `logic_contradiction`
+#### Contradiction test: `logic_contradiction`
 
 Whether a formula is false under every assignment (unsatisfiable), with a satisfying assignment if not.
 
@@ -2033,10 +1993,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `formula` | in | the formula (operators ~ & \| ^ -> <->, or words) | — |
-| `contradiction` | out | true when no assignment satisfies the formula | — |
-| `true_rows` | out | number of satisfying assignments | — |
-| `witness` | out | the satisfying assignment with the smallest row number (none for a contradiction) | — |
+| `formula` | in | the formula (operators ~ & \| ^ -> <->, or words) | - |
+| `contradiction` | out | true when no assignment satisfies the formula | - |
+| `true_rows` | out | number of satisfying assignments | - |
+| `witness` | out | the satisfying assignment with the smallest row number (none for a contradiction) | - |
 
 **Applies when:** at most 12 variables.
 
@@ -2054,7 +2014,7 @@ witness = null
 
 <a id="logic_evaluate"></a>
 
-#### Evaluate a propositional formula — `logic_evaluate`
+#### Evaluate a propositional formula: `logic_evaluate`
 
 The truth value of a propositional formula under a given assignment of true/false to its variables.
 
@@ -2064,9 +2024,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `formula` | in | the formula, e.g. (p -> q) & ~r (operators ~ & \| ^ -> <->, or not/and/or/xor/implies/iff) | — |
-| `assignment` | in | a truth value for every variable, e.g. 'p = true, q = 0, r = false' | — |
-| `value` | out | the formula's truth value | — |
+| `formula` | in | the formula, e.g. (p -> q) & ~r (operators ~ & \| ^ -> <->, or not/and/or/xor/implies/iff) | - |
+| `assignment` | in | a truth value for every variable, e.g. 'p = true, q = 0, r = false' | - |
+| `value` | out | the formula's truth value | - |
 
 **Applies when:** every variable gets a value and no other name is given; precedence: ~ binds tightest, then &, ^, |, -> (right-associative), <-> loosest.
 
@@ -2074,8 +2034,8 @@ $$
 $ discrete-math solve logic_evaluate "formula=(p -> q) & ~r" "assignment=p = true, q = false, r = false"
 value = false
   by: Evaluate a propositional formula  (recursive-descent parse into a syntax tree, evaluated bottom-up)
-  assignment = p = true, q = false, r = false
   formula = (p -> q) & ~r
+  assignment = p = true, q = false, r = false
   assumes: every variable gets a value and no other name is given; precedence: ~ binds tightest, then &, ^, |, -> (right-associative), <-> loosest
 ```
 
@@ -2083,7 +2043,7 @@ value = false
 
 <a id="logic_equivalence"></a>
 
-#### Logical equivalence of two formulas — `logic_equivalence`
+#### Logical equivalence of two formulas: `logic_equivalence`
 
 Whether two formulas have the same truth value under every assignment, with a distinguishing assignment if not.
 
@@ -2093,11 +2053,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `formula1` | in | the first formula | — |
-| `formula2` | in | the second formula | — |
-| `equivalent` | out | true when the formulas agree on every assignment | — |
-| `differing_rows` | out | number of assignments where they differ | — |
-| `counterexample` | out | the first distinguishing assignment (none if equivalent) | — |
+| `formula1` | in | the first formula | - |
+| `formula2` | in | the second formula | - |
+| `equivalent` | out | true when the formulas agree on every assignment | - |
+| `differing_rows` | out | number of assignments where they differ | - |
+| `counterexample` | out | the first distinguishing assignment (none if equivalent) | - |
 
 **Applies when:** at most 12 variables in total; rows range over the union of both formulas' variables.
 
@@ -2116,7 +2076,7 @@ counterexample = null
 
 <a id="minimal_cnf"></a>
 
-#### Minimal product of sums (CNF) — `minimal_cnf`
+#### Minimal product of sums (CNF): `minimal_cnf`
 
 A minimum conjunctive normal form of a formula: fewest clauses, then fewest literals.
 
@@ -2126,10 +2086,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `formula` | in | the formula (at most 6 variables) | — |
-| `expression` | out | a minimal product of sums (clauses joined by &) | — |
-| `clauses` | out | number of clauses | — |
-| `literals` | out | number of literals | — |
+| `formula` | in | the formula (at most 6 variables) | - |
+| `expression` | out | a minimal product of sums (clauses joined by &) | - |
+| `clauses` | out | number of clauses | - |
+| `literals` | out | number of literals | - |
 
 **Applies when:** at most 6 variables; cost: fewest clauses first, then fewest literals.
 
@@ -2147,7 +2107,7 @@ In the worked example, formula = (A | B) & (A | ~B | C) go through the equation 
 
 <a id="minimal_dnf"></a>
 
-#### Minimal sum of products (DNF) — `minimal_dnf`
+#### Minimal sum of products (DNF): `minimal_dnf`
 
 A minimum disjunctive normal form of a formula: fewest product terms, then fewest literals.
 
@@ -2157,10 +2117,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `formula` | in | the formula (at most 6 variables) | — |
-| `expression` | out | a minimal sum of products (terms joined by \|, literals by &) | — |
-| `terms` | out | number of product terms | — |
-| `literals` | out | number of literals | — |
+| `formula` | in | the formula (at most 6 variables) | - |
+| `expression` | out | a minimal sum of products (terms joined by \|, literals by &) | - |
+| `terms` | out | number of product terms | - |
+| `literals` | out | number of literals | - |
 
 **Applies when:** at most 6 variables; cost: fewest terms first, then fewest literals; when several minimal forms exist one is shown (all have these counts).
 
@@ -2178,7 +2138,7 @@ literals = 4
 
 <a id="minimal_sop_minterms"></a>
 
-#### Minimal sum of products from minterms (with don't-cares) — `minimal_sop_minterms`
+#### Minimal sum of products from minterms (with don't-cares), `minimal_sop_minterms`
 
 The minimal sum of products of a Boolean function given by its minterms and optional don't-care rows (Karnaugh-map problems).
 
@@ -2188,12 +2148,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `minterms` | in | rows where the function is 1 | — |
-| `variables` | in | number of variables (1..6), named A, B, C, ... | — |
-| `dont_cares` | in | rows whose value does not matter (optional) (optional) | — |
-| `expression` | out | a minimal sum of products over A, B, C, ... (A is the most significant bit) | — |
-| `terms` | out | number of product terms | — |
-| `literals` | out | number of literals | — |
+| `minterms` | in | rows where the function is 1 | - |
+| `variables` | in | number of variables (1..6), named A, B, C, ... | - |
+| `dont_cares` | in | rows whose value does not matter (optional) (optional) | - |
+| `expression` | out | a minimal sum of products over A, B, C, ... (A is the most significant bit) | - |
+| `terms` | out | number of product terms | - |
+| `literals` | out | number of literals | - |
 
 **Applies when:** 1..6 variables named A, B, C, D, E, F with A the most significant bit of the row number; cost: fewest terms first, then fewest literals; don't-cares may be used or not.
 
@@ -2210,7 +2170,7 @@ literals = 1
 
 <a id="logic_satisfiable"></a>
 
-#### Satisfiability of a propositional formula — `logic_satisfiable`
+#### Satisfiability of a propositional formula: `logic_satisfiable`
 
 Whether some assignment makes the formula true, how many do, and the first such assignment.
 
@@ -2220,10 +2180,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `formula` | in | the formula (operators ~ & \| ^ -> <->, or words) | — |
-| `satisfiable` | out | true when some assignment satisfies the formula | — |
-| `models` | out | number of satisfying assignments | — |
-| `first_model` | out | the satisfying assignment with the smallest row number (none if unsatisfiable) | — |
+| `formula` | in | the formula (operators ~ & \| ^ -> <->, or words) | - |
+| `satisfiable` | out | true when some assignment satisfies the formula | - |
+| `models` | out | number of satisfying assignments | - |
+| `first_model` | out | the satisfying assignment with the smallest row number (none if unsatisfiable) | - |
 
 **Applies when:** at most 12 variables; rows are numbered with the first (alphabetical) variable as the most significant bit.
 
@@ -2241,7 +2201,7 @@ In the worked example, formula = (p | q) & ~p & ~q go through the equation above
 
 <a id="logic_tautology"></a>
 
-#### Tautology test — `logic_tautology`
+#### Tautology test: `logic_tautology`
 
 Whether a formula is true under every assignment, and the first assignment that falsifies it if not.
 
@@ -2251,10 +2211,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `formula` | in | the formula (operators ~ & \| ^ -> <->, or words) | — |
-| `tautology` | out | true when every assignment satisfies the formula | — |
-| `false_rows` | out | number of falsifying assignments | — |
-| `counterexample` | out | the falsifying assignment with the smallest row number (none for a tautology) | — |
+| `formula` | in | the formula (operators ~ & \| ^ -> <->, or words) | - |
+| `tautology` | out | true when every assignment satisfies the formula | - |
+| `false_rows` | out | number of falsifying assignments | - |
+| `counterexample` | out | the falsifying assignment with the smallest row number (none for a tautology) | - |
 
 **Applies when:** at most 12 variables.
 
@@ -2272,7 +2232,7 @@ counterexample = null
 
 <a id="truth_table"></a>
 
-#### Truth table and minterms — `truth_table`
+#### Truth table and minterms: `truth_table`
 
 The full truth table of a propositional formula, the number of true rows and its minterms.
 
@@ -2282,11 +2242,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `formula` | in | the formula (operators ~ & \| ^ -> <->, or words) | — |
-| `variables` | out | the variables in alphabetical order | — |
-| `values` | out | the formula's value on rows 0, 1, ... as a 0/1 string | — |
-| `true_rows` | out | number of true rows | — |
-| `minterms` | out | indices of the true rows | — |
+| `formula` | in | the formula (operators ~ & \| ^ -> <->, or words) | - |
+| `variables` | out | the variables in alphabetical order | - |
+| `values` | out | the formula's value on rows 0, 1, ... as a 0/1 string | - |
+| `true_rows` | out | number of true rows | - |
+| `minterms` | out | indices of the true rows | - |
 
 **Applies when:** at most 12 variables; row r assigns the binary digits of r to the variables, the first (alphabetically) variable being the most significant bit.
 
@@ -2307,7 +2267,7 @@ minterms = [0,1,3,7]
 
 <a id="crt"></a>
 
-#### Chinese remainder theorem — `crt`
+#### Chinese remainder theorem: `crt`
 
 The x with x ≡ r_i (mod m_i) for every i, unique modulo lcm(m_i); moduli need not be coprime.
 
@@ -2317,10 +2277,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `residues` | in | the residues r_i | — |
-| `moduli` | in | the moduli m_i (each at least 1) | — |
-| `x` | out | the smallest non-negative solution | — |
-| `modulus` | out | lcm of the moduli: the solution is unique modulo it | — |
+| `residues` | in | the residues r_i | - |
+| `moduli` | in | the moduli m_i (each at least 1) | - |
+| `x` | out | the smallest non-negative solution | - |
+| `modulus` | out | lcm of the moduli: the solution is unique modulo it | - |
 
 **Applies when:** one residue per modulus; the system is consistent (r_i ≡ r_j modulo gcd(m_i, m_j)).
 
@@ -2336,7 +2296,7 @@ modulus = 105
 
 <a id="discrete_log"></a>
 
-#### Discrete logarithm — `discrete_log`
+#### Discrete logarithm: `discrete_log`
 
 The smallest x >= 0 with base^x ≡ target (mod m).
 
@@ -2346,10 +2306,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `base` | in | the base g | — |
-| `target` | in | the value h | — |
-| `modulus` | in | the modulus m (2..10^12) | — |
-| `x` | out | the smallest non-negative exponent with g^x ≡ h (mod m) | — |
+| `base` | in | the base g | - |
+| `target` | in | the value h | - |
+| `modulus` | in | the modulus m (2..10^12) | - |
+| `x` | out | the smallest non-negative exponent with g^x ≡ h (mod m) | - |
 
 **Applies when:** gcd(base, m) = 1; a solution exists.
 
@@ -2359,7 +2319,7 @@ Run `discrete-math info discrete_log` for its inputs, then `discrete-math solve 
 
 <a id="linear_congruence"></a>
 
-#### Linear congruence ax ≡ b (mod m) — `linear_congruence`
+#### Linear congruence ax ≡ b (mod m), `linear_congruence`
 
 All solutions of a*x ≡ b (mod m): how many there are modulo m, the smallest, and their spacing.
 
@@ -2369,12 +2329,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x | — |
-| `b` | in | right-hand side | — |
-| `m` | in | modulus (at least 1) | — |
-| `smallest` | out | smallest non-negative solution (none when there is no solution) | — |
-| `count` | out | number of solutions modulo m (gcd(a, m) when it divides b, else 0) | — |
-| `step` | out | m / gcd(a, m): solutions are smallest + k*step | — |
+| `a` | in | coefficient of x | - |
+| `b` | in | right-hand side | - |
+| `m` | in | modulus (at least 1) | - |
+| `smallest` | out | smallest non-negative solution (none when there is no solution) | - |
+| `count` | out | number of solutions modulo m (gcd(a, m) when it divides b, else 0) | - |
+| `step` | out | m / gcd(a, m): solutions are smallest + k*step | - |
 
 **Applies when:** m >= 1; solvable exactly when gcd(a, m) divides b.
 
@@ -2391,7 +2351,7 @@ step = 7
 
 <a id="mod_pow"></a>
 
-#### Modular exponentiation — `mod_pow`
+#### Modular exponentiation: `mod_pow`
 
 a^e mod m by repeated squaring (also the last k digits of a power).
 
@@ -2401,10 +2361,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `base` | in | the base a | — |
-| `exponent` | in | the exponent e (at least 0) | — |
-| `modulus` | in | the modulus m (at least 1) | — |
-| `result` | out | a^e mod m, between 0 and m - 1 | — |
+| `base` | in | the base a | - |
+| `exponent` | in | the exponent e (at least 0) | - |
+| `modulus` | in | the modulus m (at least 1) | - |
+| `result` | out | a^e mod m, between 0 and m - 1 | - |
 
 **Applies when:** e >= 0; m >= 1.
 
@@ -2419,7 +2379,7 @@ result = 9
 
 <a id="mod_inverse"></a>
 
-#### Modular multiplicative inverse — `mod_inverse`
+#### Modular multiplicative inverse: `mod_inverse`
 
 The x in 0..m-1 with a*x ≡ 1 (mod m); it exists exactly when gcd(a, m) = 1.
 
@@ -2429,9 +2389,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | the integer to invert | — |
-| `m` | in | the modulus (at least 2) | — |
-| `inverse` | out | a^{-1} mod m | — |
+| `a` | in | the integer to invert | - |
+| `m` | in | the modulus (at least 2) | - |
+| `inverse` | out | a^{-1} mod m | - |
 
 **Applies when:** m >= 2; gcd(a, m) = 1 (otherwise no inverse exists).
 
@@ -2446,7 +2406,7 @@ inverse = 4
 
 <a id="multiplicative_order"></a>
 
-#### Multiplicative order — `multiplicative_order`
+#### Multiplicative order: `multiplicative_order`
 
 The smallest k >= 1 with a^k ≡ 1 (mod n).
 
@@ -2456,9 +2416,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | the integer a (coprime to n) | — |
-| `n` | in | the modulus (at least 2) | — |
-| `order` | out | ord_n(a) | — |
+| `a` | in | the integer a (coprime to n) | - |
+| `n` | in | the modulus (at least 2) | - |
+| `order` | out | ord_n(a) | - |
 
 **Applies when:** gcd(a, n) = 1.
 
@@ -2473,7 +2433,7 @@ order = 3
 
 <a id="mod_reduce"></a>
 
-#### Remainder modulo m (Euclidean division) — `mod_reduce`
+#### Remainder modulo m (Euclidean division): `mod_reduce`
 
 a mod m as the least non-negative residue, with the floor quotient: a = q*m + r, 0 <= r < m.
 
@@ -2483,10 +2443,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | the integer to reduce | — |
-| `m` | in | the modulus (at least 1) | — |
-| `remainder` | out | r with 0 <= r < m | — |
-| `quotient` | out | q = floor(a/m) | — |
+| `a` | in | the integer to reduce | - |
+| `m` | in | the modulus (at least 1) | - |
+| `remainder` | out | r with 0 <= r < m | - |
+| `quotient` | out | q = floor(a/m) | - |
 
 **Applies when:** m >= 1; the remainder is never negative, also for negative a.
 
@@ -2502,7 +2462,7 @@ quotient = 3
 
 <a id="primitive_root"></a>
 
-#### Smallest primitive root modulo a prime — `primitive_root`
+#### Smallest primitive root modulo a prime: `primitive_root`
 
 The smallest g whose powers run through every non-zero residue modulo the prime p.
 
@@ -2512,8 +2472,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `p` | in | a prime | — |
-| `root` | out | the smallest primitive root modulo p | — |
+| `p` | in | a prime | - |
+| `root` | out | the smallest primitive root modulo p | - |
 
 **Applies when:** p prime (primitive roots also exist for 4, p^k and 2p^k, which this capability does not take).
 
@@ -2530,7 +2490,7 @@ root = 5
 
 <a id="base_convert"></a>
 
-#### Base (radix) conversion — `base_convert`
+#### Base (radix) conversion: `base_convert`
 
 Rewrite an integer from one base (2..36) to another, with its decimal value.
 
@@ -2540,11 +2500,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `digits` | in | the number written in the source base (digits 0-9 then A-Z) | — |
-| `from_base` | in | the source base (2..36) | — |
-| `to_base` | in | the target base (2..36) | — |
-| `result` | out | the number written in the target base (upper-case digits) | — |
-| `decimal` | out | its value in base 10 | — |
+| `digits` | in | the number written in the source base (digits 0-9 then A-Z) | - |
+| `from_base` | in | the source base (2..36) | - |
+| `to_base` | in | the target base (2..36) | - |
+| `result` | out | the number written in the target base (upper-case digits) | - |
+| `decimal` | out | its value in base 10 | - |
 
 **Applies when:** 2 <= bases <= 36; every digit is valid in the source base; a leading minus sign is kept.
 
@@ -2561,7 +2521,7 @@ decimal = 11
 
 <a id="twos_complement"></a>
 
-#### Two's complement representation — `twos_complement`
+#### Two's complement representation: `twos_complement`
 
 The b-bit two's complement bit pattern of a signed integer, and that pattern read as an unsigned number.
 
@@ -2571,10 +2531,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | the signed integer | — |
-| `bits` | in | the word length b (2..64) | — |
-| `bits_text` | out | the b-bit pattern | — |
-| `unsigned` | out | the pattern read as an unsigned integer (n mod 2^b) | — |
+| `n` | in | the signed integer | - |
+| `bits` | in | the word length b (2..64) | - |
+| `bits_text` | out | the b-bit pattern | - |
+| `unsigned` | out | the pattern read as an unsigned integer (n mod 2^b) | - |
 
 **Applies when:** -2^(b-1) <= n < 2^(b-1).
 
@@ -2592,7 +2552,7 @@ unsigned = 251
 
 <a id="carmichael_lambda"></a>
 
-#### Carmichael function — `carmichael_lambda`
+#### Carmichael function: `carmichael_lambda`
 
 lambda(n): the smallest m with a^m ≡ 1 (mod n) for every a coprime to n (the exponent of the unit group).
 
@@ -2602,8 +2562,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | a positive integer | — |
-| `lambda` | out | Carmichael's lambda(n) | — |
+| `n` | in | a positive integer | - |
+| `lambda` | out | Carmichael's lambda(n) | - |
 
 **Applies when:** n >= 1.
 
@@ -2618,7 +2578,7 @@ lambda = 4
 
 <a id="cf_rational"></a>
 
-#### Continued fraction of a rational number — `cf_rational`
+#### Continued fraction of a rational number: `cf_rational`
 
 The finite simple continued fraction [a0; a1, ..., an] of p/q (canonical form: last term >= 2).
 
@@ -2628,10 +2588,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `numerator` | in | the numerator p | — |
-| `denominator` | in | the denominator q (at least 1) | — |
-| `terms` | out | the partial quotients [a0, a1, ..., an] | — |
-| `length` | out | number of partial quotients | — |
+| `numerator` | in | the numerator p | - |
+| `denominator` | in | the denominator q (at least 1) | - |
+| `terms` | out | the partial quotients [a0, a1, ..., an] | - |
+| `length` | out | number of partial quotients | - |
 
 **Applies when:** q >= 1; a0 = floor(p/q) (negative for negative p); canonical: the last term is at least 2.
 
@@ -2647,7 +2607,7 @@ length = 4
 
 <a id="cf_sqrt"></a>
 
-#### Continued fraction of a square root — `cf_sqrt`
+#### Continued fraction of a square root: `cf_sqrt`
 
 The periodic continued fraction sqrt(d) = [a0; (a1, ..., ak)] of a non-square d, and its period length.
 
@@ -2657,10 +2617,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `d` | in | a positive non-square integer | — |
-| `a0` | out | integer part floor(sqrt(d)) | — |
-| `period` | out | the repeating block (ends with 2*a0) | — |
-| `period_length` | out | length of the period | — |
+| `d` | in | a positive non-square integer | - |
+| `a0` | out | integer part floor(sqrt(d)) | - |
+| `period` | out | the repeating block (ends with 2*a0) | - |
+| `period_length` | out | length of the period | - |
 
 **Applies when:** d not a perfect square.
 
@@ -2677,7 +2637,7 @@ period_length = 4
 
 <a id="divisor_functions"></a>
 
-#### Divisors, divisor count and divisor sum — `divisor_functions`
+#### Divisors, divisor count and divisor sum: `divisor_functions`
 
 All positive divisors of n, their number tau(n), their sum sigma(n), and whether n is perfect, abundant or deficient.
 
@@ -2687,12 +2647,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | a positive integer | — |
-| `count` | out | number of divisors tau(n) | — |
-| `sum` | out | sum of divisors sigma(n) | — |
-| `proper_sum` | out | sum of the proper divisors sigma(n) - n | — |
-| `classification` | out | perfect, abundant or deficient | — |
-| `divisors` | out | every divisor, ascending | — |
+| `n` | in | a positive integer | - |
+| `count` | out | number of divisors tau(n) | - |
+| `sum` | out | sum of divisors sigma(n) | - |
+| `proper_sum` | out | sum of the proper divisors sigma(n) - n | - |
+| `classification` | out | perfect, abundant or deficient | - |
+| `divisors` | out | every divisor, ascending | - |
 
 **Applies when:** n a whole number, 1 <= n <= 10^12.
 
@@ -2711,7 +2671,7 @@ divisors = [1,2,3,4,5,6,8,9,10,12,15,18,20,24,30,36,40,45,60,72,90,120,180,360]
 
 <a id="euler_phi"></a>
 
-#### Euler's totient function — `euler_phi`
+#### Euler's totient function: `euler_phi`
 
 phi(n): how many integers in 1..n are coprime to n.
 
@@ -2721,8 +2681,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | a positive integer | — |
-| `phi` | out | Euler's totient phi(n) | — |
+| `n` | in | a positive integer | - |
+| `phi` | out | Euler's totient phi(n) | - |
 
 **Applies when:** n a whole number, 1 <= n <= 10^15.
 
@@ -2737,7 +2697,7 @@ phi = 12
 
 <a id="extended_gcd"></a>
 
-#### Extended Euclidean algorithm (Bezout coefficients) — `extended_gcd`
+#### Extended Euclidean algorithm (Bezout coefficients), `extended_gcd`
 
 gcd(a, b) and integers x, y with a*x + b*y = gcd(a, b).
 
@@ -2747,13 +2707,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | first positive integer | — |
-| `b` | in | second positive integer | — |
-| `gcd` | out | gcd(a, b) | — |
-| `x` | out | coefficient of a from the extended Euclidean algorithm | — |
-| `y` | out | coefficient of b from the extended Euclidean algorithm | — |
-| `x_min` | out | the coefficient of a with 0 <= x_min < b/gcd | — |
-| `y_min` | out | the matching coefficient of b | — |
+| `a` | in | first positive integer | - |
+| `b` | in | second positive integer | - |
+| `gcd` | out | gcd(a, b) | - |
+| `x` | out | coefficient of a from the extended Euclidean algorithm | - |
+| `y` | out | coefficient of b from the extended Euclidean algorithm | - |
+| `x_min` | out | the coefficient of a with 0 <= x_min < b/gcd | - |
+| `y_min` | out | the matching coefficient of b | - |
 
 **Applies when:** a, b whole numbers >= 1; (x, y) are the coefficients the standard extended Euclidean algorithm produces; (x_min, y_min) is the solution with the smallest non-negative x.
 
@@ -2772,7 +2732,7 @@ y_min = -73
 
 <a id="gcd_lcm"></a>
 
-#### Greatest common divisor and least common multiple — `gcd_lcm`
+#### Greatest common divisor and least common multiple, `gcd_lcm`
 
 The gcd and lcm of two or more positive integers (Euclid's algorithm).
 
@@ -2782,9 +2742,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `numbers` | in | the positive integers (two or more) | — |
-| `gcd` | out | greatest common divisor | — |
-| `lcm` | out | least common multiple | — |
+| `numbers` | in | the positive integers (two or more) | - |
+| `gcd` | out | greatest common divisor | - |
+| `lcm` | out | least common multiple | - |
 
 **Applies when:** two or more whole numbers, each at least 1.
 
@@ -2800,7 +2760,7 @@ lcm = 252
 
 <a id="integer_sqrt"></a>
 
-#### Integer square root and perfect squares — `integer_sqrt`
+#### Integer square root and perfect squares: `integer_sqrt`
 
 floor(sqrt(n)) computed exactly, the remainder n - floor(sqrt(n))^2, and whether n is a perfect square.
 
@@ -2810,10 +2770,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | a whole number (at least 0) | — |
-| `isqrt` | out | floor(sqrt(n)) | — |
-| `remainder` | out | n - isqrt^2 | — |
-| `is_square` | out | true when n is a perfect square | — |
+| `n` | in | a whole number (at least 0) | - |
+| `isqrt` | out | floor(sqrt(n)) | - |
+| `remainder` | out | n - isqrt^2 | - |
+| `is_square` | out | true when n is a perfect square | - |
 
 **Applies when:** n >= 0.
 
@@ -2830,7 +2790,7 @@ is_square = false
 
 <a id="jacobi_symbol"></a>
 
-#### Jacobi symbol — `jacobi_symbol`
+#### Jacobi symbol: `jacobi_symbol`
 
 (a/n) for an odd positive n, the product of Legendre symbols over the prime factors of n.
 
@@ -2840,9 +2800,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | the integer a | — |
-| `n` | in | an odd positive integer | — |
-| `symbol` | out | the Jacobi symbol (a/n): -1, 0 or 1 | — |
+| `a` | in | the integer a | - |
+| `n` | in | an odd positive integer | - |
+| `symbol` | out | the Jacobi symbol (a/n): -1, 0 or 1 | - |
 
 **Applies when:** n odd and positive.
 
@@ -2857,7 +2817,7 @@ symbol = -1
 
 <a id="legendre_symbol"></a>
 
-#### Legendre symbol — `legendre_symbol`
+#### Legendre symbol: `legendre_symbol`
 
 (a/p) for an odd prime p: 1 if a is a non-zero quadratic residue mod p, -1 if not, 0 if p divides a.
 
@@ -2867,9 +2827,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | the integer a | — |
-| `p` | in | an odd prime | — |
-| `symbol` | out | the Legendre symbol (a/p): -1, 0 or 1 | — |
+| `a` | in | the integer a | - |
+| `p` | in | an odd prime | - |
+| `symbol` | out | the Legendre symbol (a/p): -1, 0 or 1 | - |
 
 **Applies when:** p an odd prime.
 
@@ -2884,7 +2844,7 @@ symbol = 1
 
 <a id="linear_diophantine"></a>
 
-#### Linear Diophantine equation ax + by = c — `linear_diophantine`
+#### Linear Diophantine equation ax + by = c, `linear_diophantine`
 
 Whether a*x + b*y = c has integer solutions, and the general solution x = x0 + (b/g) t, y = y0 - (a/g) t.
 
@@ -2894,14 +2854,14 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x (non-zero) | — |
-| `b` | in | coefficient of y (non-zero) | — |
-| `c` | in | right-hand side | — |
-| `solvable` | out | true when gcd(a, b) divides c | — |
-| `x0` | out | the solution with the smallest non-negative x | — |
-| `y0` | out | the matching y | — |
-| `x_step` | out | b/g: the step of x between solutions | — |
-| `y_step` | out | -a/g: the step of y between solutions | — |
+| `a` | in | coefficient of x (non-zero) | - |
+| `b` | in | coefficient of y (non-zero) | - |
+| `c` | in | right-hand side | - |
+| `solvable` | out | true when gcd(a, b) divides c | - |
+| `x0` | out | the solution with the smallest non-negative x | - |
+| `y0` | out | the matching y | - |
+| `x_step` | out | b/g: the step of x between solutions | - |
+| `y_step` | out | -a/g: the step of y between solutions | - |
 
 **Applies when:** a, b non-zero integers; solutions exist exactly when gcd(a, b) divides c.
 
@@ -2920,7 +2880,7 @@ y_step = -2
 
 <a id="mobius"></a>
 
-#### Möbius function — `mobius`
+#### Möbius function, `mobius`
 
 mu(n): 0 if a square divides n, otherwise (-1)^(number of prime factors).
 
@@ -2930,9 +2890,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | a positive integer | — |
-| `mu` | out | the Möbius function mu(n) | — |
-| `squarefree` | out | true when no square > 1 divides n | — |
+| `n` | in | a positive integer | - |
+| `mu` | out | the Möbius function mu(n) | - |
+| `squarefree` | out | true when no square > 1 divides n | - |
 
 **Applies when:** n >= 1.
 
@@ -2948,7 +2908,7 @@ squarefree = true
 
 <a id="next_prime"></a>
 
-#### Next prime — `next_prime`
+#### Next prime: `next_prime`
 
 The smallest prime strictly greater than n.
 
@@ -2958,8 +2918,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | the whole number n (at least 0) | — |
-| `prime` | out | the smallest prime p > n | — |
+| `n` | in | the whole number n (at least 0) | - |
+| `prime` | out | the smallest prime p > n | - |
 
 **Applies when:** n >= 0; strictly greater: the next prime after a prime p is not p.
 
@@ -2974,7 +2934,7 @@ prime = 101
 
 <a id="pell_equation"></a>
 
-#### Pell's equation (fundamental solution) — `pell_equation`
+#### Pell's equation (fundamental solution): `pell_equation`
 
 The smallest positive solution (x, y) of x^2 - d y^2 = 1 for a non-square d.
 
@@ -2984,9 +2944,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `d` | in | a non-square positive integer (2..1000) | — |
-| `x` | out | fundamental solution x | — |
-| `y` | out | fundamental solution y | — |
+| `d` | in | a non-square positive integer (2..1000) | - |
+| `x` | out | fundamental solution x | - |
+| `y` | out | fundamental solution y | - |
 
 **Applies when:** d not a perfect square; 2 <= d <= 1000.
 
@@ -3002,7 +2962,7 @@ y = 226153980
 
 <a id="previous_prime"></a>
 
-#### Previous prime — `previous_prime`
+#### Previous prime: `previous_prime`
 
 The largest prime strictly less than n.
 
@@ -3012,8 +2972,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | the whole number n (at least 3) | — |
-| `prime` | out | the largest prime p < n | — |
+| `n` | in | the whole number n (at least 3) | - |
+| `prime` | out | the largest prime p < n | - |
 
 **Applies when:** n >= 3; strictly less: the prime before a prime p is not p.
 
@@ -3028,7 +2988,7 @@ prime = 97
 
 <a id="is_prime"></a>
 
-#### Primality test — `is_prime`
+#### Primality test: `is_prime`
 
 Whether n is prime (deterministic Miller-Rabin, exact for every n below 2^64), with its smallest prime factor.
 
@@ -3038,9 +2998,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | the whole number to test | — |
-| `is_prime` | out | true when n is prime | — |
-| `smallest_prime_factor` | out | smallest prime dividing n (n itself when prime; none for n < 2) | — |
+| `n` | in | the whole number to test | - |
+| `is_prime` | out | true when n is prime | - |
+| `smallest_prime_factor` | out | smallest prime dividing n (n itself when prime; none for n < 2) | - |
 
 **Applies when:** 0 <= n < 2^64 (questions accept n up to 10^15).
 
@@ -3056,7 +3016,7 @@ smallest_prime_factor = 97
 
 <a id="prime_factorization"></a>
 
-#### Prime factorization — `prime_factorization`
+#### Prime factorization: `prime_factorization`
 
 The prime factorization of n, its largest and smallest prime factors and the number of prime factors.
 
@@ -3066,13 +3026,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | the whole number to factor (at least 2) | — |
-| `factorization` | out | list of [prime, exponent] pairs, primes ascending | — |
-| `distinct_primes` | out | number of distinct prime factors | — |
-| `prime_factors_with_multiplicity` | out | number of prime factors counted with multiplicity | — |
-| `largest_prime_factor` | out | largest prime factor | — |
-| `smallest_prime_factor` | out | smallest prime factor | — |
-| `text` | out | the factorization written as p^e × ... | — |
+| `n` | in | the whole number to factor (at least 2) | - |
+| `factorization` | out | list of [prime, exponent] pairs, primes ascending | - |
+| `distinct_primes` | out | number of distinct prime factors | - |
+| `prime_factors_with_multiplicity` | out | number of prime factors counted with multiplicity | - |
+| `largest_prime_factor` | out | largest prime factor | - |
+| `smallest_prime_factor` | out | smallest prime factor | - |
+| `text` | out | the factorization written as p^e × ... | - |
 
 **Applies when:** n a whole number, 2 <= n <= 10^15.
 
@@ -3092,7 +3052,7 @@ text = 2^3 × 3^2 × 5
 
 <a id="prime_counting"></a>
 
-#### Prime-counting function — `prime_counting`
+#### Prime-counting function: `prime_counting`
 
 pi(x): how many primes are at most x.
 
@@ -3102,8 +3062,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x` | in | the bound (0..5,000,000) | — |
-| `count` | out | number of primes p <= x | — |
+| `x` | in | the bound (0..5,000,000) | - |
+| `count` | out | number of primes p <= x | - |
 
 **Applies when:** 0 <= x <= 5,000,000; 'less than N' counts primes up to N - 1.
 
@@ -3118,7 +3078,7 @@ count = 25
 
 <a id="sqrt_mod"></a>
 
-#### Square roots modulo a prime — `sqrt_mod`
+#### Square roots modulo a prime: `sqrt_mod`
 
 Every x in 0..p-1 with x^2 ≡ a (mod p), for a prime p.
 
@@ -3128,11 +3088,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | the integer a | — |
-| `p` | in | a prime modulus | — |
-| `roots` | out | all square roots of a modulo p, ascending | — |
-| `count` | out | number of roots (0, 1 or 2) | — |
-| `smallest` | out | the smallest root (none when a is a non-residue) | — |
+| `a` | in | the integer a | - |
+| `p` | in | a prime modulus | - |
+| `roots` | out | all square roots of a modulo p, ascending | - |
+| `count` | out | number of roots (0, 1 or 2) | - |
+| `smallest` | out | the smallest root (none when a is a non-residue) | - |
 
 **Applies when:** p prime.
 
@@ -3149,7 +3109,7 @@ smallest = 6
 
 <a id="two_squares"></a>
 
-#### Sums of two squares — `two_squares`
+#### Sums of two squares: `two_squares`
 
 Every way to write n = x^2 + y^2 with 0 <= x <= y, and r2(n), the number of ordered signed representations.
 
@@ -3159,10 +3119,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | a whole number (0..10^12) | — |
-| `representations` | out | pairs [x, y] with 0 <= x <= y and x^2 + y^2 = n | — |
-| `count` | out | number of such pairs | — |
-| `r2` | out | r2(n): ordered representations with signs | — |
+| `n` | in | a whole number (0..10^12) | - |
+| `representations` | out | pairs [x, y] with 0 <= x <= y and x^2 + y^2 = n | - |
+| `count` | out | number of such pairs | - |
+| `r2` | out | r2(n): ordered representations with signs | - |
 
 **Applies when:** 0 <= n <= 10^12.
 
@@ -3179,7 +3139,7 @@ r2 = 24
 
 <a id="nth_prime"></a>
 
-#### The n-th prime — `nth_prime`
+#### The n-th prime: `nth_prime`
 
 The n-th prime number p_n (p_1 = 2).
 
@@ -3189,8 +3149,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | the index n (1..300,000) | — |
-| `prime` | out | the n-th prime | — |
+| `n` | in | the index n (1..300,000) | - |
+| `prime` | out | the n-th prime | - |
 
 **Applies when:** 1 <= n <= 300,000; p_1 = 2.
 
@@ -3203,4 +3163,4 @@ prime = 541
 
 **What the worked example means:** This calculation identifies the specific prime number located at position 100 in the sequence of all primes. It uses the Sieve of Eratosthenes, limiting the search space to the Rosser bound, which guarantees that the 100-th prime is less than 100 times the sum of the natural logarithm of 100 and the natural logarithm of the natural logarithm of 100. The result, 541, is the exact integer value of that prime.
 
-Questions and reports: support@ai999x.com. AI999X — The Future Is Self-Improving.
+Questions and reports: support@ai999x.com. AI999X, The Future Is Self-Improving.
