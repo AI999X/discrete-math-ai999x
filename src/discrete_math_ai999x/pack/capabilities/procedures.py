@@ -2275,11 +2275,11 @@ _add("permutations", name="Permutations P(n, k)", topic="combinatorics / basic c
      parse=parse_perm, reference=lambda n, k: {"permutations": int(__import__("sympy").ff(n, k))},
      wrong=lambda n, k: {"permutations": math.comb(int(n), int(k))},
      random_inputs=lambda rng: (lambda n: {"n": n, "k": rng.randint(2, n)})(rng.randint(2, _NCAP)),
-     templates=["Compute P(10, 3).", "In how many ways can we arrange 3 books out of 10?", "In how many ways can 5 people be arranged in a row?"],
+     templates=["Compute P(10, 3).", "How many ways are there to arrange 3 books out of 10?", "In how many ways can 5 people be arranged in a row?"],
      examples=[{"inputs": {"n": 10, "k": 3}, "outputs": {"permutations": 720}}, {"inputs": {"n": 5, "k": 5}, "outputs": {"permutations": 120}},
                {"inputs": {"n": 7, "k": 0}, "outputs": {"permutations": 1}}],
      questions=[{"q": "Compute P(10, 3).", "outputs": {"permutations": 720}},
-                {"q": "In how many ways can we arrange 3 books out of 10?", "outputs": {"permutations": 720}},
+                {"q": "How many ways are there to arrange 3 books out of 10?", "outputs": {"permutations": 720}},
                 {"q": "In how many ways can 5 people be arranged in a row?", "outputs": {"permutations": 120}},
                 {"q": "Compute P(3, 5).", "outcome": "INVALID_INPUT"}])
 
@@ -2364,11 +2364,11 @@ _add("multisets", name="Combinations with repetition (multisets)", topic="combin
      run=multisets, verify=lambda i, o: _iv(o["multisets"]) and o["multisets"] * math.factorial(int(i["k"])) * math.factorial(int(i["n"]) - 1) == math.factorial(int(i["n"]) + int(i["k"]) - 1),
      parse=parse_mset, reference=_ref_mset, wrong=lambda n, k: {"multisets": math.comb(int(n) + int(k), int(k))},
      random_inputs=lambda rng: {"n": rng.randint(1, 300), "k": rng.randint(1, 300)},
-     templates=["How many ways can we choose 3 scoops from 5 flavours with repetition allowed?",
+     templates=["How many ways are there to choose 3 scoops from 5 flavours with repetition allowed?",
                 "How many multisets of size 4 from 6 types are there?"],
      examples=[{"inputs": {"n": 5, "k": 3}, "outputs": {"multisets": 35}}, {"inputs": {"n": 6, "k": 4}, "outputs": {"multisets": 126}},
                {"inputs": {"n": 1, "k": 7}, "outputs": {"multisets": 1}}],
-     questions=[{"q": "How many ways can we choose 3 scoops from 5 flavours with repetition allowed?", "outputs": {"multisets": 35}},
+     questions=[{"q": "How many ways are there to choose 3 scoops from 5 flavours with repetition allowed?", "outputs": {"multisets": 35}},
                 {"q": "How many multisets of size 4 from 6 types are there?", "outputs": {"multisets": 126}}])
 
 
@@ -2545,13 +2545,13 @@ _add("stirling2", name="Stirling numbers of the second kind", topic="combinatori
      wrong=lambda n, k: {"stirling2": math.comb(max(int(n) - 1, 0), max(int(k) - 1, 0)), "surjections": 0},
      random_inputs=lambda rng: (lambda n: {"n": n, "k": rng.randint(2, max(2, n - 1))})(rng.randint(4, 100)),
      templates=["Compute the Stirling number of the second kind S(7, 3).",
-                "In how many ways can we partition a set of 7 elements into 3 non-empty subsets?",
+                "How many ways are there to partition a set of 7 elements into 3 non-empty subsets?",
                 "How many onto functions are there from a 5-element set to a 3-element set?"],
      examples=[{"inputs": {"n": 7, "k": 3}, "outputs": {"stirling2": 301, "surjections": 1806}},
                {"inputs": {"n": 5, "k": 3}, "outputs": {"stirling2": 25, "surjections": 150}},
                {"inputs": {"n": 0, "k": 0}, "outputs": {"stirling2": 1}}, {"inputs": {"n": 3, "k": 5}, "outputs": {"stirling2": 0}}],
      questions=[{"q": "Compute the Stirling number of the second kind S(7, 3).", "outputs": {"stirling2": 301}},
-                {"q": "In how many ways can we partition a set of 7 elements into 3 non-empty subsets?", "outputs": {"stirling2": 301}},
+                {"q": "How many ways are there to partition a set of 7 elements into 3 non-empty subsets?", "outputs": {"stirling2": 301}},
                 {"q": "How many onto functions are there from a 5-element set to a 3-element set?", "outputs": {"surjections": 150}}])
 
 
@@ -2650,11 +2650,11 @@ _add("bell", name="Bell numbers", topic="combinatorics / set partitions",
      run=bell, verify=_v_bell, parse=parse_bell, reference=lambda n: {"bell": int(__import__("sympy").bell(n))},
      wrong=lambda n: {"bell": 2 ** max(int(n) - 1, 0)},
      random_inputs=lambda rng: {"n": rng.randint(4, 200)},
-     templates=["What is the 5th Bell number?", "In how many ways can we partition a set of 4 elements?"],
+     templates=["What is the 5th Bell number?", "How many ways are there to partition a set of 4 elements?"],
      examples=[{"inputs": {"n": 5}, "outputs": {"bell": 52}}, {"inputs": {"n": 0}, "outputs": {"bell": 1}},
                {"inputs": {"n": 10}, "outputs": {"bell": 115975}}],
      questions=[{"q": "What is the 5th Bell number?", "outputs": {"bell": 52}},
-                {"q": "In how many ways can we partition a set of 4 elements?", "outputs": {"bell": 15}}])
+                {"q": "How many ways are there to partition a set of 4 elements?", "outputs": {"bell": 15}}])
 
 
 def catalan(n):
@@ -2877,7 +2877,7 @@ def parse_ipart(q0):
     m = re.search(r"(?:number of )?(?:integer )?partitions of (?:the (?:integer|number) )?(\d+)|\bp\s*\(\s*(\d+)\s*\)", q)
     if m and (re.search(r"partition", q)):
         return {"n": int(_first(m.group(1), m.group(2)))}
-    m = re.search(r"ways (?:can|to) (?:we )?(?:write|express) (\d+) as a sum of positive integers", q)
+    m = re.search(r"ways (?:are there )?(?:can|to) (?:we |you )?(?:write|express) (\d+) as a sum of positive integers", q)
     return {"n": int(m.group(1))} if m else None
 
 
@@ -2895,7 +2895,7 @@ _add("integer_partitions", name="Integer partitions p(n)", topic="combinatorics 
                {"inputs": {"n": 0}, "outputs": {"partitions": 1}}],
      questions=[{"q": "How many partitions of 10 are there?", "outputs": {"partitions": 42}},
                 {"q": "Compute the number of integer partitions of 100.", "outputs": {"partitions": 190569292}},
-                {"q": "In how many ways can we write 5 as a sum of positive integers?", "outputs": {"partitions": 7}}])
+                {"q": "How many ways are there to write 5 as a sum of positive integers?", "outputs": {"partitions": 7}}])
 
 
 def partitions_k(n, k):
@@ -2957,11 +2957,11 @@ _add("partitions_k", name="Partitions into exactly k parts", topic="combinatoric
      run=partitions_k, verify=_v_pk, parse=parse_pk, reference=_ref_pk,
      wrong=lambda n, k: {"partitions": sum(partitions_k(n, j)["partitions"] for j in range(int(k) + 1))},
      random_inputs=lambda rng: (lambda n: {"n": n, "k": rng.randint(2, max(2, n - 1))})(rng.randint(4, 120)),
-     templates=["How many partitions of 10 into exactly 3 parts are there?", "In how many ways can we write 8 as a sum of exactly 4 positive integers?"],
+     templates=["How many partitions of 10 into exactly 3 parts are there?", "How many ways are there to write 8 as a sum of exactly 4 positive integers?"],
      examples=[{"inputs": {"n": 10, "k": 3}, "outputs": {"partitions": 8}}, {"inputs": {"n": 8, "k": 4}, "outputs": {"partitions": 5}},
                {"inputs": {"n": 5, "k": 7}, "outputs": {"partitions": 0}}],
      questions=[{"q": "How many partitions of 10 into exactly 3 parts are there?", "outputs": {"partitions": 8}},
-                {"q": "In how many ways can we write 8 as a sum of exactly 4 positive integers?", "outputs": {"partitions": 5}}])
+                {"q": "How many ways are there to write 8 as a sum of exactly 4 positive integers?", "outputs": {"partitions": 5}}])
 
 
 def partitions_distinct(n):
@@ -3008,11 +3008,11 @@ _add("partitions_distinct", name="Partitions into distinct parts", topic="combin
      run=partitions_distinct, verify=_v_pd, parse=parse_pd, reference=_ref_pd,
      wrong=lambda n: integer_partitions(n),
      random_inputs=lambda rng: {"n": rng.randint(3, 60)},
-     templates=["How many partitions of 10 into distinct parts are there?", "In how many ways can we write 15 as a sum of distinct positive integers?"],
+     templates=["How many partitions of 10 into distinct parts are there?", "How many ways are there to write 15 as a sum of distinct positive integers?"],
      examples=[{"inputs": {"n": 10}, "outputs": {"partitions": 10}}, {"inputs": {"n": 15}, "outputs": {"partitions": 27}},
                {"inputs": {"n": 0}, "outputs": {"partitions": 1}}],
      questions=[{"q": "How many partitions of 10 into distinct parts are there?", "outputs": {"partitions": 10}},
-                {"q": "In how many ways can we write 15 as a sum of distinct positive integers?", "outputs": {"partitions": 27}}])
+                {"q": "How many ways are there to write 15 as a sum of distinct positive integers?", "outputs": {"partitions": 27}}])
 
 def stars_and_bars(total, variables, lower=0, upper=None):
     n, k = _whole(total, "total", 0, 2000), _whole(variables, "variables", 1, 50)

@@ -2009,7 +2009,7 @@ discrete_math_ai999x.solve('permutations', n=7, k=0)
 | question | outcome | result |
 |---|---|---|
 | Compute P(10, 3). | SOLVED | permutations = 720 |
-| In how many ways can we arrange 3 books out of 10? | SOLVED | permutations = 720 |
+| How many ways are there to arrange 3 books out of 10? | SOLVED | permutations = 720 |
 | In how many ways can 5 people be arranged in a row? | SOLVED | permutations = 120 |
 | Compute P(3, 5). | INVALID_INPUT | Permutations P(n, k): k must not exceed n. |
 
@@ -2116,7 +2116,7 @@ discrete_math_ai999x.solve('multisets', n=1, k=7)
 
 | question | outcome | result |
 |---|---|---|
-| How many ways can we choose 3 scoops from 5 flavours with repetition allowed? | SOLVED | multisets = 35 |
+| How many ways are there to choose 3 scoops from 5 flavours with repetition allowed? | SOLVED | multisets = 35 |
 | How many multisets of size 4 from 6 types are there? | SOLVED | multisets = 126 |
 
 <a id="multinomial"></a>
@@ -2278,7 +2278,7 @@ discrete_math_ai999x.solve('stirling2', n=3, k=5)
 | question | outcome | result |
 |---|---|---|
 | Compute the Stirling number of the second kind S(7, 3). | SOLVED | stirling2 = 301, surjections = 1806 |
-| In how many ways can we partition a set of 7 elements into 3 non-empty subsets? | SOLVED | stirling2 = 301, surjections = 1806 |
+| How many ways are there to partition a set of 7 elements into 3 non-empty subsets? | SOLVED | stirling2 = 301, surjections = 1806 |
 | How many onto functions are there from a 5-element set to a 3-element set? | SOLVED | stirling2 = 25, surjections = 150 |
 
 <a id="stirling1"></a>
@@ -2377,7 +2377,7 @@ discrete_math_ai999x.solve('bell', n=10)
 | question | outcome | result |
 |---|---|---|
 | What is the 5th Bell number? | SOLVED | bell = 52 |
-| In how many ways can we partition a set of 4 elements? | SOLVED | bell = 15 |
+| How many ways are there to partition a set of 4 elements? | SOLVED | bell = 15 |
 
 <a id="catalan"></a>
 
@@ -2630,7 +2630,7 @@ discrete_math_ai999x.solve('integer_partitions', n=0)
 |---|---|---|
 | How many partitions of 10 are there? | SOLVED | partitions = 42 |
 | Compute the number of integer partitions of 100. | SOLVED | partitions = 1.90569e+08 |
-| In how many ways can we write 5 as a sum of positive integers? | SOLVED | partitions = 7 |
+| How many ways are there to write 5 as a sum of positive integers? | SOLVED | partitions = 7 |
 
 <a id="partitions_k"></a>
 
@@ -2683,7 +2683,7 @@ discrete_math_ai999x.solve('partitions_k', n=5, k=7)
 | question | outcome | result |
 |---|---|---|
 | How many partitions of 10 into exactly 3 parts are there? | SOLVED | partitions = 8 |
-| In how many ways can we write 8 as a sum of exactly 4 positive integers? | SOLVED | partitions = 5 |
+| How many ways are there to write 8 as a sum of exactly 4 positive integers? | SOLVED | partitions = 5 |
 
 <a id="partitions_distinct"></a>
 
@@ -2731,7 +2731,7 @@ discrete_math_ai999x.solve('partitions_distinct', n=0)
 | question | outcome | result |
 |---|---|---|
 | How many partitions of 10 into distinct parts are there? | SOLVED | partitions = 10 |
-| In how many ways can we write 15 as a sum of distinct positive integers? | SOLVED | partitions = 27 |
+| How many ways are there to write 15 as a sum of distinct positive integers? | SOLVED | partitions = 27 |
 
 <a id="stars_and_bars"></a>
 

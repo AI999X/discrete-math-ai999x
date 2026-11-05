@@ -621,7 +621,7 @@ result.show()
 <pre><code class="python">discrete_math_ai999x.solve(&#x27;permutations&#x27;, n=7, k=0)
 # -&gt; permutations = 1   (SOLVED)</code></pre>
 <p><strong>Questions in words (documented forms), as executed:</strong></p>
-<table><thead><tr><th>question</th><th>outcome</th><th>result</th></tr></thead><tbody><tr><td>Compute P(10, 3).</td><td>SOLVED</td><td>permutations = 720</td></tr><tr><td>In how many ways can we arrange 3 books out of 10?</td><td>SOLVED</td><td>permutations = 720</td></tr><tr><td>In how many ways can 5 people be arranged in a row?</td><td>SOLVED</td><td>permutations = 120</td></tr><tr><td>Compute P(3, 5).</td><td>INVALID_INPUT</td><td>Permutations P(n, k): k must not exceed n.</td></tr></tbody></table>
+<table><thead><tr><th>question</th><th>outcome</th><th>result</th></tr></thead><tbody><tr><td>Compute P(10, 3).</td><td>SOLVED</td><td>permutations = 720</td></tr><tr><td>How many ways are there to arrange 3 books out of 10?</td><td>SOLVED</td><td>permutations = 720</td></tr><tr><td>In how many ways can 5 people be arranged in a row?</td><td>SOLVED</td><td>permutations = 120</td></tr><tr><td>Compute P(3, 5).</td><td>INVALID_INPUT</td><td>Permutations P(n, k): k must not exceed n.</td></tr></tbody></table>
 <h3 id="sequences_with_repetition">Sequences with repetition (n^k) — <code>sequences_with_repetition</code></h3>
 <p>The number of length-k sequences over n symbols when symbols may repeat.</p>
 <div class="math">\[n^k\]</div>
@@ -657,7 +657,7 @@ result.show()
 <pre><code class="python">discrete_math_ai999x.solve(&#x27;multisets&#x27;, n=1, k=7)
 # -&gt; multisets = 1   (SOLVED)</code></pre>
 <p><strong>Questions in words (documented forms), as executed:</strong></p>
-<table><thead><tr><th>question</th><th>outcome</th><th>result</th></tr></thead><tbody><tr><td>How many ways can we choose 3 scoops from 5 flavours with repetition allowed?</td><td>SOLVED</td><td>multisets = 35</td></tr><tr><td>How many multisets of size 4 from 6 types are there?</td><td>SOLVED</td><td>multisets = 126</td></tr></tbody></table>
+<table><thead><tr><th>question</th><th>outcome</th><th>result</th></tr></thead><tbody><tr><td>How many ways are there to choose 3 scoops from 5 flavours with repetition allowed?</td><td>SOLVED</td><td>multisets = 35</td></tr><tr><td>How many multisets of size 4 from 6 types are there?</td><td>SOLVED</td><td>multisets = 126</td></tr></tbody></table>
 <h3 id="multinomial">Multinomial coefficient — <code>multinomial</code></h3>
 <p>n! / (k1! k2! ... km!): ways to split n distinct items into labelled groups of the given sizes.</p>
 <div class="math">\[\binom{n}{k_1,\dots,k_m} = \frac{n!}{k_1!\cdots k_m!}\]</div>
@@ -709,7 +709,7 @@ result.show()
 <pre><code class="python">discrete_math_ai999x.solve(&#x27;stirling2&#x27;, n=3, k=5)
 # -&gt; stirling2 = 0, surjections = 0   (SOLVED)</code></pre>
 <p><strong>Questions in words (documented forms), as executed:</strong></p>
-<table><thead><tr><th>question</th><th>outcome</th><th>result</th></tr></thead><tbody><tr><td>Compute the Stirling number of the second kind S(7, 3).</td><td>SOLVED</td><td>stirling2 = 301, surjections = 1806</td></tr><tr><td>In how many ways can we partition a set of 7 elements into 3 non-empty subsets?</td><td>SOLVED</td><td>stirling2 = 301, surjections = 1806</td></tr><tr><td>How many onto functions are there from a 5-element set to a 3-element set?</td><td>SOLVED</td><td>stirling2 = 25, surjections = 150</td></tr></tbody></table>
+<table><thead><tr><th>question</th><th>outcome</th><th>result</th></tr></thead><tbody><tr><td>Compute the Stirling number of the second kind S(7, 3).</td><td>SOLVED</td><td>stirling2 = 301, surjections = 1806</td></tr><tr><td>How many ways are there to partition a set of 7 elements into 3 non-empty subsets?</td><td>SOLVED</td><td>stirling2 = 301, surjections = 1806</td></tr><tr><td>How many onto functions are there from a 5-element set to a 3-element set?</td><td>SOLVED</td><td>stirling2 = 25, surjections = 150</td></tr></tbody></table>
 <h3 id="stirling1">Stirling numbers of the first kind — <code>stirling1</code></h3>
 <p>c(n, k): permutations of n elements with exactly k cycles (unsigned), and the signed s(n, k).</p>
 <div class="math">\[c(n,k) = (n-1)\,c(n-1,k) + c(n-1,k-1),\quad x^{\overline n} = \sum_k c(n,k)\,x^k\]</div>
@@ -741,7 +741,7 @@ result.show()
 <pre><code class="python">discrete_math_ai999x.solve(&#x27;bell&#x27;, n=10)
 # -&gt; bell = 115975   (SOLVED)</code></pre>
 <p><strong>Questions in words (documented forms), as executed:</strong></p>
-<table><thead><tr><th>question</th><th>outcome</th><th>result</th></tr></thead><tbody><tr><td>What is the 5th Bell number?</td><td>SOLVED</td><td>bell = 52</td></tr><tr><td>In how many ways can we partition a set of 4 elements?</td><td>SOLVED</td><td>bell = 15</td></tr></tbody></table>
+<table><thead><tr><th>question</th><th>outcome</th><th>result</th></tr></thead><tbody><tr><td>What is the 5th Bell number?</td><td>SOLVED</td><td>bell = 52</td></tr><tr><td>How many ways are there to partition a set of 4 elements?</td><td>SOLVED</td><td>bell = 15</td></tr></tbody></table>
 <h3 id="catalan">Catalan numbers — <code>catalan</code></h3>
 <p>C_n: balanced parenthesizations with n pairs, triangulations of an (n+2)-gon, full binary trees with $n+1$ leaves.</p>
 <div class="math">\[C_n = \frac{1}{n+1}\binom{2n}{n}\]</div>
@@ -825,7 +825,7 @@ result.show()
 <pre><code class="python">discrete_math_ai999x.solve(&#x27;integer_partitions&#x27;, n=0)
 # -&gt; partitions = 1   (SOLVED)</code></pre>
 <p><strong>Questions in words (documented forms), as executed:</strong></p>
-<table><thead><tr><th>question</th><th>outcome</th><th>result</th></tr></thead><tbody><tr><td>How many partitions of 10 are there?</td><td>SOLVED</td><td>partitions = 42</td></tr><tr><td>Compute the number of integer partitions of 100.</td><td>SOLVED</td><td>partitions = 1.90569e+08</td></tr><tr><td>In how many ways can we write 5 as a sum of positive integers?</td><td>SOLVED</td><td>partitions = 7</td></tr></tbody></table>
+<table><thead><tr><th>question</th><th>outcome</th><th>result</th></tr></thead><tbody><tr><td>How many partitions of 10 are there?</td><td>SOLVED</td><td>partitions = 42</td></tr><tr><td>Compute the number of integer partitions of 100.</td><td>SOLVED</td><td>partitions = 1.90569e+08</td></tr><tr><td>How many ways are there to write 5 as a sum of positive integers?</td><td>SOLVED</td><td>partitions = 7</td></tr></tbody></table>
 <h3 id="partitions_k">Partitions into exactly k parts — <code>partitions_k</code></h3>
 <p>p(n, k): the number of ways to write n as a sum of exactly k positive integers, order ignored.</p>
 <div class="math">\[p(n,k) = p(n-1,k-1) + p(n-k,k)\]</div>
@@ -843,7 +843,7 @@ result.show()
 <pre><code class="python">discrete_math_ai999x.solve(&#x27;partitions_k&#x27;, n=5, k=7)
 # -&gt; partitions = 0   (SOLVED)</code></pre>
 <p><strong>Questions in words (documented forms), as executed:</strong></p>
-<table><thead><tr><th>question</th><th>outcome</th><th>result</th></tr></thead><tbody><tr><td>How many partitions of 10 into exactly 3 parts are there?</td><td>SOLVED</td><td>partitions = 8</td></tr><tr><td>In how many ways can we write 8 as a sum of exactly 4 positive integers?</td><td>SOLVED</td><td>partitions = 5</td></tr></tbody></table>
+<table><thead><tr><th>question</th><th>outcome</th><th>result</th></tr></thead><tbody><tr><td>How many partitions of 10 into exactly 3 parts are there?</td><td>SOLVED</td><td>partitions = 8</td></tr><tr><td>How many ways are there to write 8 as a sum of exactly 4 positive integers?</td><td>SOLVED</td><td>partitions = 5</td></tr></tbody></table>
 <h3 id="partitions_distinct">Partitions into distinct parts — <code>partitions_distinct</code></h3>
 <p>q(n): the number of ways to write n as a sum of distinct positive integers (equal to partitions into odd parts).</p>
 <div class="math">\[\sum_n q(n) x^n = \prod_{k \ge 1} (1 + x^k) = \prod_{k \ge 1} \frac{1}{1 - x^{2k-1}}\]</div>
@@ -859,7 +859,7 @@ result.show()
 <pre><code class="python">discrete_math_ai999x.solve(&#x27;partitions_distinct&#x27;, n=0)
 # -&gt; partitions = 1   (SOLVED)</code></pre>
 <p><strong>Questions in words (documented forms), as executed:</strong></p>
-<table><thead><tr><th>question</th><th>outcome</th><th>result</th></tr></thead><tbody><tr><td>How many partitions of 10 into distinct parts are there?</td><td>SOLVED</td><td>partitions = 10</td></tr><tr><td>In how many ways can we write 15 as a sum of distinct positive integers?</td><td>SOLVED</td><td>partitions = 27</td></tr></tbody></table>
+<table><thead><tr><th>question</th><th>outcome</th><th>result</th></tr></thead><tbody><tr><td>How many partitions of 10 into distinct parts are there?</td><td>SOLVED</td><td>partitions = 10</td></tr><tr><td>How many ways are there to write 15 as a sum of distinct positive integers?</td><td>SOLVED</td><td>partitions = 27</td></tr></tbody></table>
 <h3 id="stars_and_bars">Integer solutions of x1 + ... + xk = n (stars and bars) — <code>stars_and_bars</code></h3>
 <p>How many integer solutions $x_{1} + ... + xk = n$ have every xi between a lower and an optional upper bound (identical objects into distinct boxes).</p>
 <div class="math">\[\#\{x_i \ge 0, \textstyle\sum x_i = n\} = \binom{n+k-1}{k-1},\quad \sum_j (-1)^j \binom{k}{j}\binom{n - j(c+1) + k-1}{k-1}\]</div>
