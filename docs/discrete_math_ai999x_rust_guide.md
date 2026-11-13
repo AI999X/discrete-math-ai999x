@@ -1,8 +1,8 @@
 # discrete-math: the Discrete Math program, user guide
 
-**discrete-math-ai999x 1.1.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
+**discrete-math-ai999x 1.6.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
-Discrete Math covers number theory, modular arithmetic, combinatorics, graph theory and network algorithms, logic and the mathematics of cryptography. This guide is about `discrete-math`, the model as a self-contained program for Windows and Linux: 99 capabilities in 7 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/discrete-math-ai999x/); the Python package (`pip install discrete-math-ai999x`) has its own guide. Every command output printed here is what the program printed.
+Discrete Math covers number theory, modular arithmetic, combinatorics, graph theory and network algorithms, logic and the mathematics of cryptography. This guide is about `discrete-math`, the model as a self-contained program for Windows and Linux: 103 capabilities in 9 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/discrete-math-ai999x/); the Python package (`pip install discrete-math-ai999x`) has its own guide. Every command output printed here is what the program printed.
 
 ## Contents
 
@@ -17,37 +17,37 @@ Discrete Math covers number theory, modular arithmetic, combinatorics, graph the
 
 ## 1. Get it
 
-Version 1.5.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
+Version 1.6.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
 
 | what | system | download |
 |---|---|---|
-| Desktop app: Discrete Math | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-discrete-math-1.5.0-windows-x86_64.zip |
-| Desktop app: Discrete Math | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-discrete-math-1.5.0-linux-x86_64.tar.gz |
-| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip |
-| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz |
-| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip |
-| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz |
+| Desktop app: Discrete Math | Windows x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-discrete-math-1.6.0-windows-x86_64.zip |
+| Desktop app: Discrete Math | Linux x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-discrete-math-1.6.0-linux-x86_64.tar.gz |
+| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-windows-x86_64.zip |
+| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz |
+| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-windows-x86_64.zip |
+| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz |
 
 ### Desktop app
 
-Discrete Math in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-discrete-math-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-discrete-math.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+Discrete Math in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-discrete-math-1.6.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-discrete-math.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-discrete-math-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-discrete-math-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-discrete-math-1.5.0-linux-x86_64.tar.gz
-./ai999x-discrete-math-1.5.0-linux-x86_64/ai999x-discrete-math
+tar xzf ai999x-discrete-math-1.6.0-linux-x86_64.tar.gz
+./ai999x-discrete-math-1.6.0-linux-x86_64/ai999x-discrete-math
 ```
 
-It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.6.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
-./ai999x-1.5.0-linux-x86_64/ai999x
+tar xzf ai999x-1.6.0-linux-x86_64.tar.gz
+./ai999x-1.6.0-linux-x86_64/ai999x
 ```
 
 ### Command line: Linux
@@ -55,11 +55,11 @@ tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
 The bundle holds one program per model; `discrete-math` is this one. The checksum line should print OK.
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.6.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.6.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 discrete-math --version
 ```
 
@@ -68,12 +68,12 @@ discrete-math --version
 The fourth line should print True.
 
 ```powershell
-$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.6.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.6.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 discrete-math --version
 ```
@@ -96,7 +96,7 @@ Prints the model, its version and that this is the Rust build.
 
 ```shell
 $ discrete-math --version
-discrete-math-ai999x 1.5.0 (Rust build, ax-engine 1.5.0)
+discrete-math-ai999x 1.6.0 (Rust build, ax-engine 1.6.0)
 ```
 
 ### 2.2 Ask in words
@@ -135,14 +135,14 @@ Every capability the program answers: its id (what you pass to solve) and its na
 ```shell
 $ discrete-math list
 affine_cipher                            Affine cipher
+apportionment                            Apportionment: Hamilton, Jefferson, Webster, Adams and Huntington-Hill
 articulation_points                      Articulation points (cut vertices)
 base_convert                             Base (radix) conversion
 bell                                     Bell numbers
 bernoulli                                Bernoulli numbers
 bfs_order                                Breadth-first search order
 binomial_term                            Coefficient in a binomial expansion
-bipartite                                Bipartiteness test
-… 91 more
+… 95 more
 ```
 
 ### 2.5 What a capability needs
@@ -3162,5 +3162,175 @@ prime = 541
 ```
 
 **What the worked example means:** This calculation identifies the specific prime number located at position 100 in the sequence of all primes. It uses the Sieve of Eratosthenes, limiting the search space to the Rosser bound, which guarantees that the 100-th prime is less than 100 times the sum of the natural logarithm of 100 and the natural logarithm of the natural logarithm of 100. The result, 541, is the exact integer value of that prime.
+
+### Sets (2)
+
+<a id="venn_three_sets"></a>
+
+#### Venn diagram with three sets (inclusion-exclusion), `venn_three_sets`
+
+The counts of every region of a three-set Venn diagram from n(A), n(B), n(C), the pairwise intersections, n(A and B and C) and, optionally, n(U): the union, each 'only' region, exactly one, exactly two and none.
+
+$$
+n(A\cup B\cup C) = n(A)+n(B)+n(C) - n(A\cap B) - n(A\cap C) - n(B\cap C) + n(A\cap B\cap C)
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `a` | in | n(A) | - |
+| `b` | in | n(B) | - |
+| `c` | in | n(C) | - |
+| `ab` | in | n(A and B) | - |
+| `ac` | in | n(A and C) | - |
+| `bc` | in | n(B and C) | - |
+| `abc` | in | n(A and B and C) | - |
+| `universe` | in | n(U), the size of the universal set (needed for 'none') (optional) | - |
+| `union` | out | n(A or B or C) | - |
+| `only_a` | out | in A only | - |
+| `only_b` | out | in B only | - |
+| `only_c` | out | in C only | - |
+| `only_a_and_b` | out | in A and B but not C | - |
+| `only_a_and_c` | out | in A and C but not B | - |
+| `only_b_and_c` | out | in B and C but not A | - |
+| `exactly_one` | out | in exactly one set | - |
+| `exactly_two` | out | in exactly two sets | - |
+| `none` | out | in no set (needs n(U)) | - |
+
+**Applies when:** every region count >= 0 (the counts are consistent); n(U) >= n(A or B or C).
+
+```shell
+$ discrete-math solve venn_three_sets a=30 b=25 c=20 ab=10 ac=8 bc=5 abc=3 universe=60
+union = 55
+only_a = 15
+only_b = 13
+only_c = 10
+only_a_and_b = 7
+only_a_and_c = 5
+only_b_and_c = 2
+exactly_one = 38
+exactly_two = 14
+none = 5
+  by: Venn diagram with three sets (inclusion-exclusion)  (regions from the centre outwards: A and B only = n(A and B) - n(A and B and C); A only = n(A) - n(A and B) - n(A and C) + n(A and B and C); inclusion-exclusion for the union)
+  assumes: every region count >= 0 (the counts are consistent); n(U) >= n(A or B or C)
+```
+
+In the worked example, a = 30, b = 25, c = 20, ab = 10, ac = 8, bc = 5, abc = 3, universe = 60 go through the equation above and give union = 55, only_a = 15, only_b = 13, only_c = 10. It applies only when every region count >= 0 (the counts are consistent); n(U) >= n(A or B or C): outside that it says what is wrong instead of returning a number.
+
+<a id="venn_two_sets"></a>
+
+#### Venn diagram with two sets (inclusion-exclusion), `venn_two_sets`
+
+The counts of every region of a two-set Venn diagram from n(A), n(B), n(A and B) and, optionally, n(U): n(A or B), only A, only B and neither.
+
+$$
+n(A \cup B) = n(A) + n(B) - n(A \cap B)
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `a` | in | n(A) | - |
+| `b` | in | n(B) | - |
+| `both` | in | n(A and B) | - |
+| `universe` | in | n(U), the size of the universal set (needed for 'neither') (optional) | - |
+| `union` | out | n(A or B) | - |
+| `only_a` | out | in A only | - |
+| `only_b` | out | in B only | - |
+| `neither` | out | in neither set (needs n(U)) | - |
+
+**Applies when:** n(A and B) <= n(A), n(B); n(U) >= n(A or B).
+
+```shell
+$ discrete-math solve venn_two_sets a=45 b=60 both=20 universe=100
+union = 85
+only_a = 25
+only_b = 40
+neither = 15
+  by: Venn diagram with two sets (inclusion-exclusion)  (inclusion-exclusion: n(A or B) = n(A) + n(B) - n(A and B); only A = n(A) - n(A and B); neither = n(U) - n(A or B))
+  assumes: n(A and B) <= n(A), n(B); n(U) >= n(A or B)
+```
+
+In the worked example, a = 45, b = 60, both = 20, universe = 100 go through the equation above and give union = 85, only_a = 25, only_b = 40, neither = 15. It applies only when n(A and B) <= n(A), n(B); n(U) >= n(A or B): outside that it says what is wrong instead of returning a number.
+
+### Voting and apportionment (2)
+
+<a id="apportionment"></a>
+
+#### Apportionment: Hamilton, Jefferson, Webster, Adams and Huntington-Hill, `apportionment`
+
+Seats for each state from the populations and the number of seats, by Hamilton's method (largest remainders) or the divisor methods of Jefferson, Webster, Adams or Huntington-Hill, with the standard divisor and the standard quotas.
+
+$$
+d = \frac{P}{h},\quad q_i = \frac{p_i}{d},\qquad \text{divisor methods: } \sum_i \operatorname{round}\!\left(\frac{p_i}{d'}\right) = h
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `populations` | in | the populations of the states, in order (whole numbers) | - |
+| `seats` | in | the number of seats | - |
+| `method` | in | the apportionment method | - |
+| `seats` | out | seats of each state, in the order given | - |
+| `standard_divisor` | out | total population / seats | - |
+| `quotas` | out | standard quotas (population / standard divisor) | - |
+| `total_seats` | out | seats apportioned | - |
+
+**Applies when:** populations are whole numbers >= 1; Adams and Huntington-Hill: at least as many seats as states; a tie for the last seat is refused (the method does not decide it).
+
+```shell
+$ discrete-math solve apportionment method=jefferson seats=10 "populations=[2400, 3300, 4300]"
+seats = [2,3,5]
+standard_divisor = 1000
+quotas = [2.4,3.3,4.3]
+total_seats = 10
+  by: Apportionment: Hamilton, Jefferson, Webster, Adams and Huntington-Hill  (Hamilton: floor of each quota, the leftover seats to the largest remainders; divisor methods: one divisor for which the rounded quotas add up to the seats (down: Jefferson, nearest: Webster, up: Adams, at the geometric mean sqrt(n(n+1)): Huntington-Hill), found as the seats of highest value p / b(k))
+  method = jefferson
+  assumes: populations are whole numbers >= 1; Adams and Huntington-Hill: at least as many seats as states; a tie for the last seat is refused (the method does not decide it)
+```
+
+In the worked example, method = jefferson, seats = 10, populations = [2400, 3300, 4300] go through the equation above and give seats = [2, 3, 5], standard_divisor = 1000, quotas = [2.4, 3.3, 4.3], total_seats = 10. It applies only when populations are whole numbers >= 1; Adams and Huntington-Hill: at least as many seats as states; a tie for the last seat is refused (the method does not decide it): outside that it says what is wrong instead of returning a number.
+
+<a id="voting_methods"></a>
+
+#### Voting methods: plurality, Borda count, instant runoff, pairwise comparisons, `voting_methods`
+
+The winner of an election from its preference schedule under plurality, the Borda count, instant runoff (plurality with elimination) and the method of pairwise comparisons, and the Condorcet winner if there is one, with the tallies behind them.
+
+$$
+B(x) = \sum_{\text{ballots}} \big(n + 1 - \operatorname{rank}(x)\big),\qquad x \text{ beats } y \iff \#\{x \succ y\} > \#\{y \succ x\}
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `ballots` | in | the preference schedule: 'count: A > B > C' groups separated by semicolons | - |
+| `plurality_winner` | out | plurality winner | - |
+| `borda_winner` | out | Borda count winner | - |
+| `runoff_winner` | out | instant runoff winner | - |
+| `pairwise_winner` | out | winner by pairwise comparisons | - |
+| `condorcet_winner` | out | the Condorcet winner (beats every rival head to head), or none | - |
+| `candidates` | out | the candidates, alphabetically (the order of the lists below) | - |
+| `voters` | out | the number of voters | - |
+| `first_place_votes` | out | first-place votes of each candidate | - |
+| `borda_points` | out | Borda points of each candidate | - |
+| `pairwise_points` | out | points from pairwise comparisons (1 per win, 1/2 per tie) | - |
+
+**Applies when:** every ballot ranks all the candidates, each once; 2 to 12 candidates; voter counts are whole numbers >= 1; ties are reported (tie: A, B), an instant-runoff tie for elimination as undecided.
+
+```shell
+$ discrete-math solve voting_methods "ballots=14: A > B > C; 10: C > B > A; 8: B > C > A"
+plurality_winner = A
+borda_winner = B
+runoff_winner = C
+pairwise_winner = B
+condorcet_winner = B
+candidates = A, B, C
+voters = 32
+first_place_votes = [14,8,10]
+borda_points = [60,72,60]
+pairwise_points = [0.0,2.0,1.0]
+  by: Voting methods: plurality, Borda count, instant runoff, pairwise comparisons  (plurality: most first places; Borda: n points for first down to 1 for last; instant runoff: eliminate the fewest first places until a majority; pairwise: every head-to-head contest, 1 point per win, 1/2 per tie; Condorcet: wins every contest)
+  ballots = 14: A > B > C; 10: C > B > A; 8: B > C > A
+  assumes: every ballot ranks all the candidates, each once; 2 to 12 candidates; voter counts are whole numbers >= 1; ties are reported (tie: A, B), an instant-runoff tie for elimination as undecided
+```
+
+In the worked example, ballots = 14: A > B > C; 10: C > B > A; 8: B > C > A go through the equation above and give plurality_winner = A, borda_winner = B, runoff_winner = C, pairwise_winner = B. It applies only when every ballot ranks all the candidates, each once; 2 to 12 candidates; voter counts are whole numbers >= 1; ties are reported (tie: A, B), an instant-runoff tie for elimination as undecided: outside that it says what is wrong instead of returning a number.
 
 Questions and reports: support@ai999x.com. AI999X, The Future Is Self-Improving.

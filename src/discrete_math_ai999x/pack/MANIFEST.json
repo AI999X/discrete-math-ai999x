@@ -1,5 +1,5 @@
 {
- "package": "1.5.0",
+ "package": "1.6.0",
  "pack": "1.0.0",
  "knowledge_db": null,
  "files": {
@@ -7,8 +7,8 @@
   "dictionary/terms.json": "b2d8da1d78769f517c23c6ea61c20fc6a48166102bca0adc66f36fb5f54d905d",
   "knowledge/relations.json": "751b14aae2ef0611959765da67120612bfc41016ef97c3d02f405dc2a412212a",
   "knowledge/reference_cases.json": "7414a14e2c4202a7fae8cdd14e1a2ef7267f35a9665b0633001349c698d4e4e7",
-  "capabilities/procedures.py": "5ff83568b80218c5af64086ae33038142d957d0cd775ba74cefce82690a01975",
-  "capabilities/procedures_certified.json": "b2841e3130ea0c7adaf326afec368a4d39ed55a7a2ae89c59f5435b824137059",
+  "capabilities/procedures.py": "fe8dc96bdc08120ea1eae01d99228504372bb23dfda06e78f8b4bb262a6a6187",
+  "capabilities/procedures_certified.json": "af96c0e970be56b67da79e73019cb5f37fae7c3d213eac2e97733ae69ac96720",
   "discrete_math_knowledge_public.sqlite": "24c4f565d7013887742fce07dcb3e88602d893669c90f84979bcec40f38cdebc"
  },
  "engine": [

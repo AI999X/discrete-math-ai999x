@@ -67,6 +67,9 @@ result.show()
 | Number theory / quadratic residues | [Legendre symbol](#legendre_symbol), [Jacobi symbol](#jacobi_symbol), [Square roots modulo a prime](#sqrt_mod) |
 | Number theory / squares | [Integer square root and perfect squares](#integer_sqrt) |
 | Number theory / sums of squares | [Sums of two squares](#two_squares) |
+| Sets / Venn diagrams | [Venn diagram with two sets (inclusion-exclusion)](#venn_two_sets), [Venn diagram with three sets (inclusion-exclusion)](#venn_three_sets) |
+| Voting and apportionment / apportionment | [Apportionment: Hamilton, Jefferson, Webster, Adams and Huntington-Hill](#apportionment) |
+| Voting and apportionment / voting methods | [Voting methods: plurality, Borda count, instant runoff, pairwise comparisons](#voting_methods) |
 
 ## Outcomes
 
@@ -205,6 +208,10 @@ Call `solve("<id>", **inputs)` with plain numbers; the result's `values` holds e
 | caesar_cipher | Caesar (shift) cipher | message, shift, mode | result |
 | affine_cipher | Affine cipher | message, a, b, mode | result |
 | vigenere_cipher | Vigenère cipher | message, key, mode | result |
+| venn_two_sets | Venn diagram with two sets (inclusion-exclusion) | a, b, both, universe | union, only_a, only_b, neither |
+| venn_three_sets | Venn diagram with three sets (inclusion-exclusion) | a, b, c, ab, ac, bc, abc, universe | union, only_a, only_b, only_c, only_a_and_b, only_a_and_c, only_b_and_c, exactly_one, exactly_two, none |
+| voting_methods | Voting methods: plurality, Borda count, instant runoff, pairwise comparisons | ballots | plurality_winner, borda_winner, runoff_winner, pairwise_winner, condorcet_winner, candidates, voters, first_place_votes, borda_points, pairwise_points |
+| apportionment | Apportionment: Hamilton, Jefferson, Webster, Adams and Huntington-Hill | populations, seats, method | seats, standard_divisor, quotas, total_seats |
 
 <a id="gcd_lcm"></a>
 
@@ -5224,3 +5231,251 @@ discrete_math_ai999x.solve('vigenere_cipher', message='LXFOPVEFRNHR', key='lemon
 |---|---|---|
 | Encrypt "ATTACK AT DAWN" with the Vigenère cipher and key LEMON. | SOLVED | result = LXFOPVEFRNHR |
 | Decrypt "LXFOPVEFRNHR" with the Vigenere cipher and key LEMON. | SOLVED | result = ATTACKATDAWN |
+
+<a id="venn_two_sets"></a>
+
+### Venn diagram with two sets (inclusion-exclusion), `venn_two_sets`
+
+The counts of every region of a two-set Venn diagram from n(A), n(B), n(A and B) and, optionally, n(U): n(A or B), only A, only B and neither.
+
+$$
+n(A \cup B) = n(A) + n(B) - n(A \cap B)
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `a` | n(A) |  |
+| `b` | n(B) |  |
+| `both` | n(A and B) |  |
+| `universe` | n(U), the size of the universal set (needed for 'neither') |  |
+
+| output | meaning |
+|---|---|
+| `union` | n(A or B) |
+| `only_a` | in A only |
+| `only_b` | in B only |
+| `neither` | in neither set (needs n(U)) |
+
+- **Method:** inclusion-exclusion: n(A or B) = n(A) + n(B) - n(A and B); only $A = n$(A) - n(A and B); neither = n(U) - n(A or B)
+- **Assumes:** n(A and B) <= n(A), n(B); n(U) >= n(A or B)
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![union (n(A or B)) against b (n(B)) from 1 to 120 on a logarithmic axis](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/venn-two-sets-curve)
+
+*union (n(A or B)) against b (n(B)) from 1 to 120 on a logarithmic axis. One curve for each value of both (n(A and B)): 20, 10. Other inputs as in the worked example: a = 45, universe = 100. 10 points per curve computed by discrete-math-ai999x; marked: the worked example, b = 60, union = 85.*
+
+```python
+discrete_math_ai999x.solve('venn_two_sets', a=45, b=60, both=20, universe=100)
+# -> union = 85, only_a = 25, only_b = 40, neither = 15   (SOLVED)
+```
+
+```python
+discrete_math_ai999x.solve('venn_two_sets', a=12, b=9, both=4)
+# -> union = 17, only_a = 8, only_b = 5, neither = none   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Venn diagram: n(A) = 45, n(B) = 60, n(A and B) = 20, n(U) = 100. Find the count of every region. | SOLVED | union = 85, only_a = 25, only_b = 40, neither = 15 |
+| In a Venn diagram n(A) = 12, n(B) = 9 and n(A ∩ B) = 4. How many elements are in A or B? | SOLVED | union = 17, only_a = 8, only_b = 5, neither = none |
+| Venn diagram: n(A) = 45, n(B) = 60, n(A and B) = 50. Find the count of every region. | INVALID_INPUT | Venn diagram with two sets (inclusion-exclusion): n(A and B) cannot exceed n(A) or n(B). |
+
+<a id="venn_three_sets"></a>
+
+### Venn diagram with three sets (inclusion-exclusion), `venn_three_sets`
+
+The counts of every region of a three-set Venn diagram from n(A), n(B), n(C), the pairwise intersections, n(A and B and C) and, optionally, n(U): the union, each 'only' region, exactly one, exactly two and none.
+
+$$
+n(A\cup B\cup C) = n(A)+n(B)+n(C) - n(A\cap B) - n(A\cap C) - n(B\cap C) + n(A\cap B\cap C)
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `a` | n(A) |  |
+| `b` | n(B) |  |
+| `c` | n(C) |  |
+| `ab` | n(A and B) |  |
+| `ac` | n(A and C) |  |
+| `bc` | n(B and C) |  |
+| `abc` | n(A and B and C) |  |
+| `universe` | n(U), the size of the universal set (needed for 'none') |  |
+
+| output | meaning |
+|---|---|
+| `union` | n(A or B or C) |
+| `only_a` | in A only |
+| `only_b` | in B only |
+| `only_c` | in C only |
+| `only_a_and_b` | in A and B but not C |
+| `only_a_and_c` | in A and C but not B |
+| `only_b_and_c` | in B and C but not A |
+| `exactly_one` | in exactly one set |
+| `exactly_two` | in exactly two sets |
+| `none` | in no set (needs n(U)) |
+
+- **Method:** regions from the centre outwards: A and B only = n(A and B) - n(A and B and C); A only = n(A) - n(A and B) - n(A and C) + n(A and B and C); inclusion-exclusion for the union
+- **Assumes:** every region count >= 0 (the counts are consistent); n(U) >= n(A or B or C)
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![union (n(A or B or C)) against a (n(A)) from 1 to 60 on a logarithmic axis](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/venn-three-sets-curve)
+
+*union (n(A or B or C)) against a (n(A)) from 1 to 60 on a logarithmic axis. One curve for each value of c (n(C)): 20, 10. Other inputs as in the worked example: b = 25, ab = 10, ac = 8, bc = 5, abc = 3, universe = 60. 7 points per curve computed by discrete-math-ai999x; marked: the worked example, a = 30, union = 55.*
+
+```python
+discrete_math_ai999x.solve('venn_three_sets', a=30, b=25, c=20, ab=10, ac=8, bc=5, abc=3, universe=60)
+# -> union = 55, only_a = 15, only_b = 13, only_c = 10, only_a_and_b = 7, only_a_and_c = 5, only_b_and_c = 2, exactly_one = 38, exactly_two = 14, none = 5   (SOLVED)
+```
+
+```python
+discrete_math_ai999x.solve('venn_three_sets', a=21, b=18, c=15, ab=7, ac=6, bc=5, abc=2, universe=50)
+# -> union = 38, only_a = 10, only_b = 8, only_c = 6, only_a_and_b = 5, only_a_and_c = 4, only_b_and_c = 3, exactly_one = 24, exactly_two = 12, none = 12   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Venn diagram: n(A) = 30, n(B) = 25, n(C) = 20, n(A and B) = 10, n(A and C) = 8, n(B and C) = 5, n(A and B and C) = 3, n(U) = 60. Find the count of every region. | SOLVED | union = 55, only_a = 15, only_b = 13, only_c = 10, only_a_and_b = 7, only_a_and_c = 5, only_b_and_c = 2, exactly_one = 38, exactly_two = 14, none = 5 |
+| In a Venn diagram n(A) = 21, n(B) = 18, n(C) = 15, n(A ∩ B) = 7, n(A ∩ C) = 6, n(B ∩ C) = 5 and n(A ∩ B ∩ C) = 2. How many elements are in exactly one set? | SOLVED | union = 38, only_a = 10, only_b = 8, only_c = 6, only_a_and_b = 5, only_a_and_c = 4, only_b_and_c = 3, exactly_one = 24, exactly_two = 12, none = none |
+| Venn diagram: n(A) = 30, n(B) = 25, n(C) = 20, n(A and B) = 10, n(A and C) = 8, n(B and C) = 5, n(A and B and C) = 12. Find the count of every region. | INVALID_INPUT | Venn diagram with three sets (inclusion-exclusion): the counts are inconsistent: a region of the diagram would have a ne |
+
+<a id="voting_methods"></a>
+
+### Voting methods: plurality, Borda count, instant runoff, pairwise comparisons, `voting_methods`
+
+The winner of an election from its preference schedule under plurality, the Borda count, instant runoff (plurality with elimination) and the method of pairwise comparisons, and the Condorcet winner if there is one, with the tallies behind them.
+
+$$
+B(x) = \sum_{\text{ballots}} \big(n + 1 - \operatorname{rank}(x)\big),\qquad x \text{ beats } y \iff \#\{x \succ y\} > \#\{y \succ x\}
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `ballots` | the preference schedule: 'count: $A > B > C$' groups separated by semicolons |  |
+
+| output | meaning |
+|---|---|
+| `plurality_winner` | plurality winner |
+| `borda_winner` | Borda count winner |
+| `runoff_winner` | instant runoff winner |
+| `pairwise_winner` | winner by pairwise comparisons |
+| `condorcet_winner` | the Condorcet winner (beats every rival head to head), or none |
+| `candidates` | the candidates, alphabetically (the order of the lists below) |
+| `voters` | the number of voters |
+| `first_place_votes` | first-place votes of each candidate |
+| `borda_points` | Borda points of each candidate |
+| `pairwise_points` | points from pairwise comparisons (1 per win, $1/2$ per tie) |
+
+- **Method:** plurality: most first places; Borda: n points for first down to 1 for last; instant runoff: eliminate the fewest first places until a majority; pairwise: every head-to-head contest, 1 point per win, $1/2$ per tie; Condorcet: wins every contest
+- **Assumes:** every ballot ranks all the candidates, each once; 2 to 12 candidates; voter counts are whole numbers >= 1; ties are reported (tie: A, B), an instant-runoff tie for elimination as undecided
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![first-place votes of each candidate (first_place_votes) returned by discrete-math-ai999x for the worked example, one value for each position in the list (3 values, first 14, last 10, largest 14); with borda_points (Borda points of each candidate), pairwise_points (points from pairwise comparisons (1 per win, 1/2 per tie))](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/voting-methods-series)
+
+*first-place votes of each candidate (first_place_votes) returned by discrete-math-ai999x for the worked example, one value for each position in the list (3 values, first 14, last 10, largest 14); with borda_points (Borda points of each candidate), pairwise_points (points from pairwise comparisons (1 per win, 1/2 per tie)). Inputs: ballots = 14: A > B > C; 10: C > B > A; 8: B > C > A.*
+
+```python
+discrete_math_ai999x.solve('voting_methods', ballots='14: A > B > C; 10: C > B > A; 8: B > C > A')
+# -> plurality_winner = A, borda_winner = B, runoff_winner = C, pairwise_winner = B, condorcet_winner = B, candidates = A, B, C, voters = 32, first_place_votes = [14, 8, 10], borda_points = [60, 72, 60], pairwise_points = [0.0, 2.0, 1.0]   (SOLVED)
+```
+
+```python
+discrete_math_ai999x.solve('voting_methods', ballots='6: A > B; 6: B > A')
+# -> plurality_winner = tie: A, B, borda_winner = tie: A, B, runoff_winner = tie: A, B, pairwise_winner = tie: A, B, condorcet_winner = none, candidates = A, B, voters = 12, first_place_votes = [6, 6], borda_points = [18, 18], pairwise_points = [0.5, 0.5]   (SOLVED)
+```
+
+```python
+discrete_math_ai999x.solve('voting_methods', ballots='1: A > B > C; 1: B > C > A; 1: C > A > B')
+# -> plurality_winner = tie: A, B, C, borda_winner = tie: A, B, C, runoff_winner = undecided: tie for elimination between A, B, C, pairwise_winner = tie: A, B, C, condorcet_winner = none, candidates = A, B, C, voters = 3, first_place_votes = [1, 1, 1], borda_points = [6, 6, 6], pairwise_points = [1.0, 1.0, 1.0]   (SOLVED)
+```
+
+```python
+discrete_math_ai999x.solve('voting_methods', ballots='5: A > B > C; 4: B > C > A; 3: C > B > A')
+# -> plurality_winner = A, borda_winner = B, runoff_winner = B, pairwise_winner = B, condorcet_winner = B, candidates = A, B, C, voters = 12, first_place_votes = [5, 4, 3], borda_points = [22, 28, 22], pairwise_points = [0.0, 2.0, 1.0]   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Find the winners by plurality, Borda count, instant runoff and pairwise comparisons for the preference schedule 14: A > B > C; 10: C > B > A; 8: B > C > A. | SOLVED | plurality_winner = A, borda_winner = B, runoff_winner = C, pairwise_winner = B, condorcet_winner = B, candidates = A, B, C, voters = 32, first_place_votes = [14, 8, 10], borda_points = [60, 72, 60], pairwise_points = [0.0, 2.0, 1.0] |
+| Who wins by instant runoff with the ballots 5: A > B > C; 4: B > C > A; 3: C > B > A? | SOLVED | plurality_winner = A, borda_winner = B, runoff_winner = B, pairwise_winner = B, condorcet_winner = B, candidates = A, B, C, voters = 12, first_place_votes = [5, 4, 3], borda_points = [22, 28, 22], pairwise_points = [0.0, 2.0, 1.0] |
+| Find the Borda count winner for the preference schedule 4: A > B > C; 3: A > B. | INVALID_INPUT | Voting methods: plurality, Borda count, instant runoff, pairwise comparisons: every ballot must rank all the candidates, |
+
+<a id="apportionment"></a>
+
+### Apportionment: Hamilton, Jefferson, Webster, Adams and Huntington-Hill, `apportionment`
+
+Seats for each state from the populations and the number of seats, by Hamilton's method (largest remainders) or the divisor methods of Jefferson, Webster, Adams or Huntington-Hill, with the standard divisor and the standard quotas.
+
+$$
+d = \frac{P}{h},\quad q_i = \frac{p_i}{d},\qquad \text{divisor methods: } \sum_i \operatorname{round}\!\left(\frac{p_i}{d'}\right) = h
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `populations` | the populations of the states, in order (whole numbers) |  |
+| `seats` | the number of seats |  |
+| `method` | the apportionment method |  |
+
+| output | meaning |
+|---|---|
+| `seats` | seats of each state, in the order given |
+| `standard_divisor` | total population / seats |
+| `quotas` | standard quotas (population / standard divisor) |
+| `total_seats` | seats apportioned |
+
+- **Method:** Hamilton: floor of each quota, the leftover seats to the largest remainders; divisor methods: one divisor for which the rounded quotas add up to the seats (down: Jefferson, nearest: Webster, up: Adams, at the geometric mean sqrt(n(n+1)): Huntington-Hill), found as the seats of highest value p / b(k)
+- **Assumes:** populations are whole numbers >= 1; Adams and Huntington-Hill: at least as many seats as states; a tie for the last seat is refused (the method does not decide it)
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![seats of each state, in the order given (seats) returned by discrete-math-ai999x for the worked example, one value for each populations (the populations of the states, in order (whole numbers)) (3 values, first 2, last 5, largest 5); with quotas (standard quotas (population / standard divisor))](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/apportionment-series)
+
+*seats of each state, in the order given (seats) returned by discrete-math-ai999x for the worked example, one value for each populations (the populations of the states, in order (whole numbers)) (3 values, first 2, last 5, largest 5); with quotas (standard quotas (population / standard divisor)). Inputs: populations = 2400, 3300, 4300, seats = 10, method = jefferson.*
+
+![standard_divisor (total population / seats) against seats (the number of seats) from 1 to 20](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/apportionment-curve)
+
+*standard_divisor (total population / seats) against seats (the number of seats) from 1 to 20. Other inputs as in the worked example: populations = 2400, 3300, 4300, method = jefferson. 20 points computed by discrete-math-ai999x; marked: the worked example, seats = 10, standard_divisor = 1000.*
+
+```python
+discrete_math_ai999x.solve('apportionment', populations='2400, 3300, 4300', seats=10, method='jefferson')
+# -> seats = [2, 3, 5], standard_divisor = 1000, quotas = [2.4, 3.3, 4.3], total_seats = 10   (SOLVED)
+```
+
+```python
+discrete_math_ai999x.solve('apportionment', populations='2400, 3300, 4300', seats=10, method='hamilton')
+# -> seats = [3, 3, 4], standard_divisor = 1000, quotas = [2.4, 3.3, 4.3], total_seats = 10   (SOLVED)
+```
+
+```python
+discrete_math_ai999x.solve('apportionment', populations='2400, 3300, 4300', seats=10, method='webster')
+# -> seats = [3, 3, 4], standard_divisor = 1000, quotas = [2.4, 3.3, 4.3], total_seats = 10   (SOLVED)
+```
+
+```python
+discrete_math_ai999x.solve('apportionment', populations='2400, 3300, 4300', seats=10, method='adams')
+# -> seats = [3, 3, 4], standard_divisor = 1000, quotas = [2.4, 3.3, 4.3], total_seats = 10   (SOLVED)
+```
+
+```python
+discrete_math_ai999x.solve('apportionment', populations='2400, 3300, 4300', seats=10, method='huntington-hill')
+# -> seats = [3, 3, 4], standard_divisor = 1000, quotas = [2.4, 3.3, 4.3], total_seats = 10   (SOLVED)
+```
+
+```python
+discrete_math_ai999x.solve('apportionment', populations=[5300, 3100, 1600], seats=20, method='hamilton')
+# -> seats = [11, 6, 3], standard_divisor = 500, quotas = [10.6, 6.2, 3.2], total_seats = 20   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Apportion 10 seats among states with populations 2400, 3300, 4300 using Jefferson's method. | SOLVED | seats = [2, 3, 5], standard_divisor = 1000, quotas = [2.4, 3.3, 4.3], total_seats = 10 |
+| Use Hamilton's method to apportion 20 seats to populations 5300, 3100, 1600. | SOLVED | seats = [11, 6, 3], standard_divisor = 500, quotas = [10.6, 6.2, 3.2], total_seats = 20 |
+| Use Webster's method to apportion 10 seats to populations 2400, 3300 and 4300. | SOLVED | seats = [3, 3, 4], standard_divisor = 1000, quotas = [2.4, 3.3, 4.3], total_seats = 10 |
+| Apportion 20 seats among states with populations 5200, 3100, 1700 using Hamilton's method. | INVALID_INPUT | Apportionment: Hamilton, Jefferson, Webster, Adams and Huntington-Hill: two states tie for the last seat (equal remainde |
+| Use Adams's method to apportion 2 seats to populations 100, 200, 300. | INVALID_INPUT | Apportionment: Hamilton, Jefferson, Webster, Adams and Huntington-Hill: this method gives every state at least one seat: |

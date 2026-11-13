@@ -6672,6 +6672,746 @@ _add("vigenere_cipher", name="Vigenère cipher", topic="cryptography / classical
 
 
 # ==================================================================================================================
+# CORE GAPS (2026-11-12): set counts from a Venn diagram, voting methods and apportionment. run and verify use plain
+# integer arithmetic, lists, dicts and string splitting only (they translate to Rust). Conventions:
+#   * Venn regions: "only A" is in A and in no other set; "neither"/"none" needs the size of the universal set;
+#   * voting: candidates are listed alphabetically; Borda gives n points to a first place down to 1 for a last place;
+#     the method of pairwise comparisons gives 1 point per head-to-head win and 1/2 per tie; instant runoff eliminates
+#     the candidate with the fewest first choices until one has a majority (more than half) of the votes, and a tie for
+#     elimination is reported as undecided, never broken by a guess; a tie for a win is reported as "tie: A, B";
+#   * apportionment: Hamilton gives the leftover seats to the largest remainders; Jefferson, Webster, Adams and
+#     Huntington-Hill are divisor methods (rounding down, to the nearest, up, at the geometric mean), computed by the
+#     equivalent method of highest averages with exact integer comparisons; a tie for the last seat is refused.
+# ==================================================================================================================
+def _venn_whole(v, name):
+    return _whole(v, name, 0, 10 ** 12)
+
+
+def venn_two_sets(a, b, both, universe=None):
+    a, b, both = _venn_whole(a, "n(A)"), _venn_whole(b, "n(B)"), _venn_whole(both, "n(A and B)")
+    if both > a or both > b:
+        raise ValueError("n(A and B) cannot exceed n(A) or n(B)")
+    union = a + b - both
+    out = {"union": union, "only_a": a - both, "only_b": b - both, "neither": None}
+    if universe is not None:
+        u = _venn_whole(universe, "n(U)")
+        if u < union:
+            raise ValueError("n(U) is smaller than n(A or B): the counts are inconsistent")
+        out["neither"] = u - union
+    return out
+
+
+def _v_venn2(i, o):
+    a, b, ab = int(i["a"]), int(i["b"]), int(i["both"])
+    for k in ("union", "only_a", "only_b"):
+        if not _iv(o[k]) or o[k] < 0:
+            return False
+    if o["only_a"] + ab != a or o["only_b"] + ab != b or o["union"] != o["only_a"] + o["only_b"] + ab:
+        return False
+    if i.get("universe") is None:
+        return o["neither"] is None
+    return _iv(o["neither"]) and o["neither"] >= 0 and o["neither"] + o["union"] == int(i["universe"])
+
+
+def _ref_venn2(a, b, both, universe=None):
+    A = set(range(int(a)))                                  # two explicit sets with exactly the stated sizes
+    B = set(range(int(a) - int(both), int(a) - int(both) + int(b)))
+    return {"union": len(A | B), "only_a": len(A - B), "only_b": len(B - A),
+            "neither": None if universe is None else int(universe) - len(A | B)}
+
+
+def _rand_venn2(rng):
+    a, b = rng.randint(3, 90), rng.randint(3, 90)
+    out = {"a": a, "b": b, "both": rng.randint(1, min(a, b))}
+    if rng.random() < 0.7:
+        out["universe"] = a + b - out["both"] + rng.randint(0, 60)
+    return out
+
+
+_VENN_FORM = r"n\(\s*([abcu](?:\s*(?:and|∩)\s*[abc])*)\s*\)\s*=\s*(\d+)"
+
+
+def _venn_read(q0):
+    """{'a': 45, 'ab': 20, 'u': 100, ...} from 'n(A) = 45, n(A and B) = 20, n(U) = 100'; None if a set is named twice."""
+    if not re.search(r"venn", q0, re.I):
+        return None
+    out = {}
+    for name, v in re.findall(_VENN_FORM, q0, re.I):
+        key = "".join(sorted(re.split(r"\s*(?:and|∩)\s*", name.strip().lower())))
+        if key in out or len(set(key)) != len(key):
+            return None
+        out[key] = int(v)
+    return out
+
+
+def parse_venn2(q0):
+    got = _venn_read(q0)
+    if got is None or not got or set(got) - {"a", "b", "ab", "u"}:
+        return None
+    out = {}
+    for k, sym in (("a", "a"), ("b", "b"), ("ab", "both"), ("u", "universe")):
+        if k in got:
+            out[sym] = got[k]
+    return out
+
+
+_add("venn_two_sets", name="Venn diagram with two sets (inclusion-exclusion)", topic="sets / Venn diagrams",
+     purpose="The counts of every region of a two-set Venn diagram from n(A), n(B), n(A and B) and, optionally, n(U): "
+             "n(A or B), only A, only B and neither.",
+     inputs=[_I("a", "n(A)", 0, 10 ** 12), _I("b", "n(B)", 0, 10 ** 12), _I("both", "n(A and B)", 0, 10 ** 12),
+             _I("universe", "n(U), the size of the universal set (needed for 'neither')", 0, 10 ** 12, required=False)],
+     outputs=[_O("union", "n(A or B)"), _O("only_a", "in A only"), _O("only_b", "in B only"), _O("neither", "in neither set (needs n(U))")],
+     primary="union", conditions=["n(A and B) <= n(A), n(B)", "n(U) >= n(A or B)"],
+     method="inclusion-exclusion: n(A or B) = n(A) + n(B) - n(A and B); only A = n(A) - n(A and B); neither = n(U) - n(A or B)",
+     latex=r"n(A \cup B) = n(A) + n(B) - n(A \cap B)",
+     run=venn_two_sets, verify=_v_venn2, parse=parse_venn2, reference=_ref_venn2,
+     wrong=lambda a, b, both, universe=None: {"union": int(a) + int(b), "only_a": int(a), "only_b": int(b),
+                                              "neither": None if universe is None else int(universe) - int(a) - int(b)},
+     random_inputs=_rand_venn2,
+     templates=["Venn diagram: n(A) = 45, n(B) = 60, n(A and B) = 20, n(U) = 100. Find the count of every region."],
+     examples=[{"inputs": {"a": 45, "b": 60, "both": 20, "universe": 100}, "outputs": {"union": 85, "only_a": 25, "only_b": 40, "neither": 15}},
+               {"inputs": {"a": 12, "b": 9, "both": 4}, "outputs": {"union": 17, "only_a": 8, "only_b": 5, "neither": None}}],
+     questions=[{"q": "Venn diagram: n(A) = 45, n(B) = 60, n(A and B) = 20, n(U) = 100. Find the count of every region.",
+                 "outputs": {"union": 85, "only_a": 25, "only_b": 40, "neither": 15}},
+                {"q": "In a Venn diagram n(A) = 12, n(B) = 9 and n(A ∩ B) = 4. How many elements are in A or B?", "outputs": {"union": 17}},
+                {"q": "Venn diagram: n(A) = 45, n(B) = 60, n(A and B) = 50. Find the count of every region.", "outcome": "INVALID_INPUT"}])
+
+
+def venn_three_sets(a, b, c, ab, ac, bc, abc, universe=None):
+    a, b, c = _venn_whole(a, "n(A)"), _venn_whole(b, "n(B)"), _venn_whole(c, "n(C)")
+    ab, ac, bc = _venn_whole(ab, "n(A and B)"), _venn_whole(ac, "n(A and C)"), _venn_whole(bc, "n(B and C)")
+    abc = _venn_whole(abc, "n(A and B and C)")
+    r_ab, r_ac, r_bc = ab - abc, ac - abc, bc - abc
+    r_a, r_b, r_c = a - ab - ac + abc, b - ab - bc + abc, c - ac - bc + abc
+    if min(r_a, r_b, r_c, r_ab, r_ac, r_bc) < 0:
+        raise ValueError("the counts are inconsistent: a region of the diagram would have a negative count")
+    union = r_a + r_b + r_c + r_ab + r_ac + r_bc + abc
+    out = {"union": union, "only_a": r_a, "only_b": r_b, "only_c": r_c, "only_a_and_b": r_ab, "only_a_and_c": r_ac,
+           "only_b_and_c": r_bc, "exactly_one": r_a + r_b + r_c, "exactly_two": r_ab + r_ac + r_bc, "none": None}
+    if universe is not None:
+        u = _venn_whole(universe, "n(U)")
+        if u < union:
+            raise ValueError("n(U) is smaller than n(A or B or C): the counts are inconsistent")
+        out["none"] = u - union
+    return out
+
+
+_VENN3_OUT = ["only_a", "only_b", "only_c", "only_a_and_b", "only_a_and_c", "only_b_and_c"]
+
+
+def _v_venn3(i, o):
+    for k in _VENN3_OUT + ["union", "exactly_one", "exactly_two"]:
+        if not _iv(o[k]) or o[k] < 0:
+            return False
+    abc = int(i["abc"])
+    ra, rb, rc = o["only_a"], o["only_b"], o["only_c"]
+    rab, rac, rbc = o["only_a_and_b"], o["only_a_and_c"], o["only_b_and_c"]
+    # every stated count is the sum of the regions it covers
+    if ra + rab + rac + abc != int(i["a"]) or rb + rab + rbc + abc != int(i["b"]) or rc + rac + rbc + abc != int(i["c"]):
+        return False
+    if rab + abc != int(i["ab"]) or rac + abc != int(i["ac"]) or rbc + abc != int(i["bc"]):
+        return False
+    if o["union"] != ra + rb + rc + rab + rac + rbc + abc or o["exactly_one"] != ra + rb + rc or o["exactly_two"] != rab + rac + rbc:
+        return False
+    if i.get("universe") is None:
+        return o["none"] is None
+    return _iv(o["none"]) and o["none"] >= 0 and o["none"] + o["union"] == int(i["universe"])
+
+
+def _ref_venn3(a, b, c, ab, ac, bc, abc, universe=None):
+    import z3                                               # the seven region sizes as unknowns of a linear system
+    r = [z3.Int(f"r{k}") for k in range(7)]                 # A, B, C, AB, AC, BC, ABC
+    s = z3.Solver()
+    s.add(*[x >= 0 for x in r])
+    s.add(r[0] + r[3] + r[4] + r[6] == int(a), r[1] + r[3] + r[5] + r[6] == int(b), r[2] + r[4] + r[5] + r[6] == int(c),
+          r[3] + r[6] == int(ab), r[4] + r[6] == int(ac), r[5] + r[6] == int(bc), r[6] == int(abc))
+    if s.check() != z3.sat:
+        raise ValueError("inconsistent counts")
+    v = [s.model()[x].as_long() for x in r]
+    union = sum(v)
+    return {"union": union, "only_a": v[0], "only_b": v[1], "only_c": v[2], "only_a_and_b": v[3], "only_a_and_c": v[4],
+            "only_b_and_c": v[5], "exactly_one": v[0] + v[1] + v[2], "exactly_two": v[3] + v[4] + v[5],
+            "none": None if universe is None else int(universe) - union}
+
+
+def _wrong_venn3(a, b, c, ab, ac, bc, abc, universe=None):
+    """The triple intersection never added back (union = a + b + c - ab - ac - bc; only A = a - ab - ac)."""
+    a, b, c, ab, ac, bc = int(a), int(b), int(c), int(ab), int(ac), int(bc)
+    union = a + b + c - ab - ac - bc
+    return {"union": union, "only_a": a - ab - ac, "only_b": b - ab - bc, "only_c": c - ac - bc, "only_a_and_b": ab, "only_a_and_c": ac,
+            "only_b_and_c": bc, "exactly_one": a + b + c - 2 * (ab + ac + bc), "exactly_two": ab + ac + bc,
+            "none": None if universe is None else int(universe) - union}
+
+
+def _rand_venn3(rng):
+    ra, rb, rc, rab, rac, rbc = (rng.randint(0, 25) for _ in range(6))
+    abc = rng.randint(1, 12)
+    out = {"a": ra + rab + rac + abc, "b": rb + rab + rbc + abc, "c": rc + rac + rbc + abc, "ab": rab + abc, "ac": rac + abc,
+           "bc": rbc + abc, "abc": abc}
+    if rng.random() < 0.7:
+        out["universe"] = ra + rb + rc + rab + rac + rbc + abc + rng.randint(0, 40)
+    return out
+
+
+def parse_venn3(q0):
+    got = _venn_read(q0)
+    if got is None or "c" not in got or set(got) - {"a", "b", "c", "ab", "ac", "bc", "abc", "u"}:
+        return None
+    return {("universe" if k == "u" else k): v for k, v in got.items()}
+
+
+_add("venn_three_sets", name="Venn diagram with three sets (inclusion-exclusion)", topic="sets / Venn diagrams",
+     purpose="The counts of every region of a three-set Venn diagram from n(A), n(B), n(C), the pairwise intersections, "
+             "n(A and B and C) and, optionally, n(U): the union, each 'only' region, exactly one, exactly two and none.",
+     inputs=[_I("a", "n(A)", 0, 10 ** 12), _I("b", "n(B)", 0, 10 ** 12), _I("c", "n(C)", 0, 10 ** 12),
+             _I("ab", "n(A and B)", 0, 10 ** 12), _I("ac", "n(A and C)", 0, 10 ** 12), _I("bc", "n(B and C)", 0, 10 ** 12),
+             _I("abc", "n(A and B and C)", 0, 10 ** 12),
+             _I("universe", "n(U), the size of the universal set (needed for 'none')", 0, 10 ** 12, required=False)],
+     outputs=[_O("union", "n(A or B or C)"), _O("only_a", "in A only"), _O("only_b", "in B only"), _O("only_c", "in C only"),
+              _O("only_a_and_b", "in A and B but not C"), _O("only_a_and_c", "in A and C but not B"), _O("only_b_and_c", "in B and C but not A"),
+              _O("exactly_one", "in exactly one set"), _O("exactly_two", "in exactly two sets"), _O("none", "in no set (needs n(U))")],
+     primary="union", conditions=["every region count >= 0 (the counts are consistent)", "n(U) >= n(A or B or C)"],
+     method="regions from the centre outwards: A and B only = n(A and B) - n(A and B and C); A only = n(A) - n(A and B) - n(A and C) + n(A and B and C); "
+            "inclusion-exclusion for the union",
+     latex=r"n(A\cup B\cup C) = n(A)+n(B)+n(C) - n(A\cap B) - n(A\cap C) - n(B\cap C) + n(A\cap B\cap C)",
+     run=venn_three_sets, verify=_v_venn3, parse=parse_venn3, reference=_ref_venn3, wrong=_wrong_venn3, random_inputs=_rand_venn3,
+     templates=["Venn diagram: n(A) = 30, n(B) = 25, n(C) = 20, n(A and B) = 10, n(A and C) = 8, n(B and C) = 5, n(A and B and C) = 3, "
+                "n(U) = 60. Find the count of every region."],
+     examples=[{"inputs": {"a": 30, "b": 25, "c": 20, "ab": 10, "ac": 8, "bc": 5, "abc": 3, "universe": 60},
+                "outputs": {"union": 55, "only_a": 15, "only_b": 13, "only_c": 10, "only_a_and_b": 7, "only_a_and_c": 5, "only_b_and_c": 2,
+                            "exactly_one": 38, "exactly_two": 14, "none": 5}},
+               {"inputs": {"a": 21, "b": 18, "c": 15, "ab": 7, "ac": 6, "bc": 5, "abc": 2, "universe": 50},
+                "outputs": {"union": 38, "only_a": 10, "only_b": 8, "only_c": 6, "exactly_one": 24, "exactly_two": 12, "none": 12}}],
+     questions=[{"q": "Venn diagram: n(A) = 30, n(B) = 25, n(C) = 20, n(A and B) = 10, n(A and C) = 8, n(B and C) = 5, n(A and B and C) = 3, "
+                      "n(U) = 60. Find the count of every region.", "outputs": {"union": 55, "only_a": 15, "exactly_two": 14, "none": 5}},
+                {"q": "In a Venn diagram n(A) = 21, n(B) = 18, n(C) = 15, n(A ∩ B) = 7, n(A ∩ C) = 6, n(B ∩ C) = 5 and n(A ∩ B ∩ C) = 2. "
+                      "How many elements are in exactly one set?", "outputs": {"exactly_one": 24, "union": 38}},
+                {"q": "Venn diagram: n(A) = 30, n(B) = 25, n(C) = 20, n(A and B) = 10, n(A and C) = 8, n(B and C) = 5, n(A and B and C) = 12. "
+                      "Find the count of every region.", "outcome": "INVALID_INPUT"}])
+
+
+# --- voting methods ---------------------------------------------------------------------------------------------------
+def _vt_ballots(text):
+    """'14: A > B > C; 10: C > B > A' -> ([[14, ['A', 'B', 'C']], ...], the candidates in alphabetical order)."""
+    groups = []
+    for part in str(text).replace("\n", ";").split(";"):
+        part = part.strip()
+        if part == "":
+            continue
+        bits = part.split(":")
+        if len(bits) != 2:
+            raise ValueError("each group of ballots is written 'count: A > B > C'")
+        cnt = bits[0].strip()
+        if not cnt.isdigit() or int(cnt) < 1 or int(cnt) > 10 ** 9:
+            raise ValueError("the number of voters of a ballot is a whole number >= 1")
+        names = []
+        for w in bits[1].split(">"):
+            w = w.strip()
+            if w == "":
+                raise ValueError("a candidate name is missing")
+            if w in names:
+                raise ValueError("a candidate is ranked twice on one ballot")
+            names.append(w)
+        groups.append([int(cnt), names])
+    if len(groups) == 0 or len(groups) > 200:
+        raise ValueError("1 to 200 groups of ballots")
+    cands = list(groups[0][1])
+    cands.sort()
+    if len(cands) < 2 or len(cands) > 12:
+        raise ValueError("2 to 12 candidates")
+    for g in groups:
+        s = list(g[1])
+        s.sort()
+        if s != cands:
+            raise ValueError("every ballot must rank all the candidates, each once")
+    return groups, cands
+
+
+def _vt_winner(cands, scores):
+    best = scores[0]
+    for v in scores:
+        if v > best:
+            best = v
+    top = []
+    for k in range(len(cands)):
+        if scores[k] == best:
+            top.append(cands[k])
+    if len(top) == 1:
+        return top[0]
+    return "tie: " + ", ".join(top)
+
+
+def _vt_runoff(groups, cands, total):
+    remaining = list(cands)
+    while True:
+        counts = []
+        for _ in remaining:
+            counts.append(0)
+        for g in groups:
+            for name in g[1]:
+                if name in remaining:
+                    counts[remaining.index(name)] += g[0]
+                    break
+        top, low = counts[0], counts[0]
+        for v in counts:
+            top = max(top, v)
+            low = min(low, v)
+        if 2 * top > total:
+            return remaining[counts.index(top)]
+        if len(remaining) == 2:
+            return "tie: " + remaining[0] + ", " + remaining[1]
+        lows = []
+        for k in range(len(remaining)):
+            if counts[k] == low:
+                lows.append(remaining[k])
+        if len(lows) > 1:
+            return "undecided: tie for elimination between " + ", ".join(lows)
+        remaining.remove(lows[0])
+
+
+def voting_methods(ballots):
+    groups, cands = _vt_ballots(ballots)
+    n = len(cands)
+    pos = {}
+    for k in range(n):
+        pos[cands[k]] = k
+    total = 0
+    first, borda, beats = [], [], []
+    for k in range(n):
+        first.append(0)
+        borda.append(0)
+        beats.append([0] * n)
+    for g in groups:
+        cnt, order = g[0], g[1]
+        total += cnt
+        first[pos[order[0]]] += cnt
+        for r in range(n):
+            borda[pos[order[r]]] += cnt * (n - r)
+            for s in range(r + 1, n):
+                beats[pos[order[r]]][pos[order[s]]] += cnt
+    points = []
+    condorcet = "none"
+    for i in range(n):
+        p = 0.0
+        all_won = True
+        for j in range(n):
+            if j == i:
+                continue
+            if beats[i][j] > beats[j][i]:
+                p += 1.0
+            else:
+                all_won = False
+                if beats[i][j] == beats[j][i]:
+                    p += 0.5
+        points.append(p)
+        if all_won:
+            condorcet = cands[i]
+    return {"plurality_winner": _vt_winner(cands, first), "borda_winner": _vt_winner(cands, borda),
+            "runoff_winner": _vt_runoff(groups, cands, total), "pairwise_winner": _vt_winner(cands, points),
+            "condorcet_winner": condorcet, "candidates": ", ".join(cands), "voters": total,
+            "first_place_votes": first, "borda_points": borda, "pairwise_points": points}
+
+
+def _v_vote(i, o):
+    groups, cands = _vt_ballots(i["ballots"])
+    n = len(cands)
+    total = 0
+    for g in groups:
+        total += g[0]
+    if o["candidates"] != ", ".join(cands) or o["voters"] != total:
+        return False
+    first, borda, points = o["first_place_votes"], o["borda_points"], o["pairwise_points"]
+    if len(first) != n or len(borda) != n or len(points) != n:
+        return False
+    condorcet = "none"
+    for k in range(n):
+        f = 0
+        for g in groups:
+            if g[1][0] == cands[k]:
+                f += g[0]
+        # a Borda score is the number of voters plus, for every rival, the voters who rank this candidate above it
+        b = total
+        p = 0.0
+        all_won = True
+        for j in range(n):
+            if j == k:
+                continue
+            above = 0
+            for g in groups:
+                if g[1].index(cands[k]) < g[1].index(cands[j]):
+                    above += g[0]
+            b += above
+            if 2 * above > total:
+                p += 1.0
+            else:
+                all_won = False
+                if 2 * above == total:
+                    p += 0.5
+        if first[k] != f or borda[k] != b or points[k] != p:
+            return False
+        if all_won:
+            condorcet = cands[k]
+    return (o["condorcet_winner"] == condorcet and o["plurality_winner"] == _vt_winner(cands, first)
+            and o["borda_winner"] == _vt_winner(cands, borda) and o["pairwise_winner"] == _vt_winner(cands, points)
+            and o["runoff_winner"] == _vt_runoff(groups, cands, total))
+
+
+def _ref_vote(ballots):
+    import networkx as nx
+    from collections import Counter
+    voters = []                                             # one ranking per voter
+    for part in re.split(r"[;\n]", str(ballots)):
+        if part.strip():
+            c, r = part.split(":")
+            voters += [[w.strip() for w in r.split(">")]] * int(c)
+    cands = sorted(voters[0])
+    n = len(cands)
+
+    def win(score):
+        best = max(score[c] for c in cands)
+        w = [c for c in cands if score[c] == best]
+        return w[0] if len(w) == 1 else "tie: " + ", ".join(w)
+    first = Counter(v[0] for v in voters)
+    borda = Counter()
+    for v in voters:
+        for k, w in enumerate(v):
+            borda[w] += n - k
+    G = nx.DiGraph()
+    G.add_nodes_from(cands)
+    pts = {c: 0.0 for c in cands}
+    for x, y in itertools.combinations(cands, 2):
+        nxy = sum(1 for v in voters if v.index(x) < v.index(y))
+        nyx = len(voters) - nxy
+        if nxy > nyx:
+            G.add_edge(x, y)
+            pts[x] += 1
+        elif nyx > nxy:
+            G.add_edge(y, x)
+            pts[y] += 1
+        else:
+            pts[x] += 0.5
+            pts[y] += 0.5
+    condorcet = next((c for c in cands if G.out_degree(c) == n - 1), "none")
+    remaining = set(cands)
+    while True:
+        tally = Counter({c: 0 for c in remaining})
+        tally.update(next(w for w in v if w in remaining) for v in voters)
+        best = max(tally.values())
+        if 2 * best > len(voters):
+            runoff = next(c for c in tally if tally[c] == best)
+            break
+        if len(remaining) == 2:
+            runoff = "tie: " + ", ".join(sorted(remaining))
+            break
+        low = min(tally.values())
+        lows = sorted(c for c in remaining if tally[c] == low)
+        if len(lows) > 1:
+            runoff = "undecided: tie for elimination between " + ", ".join(lows)
+            break
+        remaining.discard(lows[0])
+    return {"plurality_winner": win(first), "borda_winner": win(borda), "runoff_winner": runoff, "pairwise_winner": win(pts),
+            "condorcet_winner": condorcet, "candidates": ", ".join(cands), "voters": len(voters),
+            "first_place_votes": [first[c] for c in cands], "borda_points": [borda[c] for c in cands], "pairwise_points": [pts[c] for c in cands]}
+
+
+def _wrong_vote(ballots):
+    """The Borda points given the wrong way round (1 point for a first place, n for a last place)."""
+    out = voting_methods(ballots)
+    groups, cands = _vt_ballots(ballots)
+    n = len(cands)
+    pts = [0] * n
+    for g in groups:
+        for r, w in enumerate(g[1]):
+            pts[cands.index(w)] += g[0] * (r + 1)
+    return dict(out, borda_points=pts, borda_winner=_vt_winner(cands, pts))
+
+
+def _rand_vote(rng):
+    cands = ["A", "B", "C", "D", "E"][:rng.randint(3, 5)]
+    groups = []
+    for _ in range(rng.randint(3, 6)):
+        order = list(cands)
+        rng.shuffle(order)
+        groups.append(f"{rng.randint(1, 30)}: " + " > ".join(order))
+    return {"ballots": "; ".join(groups)}
+
+
+_VOTE_NAMES = r"plurality|borda|instant[- ]runoff|ranked[- ]choice|pairwise comparisons?|condorcet|preference schedule"
+_BALLOT_RX = r"\d+\s*:\s*\w+(?:\s*>\s*\w+)+"
+
+
+def parse_vote(q0):
+    if not re.search(_VOTE_NAMES, q0, re.I):
+        return None
+    m = re.search(r"(?:ballots|preference schedule|preferences)\s*:?\s*(" + _BALLOT_RX + r"(?:\s*;\s*" + _BALLOT_RX + r")*)\s*[.?!]?\s*$", q0, re.I)
+    if not m:
+        return None
+    return {"ballots": m.group(1)}
+
+
+_add("voting_methods", name="Voting methods: plurality, Borda count, instant runoff, pairwise comparisons", topic="voting and apportionment / voting methods",
+     purpose="The winner of an election from its preference schedule under plurality, the Borda count, instant runoff (plurality with "
+             "elimination) and the method of pairwise comparisons, and the Condorcet winner if there is one, with the tallies behind them.",
+     inputs=[_T("ballots", "the preference schedule: 'count: A > B > C' groups separated by semicolons", n_max=20000)],
+     outputs=[_O("plurality_winner", "plurality winner", "text"), _O("borda_winner", "Borda count winner", "text"),
+              _O("runoff_winner", "instant runoff winner", "text"), _O("pairwise_winner", "winner by pairwise comparisons", "text"),
+              _O("condorcet_winner", "the Condorcet winner (beats every rival head to head), or none", "text"),
+              _O("candidates", "the candidates, alphabetically (the order of the lists below)", "text"), _O("voters", "the number of voters"),
+              _O("first_place_votes", "first-place votes of each candidate", "list"), _O("borda_points", "Borda points of each candidate", "list"),
+              _O("pairwise_points", "points from pairwise comparisons (1 per win, 1/2 per tie)", "list")],
+     primary="plurality_winner",
+     conditions=["every ballot ranks all the candidates, each once", "2 to 12 candidates", "voter counts are whole numbers >= 1",
+                 "ties are reported (tie: A, B), an instant-runoff tie for elimination as undecided"],
+     method="plurality: most first places; Borda: n points for first down to 1 for last; instant runoff: eliminate the fewest first "
+            "places until a majority; pairwise: every head-to-head contest, 1 point per win, 1/2 per tie; Condorcet: wins every contest",
+     latex=r"B(x) = \sum_{\text{ballots}} \big(n + 1 - \operatorname{rank}(x)\big),\qquad x \text{ beats } y \iff \#\{x \succ y\} > \#\{y \succ x\}",
+     run=voting_methods, verify=_v_vote, parse=parse_vote, reference=_ref_vote, wrong=_wrong_vote, random_inputs=_rand_vote,
+     templates=["Find the winners by plurality, Borda count, instant runoff and pairwise comparisons for the preference schedule "
+                "14: A > B > C; 10: C > B > A; 8: B > C > A."],
+     examples=[{"inputs": {"ballots": "14: A > B > C; 10: C > B > A; 8: B > C > A"},
+                "outputs": {"plurality_winner": "A", "borda_winner": "B", "runoff_winner": "C", "pairwise_winner": "B", "condorcet_winner": "B",
+                            "candidates": "A, B, C", "voters": 32, "first_place_votes": [14, 8, 10], "borda_points": [60, 72, 60],
+                            "pairwise_points": [0.0, 2.0, 1.0]}},
+               {"inputs": {"ballots": "6: A > B; 6: B > A"},
+                "outputs": {"plurality_winner": "tie: A, B", "borda_winner": "tie: A, B", "runoff_winner": "tie: A, B",
+                            "pairwise_winner": "tie: A, B", "condorcet_winner": "none"}},
+               {"inputs": {"ballots": "1: A > B > C; 1: B > C > A; 1: C > A > B"},
+                "outputs": {"runoff_winner": "undecided: tie for elimination between A, B, C", "pairwise_winner": "tie: A, B, C",
+                            "condorcet_winner": "none", "borda_points": [6, 6, 6]}},
+               {"inputs": {"ballots": "5: A > B > C; 4: B > C > A; 3: C > B > A"},
+                "outputs": {"plurality_winner": "A", "runoff_winner": "B", "borda_winner": "B", "condorcet_winner": "B", "borda_points": [22, 28, 22]}}],
+     questions=[{"q": "Find the winners by plurality, Borda count, instant runoff and pairwise comparisons for the preference schedule "
+                      "14: A > B > C; 10: C > B > A; 8: B > C > A.",
+                 "outputs": {"plurality_winner": "A", "borda_winner": "B", "runoff_winner": "C", "pairwise_winner": "B", "condorcet_winner": "B"}},
+                {"q": "Who wins by instant runoff with the ballots 5: A > B > C; 4: B > C > A; 3: C > B > A?", "outputs": {"runoff_winner": "B"}},
+                {"q": "Find the Borda count winner for the preference schedule 4: A > B > C; 3: A > B.", "outcome": "INVALID_INPUT"}])
+
+
+# --- apportionment --------------------------------------------------------------------------------------------------------
+_APP_METHODS = ["hamilton", "jefferson", "webster", "adams", "huntington-hill"]
+
+
+def _ap_gt(method, pi, k, pj, l):
+    """Is the value of state i's k-th seat greater than that of state j's l-th seat? (exact integers). The value of a
+    k-th seat is p / b(k): b(k) = k (Jefferson), k - 1/2 (Webster), k - 1 (Adams), sqrt(k (k - 1)) (Huntington-Hill);
+    b(k) = 0 is an infinite value."""
+    if method == "jefferson":
+        return pi * l > pj * k
+    if method == "webster":
+        return pi * (2 * l - 1) > pj * (2 * k - 1)
+    if method == "adams":
+        if k == 1:
+            return l != 1
+        if l == 1:
+            return False
+        return pi * (l - 1) > pj * (k - 1)
+    if k == 1:
+        return l != 1
+    if l == 1:
+        return False
+    return pi * pi * l * (l - 1) > pj * pj * k * (k - 1)
+
+
+def apportionment(populations, seats, method):
+    pops = _wlist(populations, "populations", 1, 10 ** 12, 2, 50)
+    h = _whole(seats, "seats", 1, 10 ** 5)
+    if method not in _APP_METHODS:
+        raise ValueError("the method is hamilton, jefferson, webster, adams or huntington-hill")
+    n = len(pops)
+    total = 0
+    for p in pops:
+        total += p
+    quotas = []
+    for p in pops:
+        quotas.append(p * h / total)
+    s = []
+    if method == "hamilton":
+        rems = []
+        given = 0
+        for p in pops:
+            s.append(p * h // total)
+            rems.append(p * h % total)
+            given += p * h // total
+        left = h - given
+        order = list(range(n))                              # by remainder, largest first (a stable exchange sort)
+        for a in range(n):
+            for b in range(n - 1 - a):
+                if rems[order[b]] < rems[order[b + 1]]:
+                    t = order[b]
+                    order[b] = order[b + 1]
+                    order[b + 1] = t
+        if left > 0 and left < n and rems[order[left - 1]] == rems[order[left]]:
+            raise ValueError("two states tie for the last seat (equal remainders): Hamilton's method does not decide it")
+        for k in range(left):
+            s[order[k]] += 1
+    else:
+        k = 0
+        for _ in pops:
+            s.append(0)
+        if method == "adams" or method == "huntington-hill":
+            if h < n:
+                raise ValueError("this method gives every state at least one seat: the seats must number at least the states")
+            for j in range(n):
+                s[j] = 1
+            k = n
+        while k < h:
+            best = 0
+            tie = False
+            for j in range(1, n):
+                if _ap_gt(method, pops[j], s[j] + 1, pops[best], s[best] + 1):
+                    best = j
+                    tie = False
+                elif not _ap_gt(method, pops[best], s[best] + 1, pops[j], s[j] + 1):
+                    tie = True
+            if tie and k == h - 1:
+                raise ValueError("two states tie for the last seat: the method does not decide it")
+            s[best] += 1
+            k += 1
+    return {"seats": s, "standard_divisor": total / h, "quotas": quotas, "total_seats": h}
+
+
+def _v_app(i, o):
+    pops = _wlist(i["populations"], "populations", 1)
+    h, m = int(i["seats"]), i["method"]
+    s = o["seats"]
+    n = len(pops)
+    total = sum(pops)
+    if len(s) != n or o["total_seats"] != h or len(o["quotas"]) != n:
+        return False
+    given = 0
+    for x in s:
+        if not _iv(x) or x < 0:
+            return False
+        given += x
+    if given != h:
+        return False
+    r = abs(o["standard_divisor"] * h - total) / total
+    for k in range(n):
+        r = max(r, abs(o["quotas"][k] * total - pops[k] * h) / max(1.0, pops[k] * h))
+    if m == "hamilton":
+        for k in range(n):
+            if s[k] != pops[k] * h // total and s[k] != pops[k] * h // total + 1:
+                return False
+        for a in range(n):
+            for b in range(n):
+                up_a, up_b = s[a] > pops[a] * h // total, s[b] > pops[b] * h // total
+                if up_a and not up_b and pops[a] * h % total <= pops[b] * h % total:
+                    return False
+        return r
+    # a divisor method: every seat given is worth more than every seat not given (one divisor separates them)
+    for a in range(n):
+        if s[a] == 0:
+            continue
+        for b in range(n):
+            if not _ap_gt(m, pops[a], s[a], pops[b], s[b] + 1):
+                return False
+    return r
+
+
+def _ref_app(populations, seats, method):
+    from fractions import Fraction
+    pops, h = [int(p) for p in populations], int(seats)
+    total, n = sum(pops), len(pops)
+    if method == "hamilton":
+        q = [Fraction(p * h, total) for p in pops]
+        s = [int(x) for x in q]
+        for k in sorted(range(n), key=lambda k: q[k] - s[k], reverse=True)[:h - sum(s)]:
+            s[k] += 1
+    elif method in ("jefferson", "webster", "adams"):
+        import z3                                           # the divisor definition: one divisor d = 1/u rounds every quota
+        u = z3.Real("u")
+        a = [z3.Int(f"a{k}") for k in range(n)]
+        sol = z3.Solver()
+        sol.add(u > 0, z3.Sum(a) == h)
+        for k, p in enumerate(pops):
+            sol.add(a[k] >= 0)
+            if method == "jefferson":
+                sol.add(a[k] <= p * u, p * u < a[k] + 1)
+            elif method == "webster":
+                sol.add(2 * a[k] - 1 <= 2 * p * u, 2 * p * u < 2 * a[k] + 1)
+            else:
+                sol.add(a[k] - 1 < p * u, p * u <= a[k])
+        if sol.check() != z3.sat:
+            raise ValueError("no divisor found")
+        s = [sol.model()[x].as_long() for x in a]
+    else:
+        # the h largest seat values p / sqrt(k (k - 1)) over all states and seats at once, ranked by their exact
+        # squares p^2 / (k (k - 1)) (a first seat, k = 1, is worth more than any other)
+        vals = sorted(((k == 1, Fraction(p * p, k * (k - 1)) if k > 1 else Fraction(0), j) for j, p in enumerate(pops) for k in range(1, h + 1)),
+                      key=lambda t: (t[0], t[1]), reverse=True)
+        s = [0] * n
+        for _first, _v, j in vals[:h]:
+            s[j] += 1
+    return {"seats": s, "standard_divisor": float(Fraction(total, h)), "quotas": [float(Fraction(p * h, total)) for p in pops], "total_seats": h}
+
+
+def _wrong_app(populations, seats, method):
+    """The rounding rule of another method (Jefferson's for Hamilton's and Huntington-Hill's, Adams's for Jefferson's and
+    Webster's, Jefferson's for Adams's)."""
+    other = {"hamilton": "jefferson", "jefferson": "adams", "webster": "adams", "adams": "jefferson", "huntington-hill": "jefferson"}[method]
+    try:
+        return apportionment(populations, seats, other)
+    except ValueError:
+        return dict(apportionment(populations, seats, method), seats=[0] * len(populations))
+
+
+def _rand_app(rng):
+    n = rng.randint(3, 6)
+    return {"populations": [rng.randint(1000, 60000) for _ in range(n)], "seats": rng.randint(n, 3 * n + 10), "method": rng.choice(_APP_METHODS)}
+
+
+_APP_WORDS = {"hamilton": r"hamilton", "jefferson": r"jefferson", "webster": r"webster", "adams": r"\badams", "huntington-hill": r"huntington[- ]hill"}
+
+
+def parse_app(q0):
+    q = q0.lower()
+    if "apportion" not in q and not re.search(r"(?:hamilton|jefferson|webster|adams|huntington[- ]hill)'?s?'? method", q):
+        return None
+    found = [k for k, rx in _APP_WORDS.items() if re.search(rx, q)]
+    if len(found) != 1:
+        return None
+    out = {"method": found[0]}
+    s = re.search(r"(\d+) seats", q)
+    p = re.search(r"populations? (?:of |are |is )?(\d+(?:\s*(?:,|,? and)\s*\d+)+)", q)
+    if s:
+        out["seats"] = int(s.group(1))
+    if p:
+        out["populations"] = [int(x) for x in re.findall(r"\d+", p.group(1))]
+    return out
+
+
+_add("apportionment", name="Apportionment: Hamilton, Jefferson, Webster, Adams and Huntington-Hill", topic="voting and apportionment / apportionment",
+     purpose="Seats for each state from the populations and the number of seats, by Hamilton's method (largest remainders) or the divisor "
+             "methods of Jefferson, Webster, Adams or Huntington-Hill, with the standard divisor and the standard quotas.",
+     inputs=[_V("populations", "the populations of the states, in order (whole numbers)", 2, 50), _I("seats", "the number of seats", 1, 10 ** 5),
+             {"symbol": "method", "kind": "text", "type": "choice", "choices": _APP_METHODS, "meaning": "the apportionment method", "required": True}],
+     outputs=[_O("seats", "seats of each state, in the order given", "list"), _O("standard_divisor", "total population / seats"),
+              _O("quotas", "standard quotas (population / standard divisor)", "list"), _O("total_seats", "seats apportioned")],
+     primary="seats",
+     conditions=["populations are whole numbers >= 1", "Adams and Huntington-Hill: at least as many seats as states",
+                 "a tie for the last seat is refused (the method does not decide it)"],
+     method="Hamilton: floor of each quota, the leftover seats to the largest remainders; divisor methods: one divisor for which the "
+            "rounded quotas add up to the seats (down: Jefferson, nearest: Webster, up: Adams, at the geometric mean sqrt(n(n+1)): "
+            "Huntington-Hill), found as the seats of highest value p / b(k)",
+     latex=r"d = \frac{P}{h},\quad q_i = \frac{p_i}{d},\qquad \text{divisor methods: } \sum_i \operatorname{round}\!\left(\frac{p_i}{d'}\right) = h",
+     run=apportionment, verify=_v_app, parse=parse_app, reference=_ref_app, wrong=_wrong_app, random_inputs=_rand_app,
+     templates=["Apportion 10 seats among states with populations 2400, 3300, 4300 using Jefferson's method.",
+                "Use Hamilton's method to apportion 20 seats to populations 5300, 3100, 1600."],
+     examples=[{"inputs": {"populations": "2400, 3300, 4300", "seats": 10, "method": "jefferson"},
+                "outputs": {"seats": [2, 3, 5], "standard_divisor": 1000.0, "quotas": [2.4, 3.3, 4.3]}},
+               {"inputs": {"populations": "2400, 3300, 4300", "seats": 10, "method": "hamilton"}, "outputs": {"seats": [3, 3, 4]}},
+               {"inputs": {"populations": "2400, 3300, 4300", "seats": 10, "method": "webster"}, "outputs": {"seats": [3, 3, 4]}},
+               {"inputs": {"populations": "2400, 3300, 4300", "seats": 10, "method": "adams"}, "outputs": {"seats": [3, 3, 4]}},
+               {"inputs": {"populations": "2400, 3300, 4300", "seats": 10, "method": "huntington-hill"}, "outputs": {"seats": [3, 3, 4]}},
+               {"inputs": {"populations": [5300, 3100, 1600], "seats": 20, "method": "hamilton"}, "outputs": {"seats": [11, 6, 3], "standard_divisor": 500.0}}],
+     questions=[{"q": "Apportion 10 seats among states with populations 2400, 3300, 4300 using Jefferson's method.", "outputs": {"seats": [2, 3, 5]}},
+                {"q": "Use Hamilton's method to apportion 20 seats to populations 5300, 3100, 1600.", "outputs": {"seats": [11, 6, 3]}},
+                {"q": "Use Webster's method to apportion 10 seats to populations 2400, 3300 and 4300.", "outputs": {"seats": [3, 3, 4]}},
+                {"q": "Apportion 20 seats among states with populations 5200, 3100, 1700 using Hamilton's method.", "outcome": "INVALID_INPUT"},
+                {"q": "Use Adams's method to apportion 2 seats to populations 100, 200, 300.", "outcome": "INVALID_INPUT"}])
+
+
+# ==================================================================================================================
 # the reading guard: every parser above is wrapped by the same three rules (ask_sweep 2026-10-23: 51 wrong answers)
 #   1. a number written in scientific notation (1.378e10, 1.378 × 10^10) is never truncated to its first digits
 #      (phi(1.378e10) was answered as phi(1)) and never taken as an exact whole number: it states a magnitude to a
@@ -6873,6 +7613,11 @@ _TASK_NAMES = {
     "caesar_cipher": r"caesar",
     "affine_cipher": r"affine cipher",
     "vigenere_cipher": r"vigen[èe]re",
+    # core gaps, 2026-11-12
+    "venn_two_sets": r"\bvenn\b",
+    "venn_three_sets": r"\bvenn\b",
+    "voting_methods": _VOTE_NAMES,
+    "apportionment": r"apportion|(?:hamilton|jefferson|webster|adams|huntington[- ]hill)'?s?'? method",
 }
 _TASK_RE = {k: re.compile(v, re.I) for k, v in _TASK_NAMES.items()}
 _COUNT_ASKED = re.compile(r"\bhow many\b|\bnumber of\b|\bcount (?:of|the)\b|\bcount\b(?=.*\?)|\btotal\b", re.I)

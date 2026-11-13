@@ -15,7 +15,7 @@ def _bind(product) -> None:
     _P = product
 
 
-CapabilityId = Literal["affine_cipher", "articulation_points", "base_convert", "bell", "bernoulli", "bfs_order", "binomial_term", "bipartite", "bracelets", "bridges", "caesar_cipher", "carmichael_lambda", "catalan", "cf_rational", "cf_sqrt", "chromatic_number", "clique_number", "combinations", "connected_components", "crt", "cycle_rank", "derangements", "dfs_order", "diffie_hellman", "directed_cycle", "discrete_log", "divisor_functions", "elgamal_encrypt", "euler_phi", "eulerian", "extended_gcd", "fibonacci", "gcd_lcm", "girth", "graph_degrees", "graph_diameter", "graph_triangles", "graphical_sequence", "hamiltonian_cycle", "inclusion_exclusion", "independence_number", "integer_partitions", "integer_sqrt", "is_prime", "is_tree", "jacobi_symbol", "lattice_paths", "legendre_symbol", "linear_congruence", "linear_diophantine", "logic_contradiction", "logic_equivalence", "logic_evaluate", "logic_satisfiable", "logic_tautology", "lucas", "minimal_cnf", "minimal_dnf", "minimal_sop_minterms", "mobius", "mod_inverse", "mod_pow", "mod_reduce", "multinomial", "multiplicative_order", "multisets", "necklaces", "next_prime", "nth_prime", "partitions_distinct", "partitions_k", "pell_equation", "permutations", "pigeonhole_max", "pigeonhole_needed", "previous_prime", "prime_counting", "prime_factorization", "primitive_root", "prufer_decode", "prufer_encode", "rsa_decrypt", "rsa_decrypt_pq", "rsa_encrypt", "rsa_keygen", "sequences_with_repetition", "spanning_tree_count", "sqrt_mod", "stars_and_bars", "stirling1", "stirling2", "strongly_connected", "topological_sort", "truth_table", "two_squares", "twos_complement", "vigenere_cipher", "walks_count", "word_arrangements"]
+CapabilityId = Literal["affine_cipher", "apportionment", "articulation_points", "base_convert", "bell", "bernoulli", "bfs_order", "binomial_term", "bipartite", "bracelets", "bridges", "caesar_cipher", "carmichael_lambda", "catalan", "cf_rational", "cf_sqrt", "chromatic_number", "clique_number", "combinations", "connected_components", "crt", "cycle_rank", "derangements", "dfs_order", "diffie_hellman", "directed_cycle", "discrete_log", "divisor_functions", "elgamal_encrypt", "euler_phi", "eulerian", "extended_gcd", "fibonacci", "gcd_lcm", "girth", "graph_degrees", "graph_diameter", "graph_triangles", "graphical_sequence", "hamiltonian_cycle", "inclusion_exclusion", "independence_number", "integer_partitions", "integer_sqrt", "is_prime", "is_tree", "jacobi_symbol", "lattice_paths", "legendre_symbol", "linear_congruence", "linear_diophantine", "logic_contradiction", "logic_equivalence", "logic_evaluate", "logic_satisfiable", "logic_tautology", "lucas", "minimal_cnf", "minimal_dnf", "minimal_sop_minterms", "mobius", "mod_inverse", "mod_pow", "mod_reduce", "multinomial", "multiplicative_order", "multisets", "necklaces", "next_prime", "nth_prime", "partitions_distinct", "partitions_k", "pell_equation", "permutations", "pigeonhole_max", "pigeonhole_needed", "previous_prime", "prime_counting", "prime_factorization", "primitive_root", "prufer_decode", "prufer_encode", "rsa_decrypt", "rsa_decrypt_pq", "rsa_encrypt", "rsa_keygen", "sequences_with_repetition", "spanning_tree_count", "sqrt_mod", "stars_and_bars", "stirling1", "stirling2", "strongly_connected", "topological_sort", "truth_table", "two_squares", "twos_complement", "venn_three_sets", "venn_two_sets", "vigenere_cipher", "voting_methods", "walks_count", "word_arrangements"]
 
 
 def solve(find: CapabilityId | str, given: dict | None = None, conditions=(), *, target: str | None = None, **inputs):
@@ -43,6 +43,19 @@ def affine_cipher(message=None, a=None, b=None, mode=None):
     """
     given = {k: v for k, v in dict(message=message, a=a, b=b, mode=mode).items() if v is not None}
     return _P.solve("affine_cipher", **given)
+
+def apportionment(populations=None, seats=None, method=None):
+    """Apportionment: Hamilton, Jefferson, Webster, Adams and Huntington-Hill. Seats for each state from the populations and the number of seats, by Hamilton's method (largest remainders) or the divisor methods of Jefferson, Webster, Adams or Huntington-Hill, with the standard divisor and the standard quotas.
+    Formula: d = \\frac{P}{h},\\quad q_i = \\frac{p_i}{d},\\qquad \\text{divisor methods: } \\sum_i \\operatorname{round}\\!\\left(\\frac{p_i}{d'}\\right) = h
+    Inputs:
+        populations: the populations of the states, in order (whole numbers)
+        seats: the number of seats
+        method: the apportionment method
+    Outputs: seats (seats of each state, in the order given), standard_divisor (total population / seats), quotas (standard quotas (population / standard divisor)), total_seats (seats apportioned)
+    See also: help("apportionment")
+    """
+    given = {k: v for k, v in dict(populations=populations, seats=seats, method=method).items() if v is not None}
+    return _P.solve("apportionment", **given)
 
 def articulation_points(edges=None):
     """Articulation points (cut vertices). The vertices whose removal increases the number of connected components.
@@ -1155,6 +1168,38 @@ def twos_complement(n=None, bits=None):
     given = {k: v for k, v in dict(n=n, bits=bits).items() if v is not None}
     return _P.solve("twos_complement", **given)
 
+def venn_three_sets(a=None, b=None, c=None, ab=None, ac=None, bc=None, abc=None, universe=None):
+    """Venn diagram with three sets (inclusion-exclusion). The counts of every region of a three-set Venn diagram from n(A), n(B), n(C), the pairwise intersections, n(A and B and C) and, optionally, n(U): the union, each 'only' region, exactly one, exactly two and none.
+    Formula: n(A\\cup B\\cup C) = n(A)+n(B)+n(C) - n(A\\cap B) - n(A\\cap C) - n(B\\cap C) + n(A\\cap B\\cap C)
+    Inputs:
+        a: n(A)
+        b: n(B)
+        c: n(C)
+        ab: n(A and B)
+        ac: n(A and C)
+        bc: n(B and C)
+        abc: n(A and B and C)
+        universe: n(U), the size of the universal set (needed for 'none') (optional)
+    Outputs: union (n(A or B or C)), only_a (in A only), only_b (in B only), only_c (in C only), only_a_and_b (in A and B but not C), only_a_and_c (in A and C but not B), only_b_and_c (in B and C but not A), exactly_one (in exactly one set), exactly_two (in exactly two sets), none (in no set (needs n(U)))
+    See also: help("venn_three_sets")
+    """
+    given = {k: v for k, v in dict(a=a, b=b, c=c, ab=ab, ac=ac, bc=bc, abc=abc, universe=universe).items() if v is not None}
+    return _P.solve("venn_three_sets", **given)
+
+def venn_two_sets(a=None, b=None, both=None, universe=None):
+    """Venn diagram with two sets (inclusion-exclusion). The counts of every region of a two-set Venn diagram from n(A), n(B), n(A and B) and, optionally, n(U): n(A or B), only A, only B and neither.
+    Formula: n(A \\cup B) = n(A) + n(B) - n(A \\cap B)
+    Inputs:
+        a: n(A)
+        b: n(B)
+        both: n(A and B)
+        universe: n(U), the size of the universal set (needed for 'neither') (optional)
+    Outputs: union (n(A or B)), only_a (in A only), only_b (in B only), neither (in neither set (needs n(U)))
+    See also: help("venn_two_sets")
+    """
+    given = {k: v for k, v in dict(a=a, b=b, both=both, universe=universe).items() if v is not None}
+    return _P.solve("venn_two_sets", **given)
+
 def vigenere_cipher(message=None, key=None, mode=None):
     """Vigenère cipher. Encrypt or decrypt with the Vigenère cipher under a keyword.
     Formula: c_j = (m_j + k_{j \\bmod |k|}) \\bmod 26
@@ -1167,6 +1212,17 @@ def vigenere_cipher(message=None, key=None, mode=None):
     """
     given = {k: v for k, v in dict(message=message, key=key, mode=mode).items() if v is not None}
     return _P.solve("vigenere_cipher", **given)
+
+def voting_methods(ballots=None):
+    """Voting methods: plurality, Borda count, instant runoff, pairwise comparisons. The winner of an election from its preference schedule under plurality, the Borda count, instant runoff (plurality with elimination) and the method of pairwise comparisons, and the Condorcet winner if there is one, with the tallies behind them.
+    Formula: B(x) = \\sum_{\\text{ballots}} \\big(n + 1 - \\operatorname{rank}(x)\\big),\\qquad x \\text{ beats } y \\iff \\#\\{x \\succ y\\} > \\#\\{y \\succ x\\}
+    Inputs:
+        ballots: the preference schedule: 'count: A > B > C' groups separated by semicolons
+    Outputs: plurality_winner (plurality winner), borda_winner (Borda count winner), runoff_winner (instant runoff winner), pairwise_winner (winner by pairwise comparisons), condorcet_winner (the Condorcet winner (beats every rival head to head), or none), candidates (the candidates, alphabetically (the order of the lists below)), voters (the number of voters), first_place_votes (first-place votes of each candidate), borda_points (Borda points of each candidate), pairwise_points (points from pairwise comparisons (1 per win, 1/2 per tie))
+    See also: help("voting_methods")
+    """
+    given = {k: v for k, v in dict(ballots=ballots).items() if v is not None}
+    return _P.solve("voting_methods", **given)
 
 def walks_count(edges=None, source=None, target=None, length=None, directed=None):
     """Number of walks of a given length. How many walks of exactly k edges lead from u to v (the (u, v) entry of A^k).
@@ -1195,4 +1251,4 @@ def word_arrangements(word=None):
     return _P.solve("word_arrangements", **given)
 
 
-__all__ = ["CapabilityId", "solve", "help", "affine_cipher", "articulation_points", "base_convert", "bell", "bernoulli", "bfs_order", "binomial_term", "bipartite", "bracelets", "bridges", "caesar_cipher", "carmichael_lambda", "catalan", "cf_rational", "cf_sqrt", "chromatic_number", "clique_number", "combinations", "connected_components", "crt", "cycle_rank", "derangements", "dfs_order", "diffie_hellman", "directed_cycle", "discrete_log", "divisor_functions", "elgamal_encrypt", "euler_phi", "eulerian", "extended_gcd", "fibonacci", "gcd_lcm", "girth", "graph_degrees", "graph_diameter", "graph_triangles", "graphical_sequence", "hamiltonian_cycle", "inclusion_exclusion", "independence_number", "integer_partitions", "integer_sqrt", "is_prime", "is_tree", "jacobi_symbol", "lattice_paths", "legendre_symbol", "linear_congruence", "linear_diophantine", "logic_contradiction", "logic_equivalence", "logic_evaluate", "logic_satisfiable", "logic_tautology", "lucas", "minimal_cnf", "minimal_dnf", "minimal_sop_minterms", "mobius", "mod_inverse", "mod_pow", "mod_reduce", "multinomial", "multiplicative_order", "multisets", "necklaces", "next_prime", "nth_prime", "partitions_distinct", "partitions_k", "pell_equation", "permutations", "pigeonhole_max", "pigeonhole_needed", "previous_prime", "prime_counting", "prime_factorization", "primitive_root", "prufer_decode", "prufer_encode", "rsa_decrypt", "rsa_decrypt_pq", "rsa_encrypt", "rsa_keygen", "sequences_with_repetition", "spanning_tree_count", "sqrt_mod", "stars_and_bars", "stirling1", "stirling2", "strongly_connected", "topological_sort", "truth_table", "two_squares", "twos_complement", "vigenere_cipher", "walks_count", "word_arrangements"]
+__all__ = ["CapabilityId", "solve", "help", "affine_cipher", "apportionment", "articulation_points", "base_convert", "bell", "bernoulli", "bfs_order", "binomial_term", "bipartite", "bracelets", "bridges", "caesar_cipher", "carmichael_lambda", "catalan", "cf_rational", "cf_sqrt", "chromatic_number", "clique_number", "combinations", "connected_components", "crt", "cycle_rank", "derangements", "dfs_order", "diffie_hellman", "directed_cycle", "discrete_log", "divisor_functions", "elgamal_encrypt", "euler_phi", "eulerian", "extended_gcd", "fibonacci", "gcd_lcm", "girth", "graph_degrees", "graph_diameter", "graph_triangles", "graphical_sequence", "hamiltonian_cycle", "inclusion_exclusion", "independence_number", "integer_partitions", "integer_sqrt", "is_prime", "is_tree", "jacobi_symbol", "lattice_paths", "legendre_symbol", "linear_congruence", "linear_diophantine", "logic_contradiction", "logic_equivalence", "logic_evaluate", "logic_satisfiable", "logic_tautology", "lucas", "minimal_cnf", "minimal_dnf", "minimal_sop_minterms", "mobius", "mod_inverse", "mod_pow", "mod_reduce", "multinomial", "multiplicative_order", "multisets", "necklaces", "next_prime", "nth_prime", "partitions_distinct", "partitions_k", "pell_equation", "permutations", "pigeonhole_max", "pigeonhole_needed", "previous_prime", "prime_counting", "prime_factorization", "primitive_root", "prufer_decode", "prufer_encode", "rsa_decrypt", "rsa_decrypt_pq", "rsa_encrypt", "rsa_keygen", "sequences_with_repetition", "spanning_tree_count", "sqrt_mod", "stars_and_bars", "stirling1", "stirling2", "strongly_connected", "topological_sort", "truth_table", "two_squares", "twos_complement", "venn_three_sets", "venn_two_sets", "vigenere_cipher", "voting_methods", "walks_count", "word_arrangements"]

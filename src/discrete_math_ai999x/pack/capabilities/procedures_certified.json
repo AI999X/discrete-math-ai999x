@@ -98,9 +98,13 @@
   "elgamal_encrypt",
   "caesar_cipher",
   "affine_cipher",
-  "vigenere_cipher"
+  "vigenere_cipher",
+  "venn_two_sets",
+  "venn_three_sets",
+  "voting_methods",
+  "apportionment"
  ],
- "generated": "2026-10-22",
+ "generated": "2026-11-13",
  "tool": "tools/certify_procedures.py",
  "report": "release/procedure_certification.json"
 }
