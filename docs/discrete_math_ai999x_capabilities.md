@@ -1233,7 +1233,7 @@ $$
 
 ![count (number of primes p <= x) against x (the bound (0](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/prime-counting-curve)
 
-*count (number of primes p <= x) against x (the bound (0..5,000,000)) from 1 to 200 on a logarithmic axis. 33 points computed by discrete-math-ai999x; marked: the worked example, x = 100, count = 25.*
+*count (number of primes p <= x) against x (the bound (0..5,000,000)) from 1 to 198 on a logarithmic axis. 33 points computed by discrete-math-ai999x; marked: the worked example, x = 99, count = 25.*
 
 ```python
 discrete_math_ai999x.solve('prime_counting', x=100)
@@ -1288,7 +1288,7 @@ $$
 
 ![prime (the n-th prime) against n (the index n (1](https://www.ai999x.com/?ax_fig=discrete-math-ai999x/nth-prime-curve)
 
-*prime (the n-th prime) against n (the index n (1..300,000)) from 1 to 9. 9 points computed by discrete-math-ai999x; marked: the worked example, n = 1, prime = 2.*
+*prime (the n-th prime) against n (the index n (1..300,000)) from 1 to 200 on a logarithmic axis. 33 points computed by discrete-math-ai999x; marked: the worked example, n = 100, prime = 541.*
 
 ```python
 discrete_math_ai999x.solve('nth_prime', n=1)
