@@ -1,6 +1,6 @@
 # discrete-math: the Discrete Math program, user guide
 
-**discrete-math-ai999x 1.6.3**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
+**discrete-math-ai999x 1.6.4**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
 Discrete Math covers number theory, modular arithmetic, combinatorics, graph theory and network algorithms, logic and the mathematics of cryptography. This guide is about `discrete-math`, the model as a self-contained program for Windows and Linux: 103 capabilities in 9 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/discrete-math-ai999x/); the Python package (`pip install discrete-math-ai999x`) has its own guide. Every command output printed here is what the program printed.
 
@@ -96,7 +96,7 @@ Prints the model, its version and that this is the Rust build.
 
 ```shell
 $ discrete-math --version
-discrete-math-ai999x 1.6.3 (Rust build, ax-engine 1.6.3)
+discrete-math-ai999x 1.6.4 (Rust build, ax-engine 1.6.4)
 ```
 
 ### 2.2 Ask in words
