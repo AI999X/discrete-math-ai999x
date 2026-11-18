@@ -1,0 +1,70 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Discrete Math: desktop app user guide</title>
+<script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+<style>
+@page{size:A4;margin:16mm 15mm}
+body{font-family:"Segoe UI",Arial,sans-serif;font-size:10.5pt;line-height:1.45;color:#1b1f24;max-width:880px;margin:auto}
+h1{font-size:22pt;border-bottom:2px solid #2b5c8a;padding-bottom:4px;margin-top:28px;page-break-before:always}
+h1:first-of-type{page-break-before:avoid}
+h2{font-size:15pt;color:#2b5c8a;margin-top:22px;page-break-after:avoid}
+h3{font-size:12pt;margin-top:16px;page-break-after:avoid}
+pre{background:#f4f6f8;border:1px solid #dde3e8;border-radius:4px;padding:8px 10px;font-size:8.8pt;white-space:pre-wrap;page-break-inside:avoid}
+code{font-family:Consolas,monospace;font-size:9pt;background:#f4f6f8;padding:0 2px}
+pre code{background:none;padding:0}
+table{border-collapse:collapse;margin:8px 0;font-size:9pt;width:100%;page-break-inside:auto}
+th,td{border:1px solid #cfd6dd;padding:3px 6px;vertical-align:top;text-align:left}
+th{background:#eaf0f5}
+.math{margin:6px 0;overflow-x:auto}
+.badge{display:inline-block;color:#fff;border-radius:3px;padding:0 5px;font-size:8.5pt;white-space:nowrap}
+figure{margin:10px 0;text-align:center;page-break-inside:avoid}figure img{max-width:88%}.svgfig svg{max-width:88%;height:auto}
+figcaption{font-size:9pt;color:#555}
+.pb{page-break-after:always}
+</style></head><body>
+<h1>Discrete Math: the desktop app, user guide</h1>
+<p><strong>Discrete Math</strong>, desktop app 1.6.5 for Windows and Linux. <strong>Creator / engineer:</strong> Ibnul Jaif Farabi · <strong>Company:</strong> AI999X · support@ai999x.com</p>
+<p>Discrete Math covers number theory, modular arithmetic, combinatorics, graph theory and network algorithms, logic and the mathematics of cryptography. Its desktop app holds all 103 calculations in 9 topics: pick one, change its inputs and the answer, a live scene and charts follow at once. It runs on your own computer with no network connection and nothing else to install. The pictures in this guide were taken in this app.</p>
+<h2>Contents</h2>
+<ul><li>1. Get it and start it</li><li>2. The window</li><li>3. Compute a calculation</li><li>4. Ask in words</li><li>5. The live scene and the charts</li><li>6. Light and dark</li><li>7. Every calculation</li><li>8. Other ways to use it</li></ul>
+<h2>1. Get it and start it</h2>
+<table><thead><tr><th>system</th><th>download</th></tr></thead><tbody><tr><td>Windows x86-64</td><td>https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.5/ai999x-discrete-math-1.6.5-windows-x86_64.zip</td></tr><tr><td>Linux x86-64</td><td>https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.5/ai999x-discrete-math-1.6.5-linux-x86_64.tar.gz</td></tr></tbody></table>
+<p>Windows: Download ai999x-discrete-math-1.6.5-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-discrete-math.exe. If Windows SmartScreen asks, choose More info → Run anyway.</p>
+<p>Linux:</p>
+<pre><code class="shell">curl -LO https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.5/ai999x-discrete-math-1.6.5-linux-x86_64.tar.gz
+curl -LO https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.5/SHA256SUMS
+sha256sum -c --ignore-missing SHA256SUMS
+tar xzf ai999x-discrete-math-1.6.5-linux-x86_64.tar.gz
+./ai999x-discrete-math-1.6.5-linux-x86_64/ai999x-discrete-math</code></pre>
+<p>Checksums of every download: https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.5/SHA256SUMS. Install steps for every app: https://www.ai999x.com/desktop-cli/</p>
+<h2>2. The window</h2>
+<figure><img src="https://www.ai999x.com/?ax_shot=discrete-math-ai999x/hero.webp"><figcaption>The Discrete Math app, opened on Modular multiplicative inverse with its worked example.</figcaption></figure>
+<p>On the left, a search box and the topics with their calculations. In the middle, the chosen calculation: its answer at the top, then the live scene (or its charts), what the answer means and the formula. On the right, its inputs, each with a slider where that makes sense, and the Compute and Reset buttons. At the bottom, a box for a question in words.</p>
+<h2>3. Compute a calculation</h2>
+<p>Open Modular arithmetic › Modular multiplicative inverse (or type part of its name in the search box). It opens with a worked example filled in: “Find the inverse of 3 modulo 11.” The answer: inverse = 4.</p>
+<p>Change any input (type a number with its unit, or drag its slider) and the answer, the scene and the charts follow; Compute recomputes after typing, Reset brings back the worked example. An input outside the range the formula holds for is refused with the reason, never answered with a guessed number.</p>
+<figure><img src="https://www.ai999x.com/?ax_shot=discrete-math-ai999x/scene-1.webp"><figcaption>Modular multiplicative inverse: the live scene of the worked example.</figcaption></figure>
+<h2>4. Ask in words</h2>
+<p>Type a question as you would say it, for example “Find the inverse of 3 modulo 11.” The app reads the quantities and their units, picks the calculation and answers; the command-line program reads it the same way and printed:</p>
+<pre><code class="text">Read as: Modular multiplicative inverse
+inverse = 4
+  by: Modular multiplicative inverse  (extended Euclidean algorithm)</code></pre>
+<p>When a question names a quantity the app cannot place, it says what is missing instead of guessing.</p>
+<h2>5. The live scene and the charts</h2>
+<p>Every calculation draws a scene from its answer: it moves as an input changes. The Charts button shows charts that vary one input around your values; Enlarge opens one in a large view. Scenes from other topics:</p>
+<figure><img src="https://www.ai999x.com/?ax_shot=discrete-math-ai999x/scene-2.webp"><figcaption>Derangements</figcaption></figure>
+<figure><img src="https://www.ai999x.com/?ax_shot=discrete-math-ai999x/scene-3.webp"><figcaption>Chromatic number of a small graph</figcaption></figure>
+<figure><img src="https://www.ai999x.com/?ax_shot=discrete-math-ai999x/scene-4.webp"><figcaption>Tautology test</figcaption></figure>
+<figure><img src="https://www.ai999x.com/?ax_shot=discrete-math-ai999x/scene-5.webp"><figcaption>Affine cipher</figcaption></figure>
+<figure><img src="https://www.ai999x.com/?ax_shot=discrete-math-ai999x/scene-6.webp"><figcaption>Base (radix) conversion</figcaption></figure>
+<figure><img src="https://www.ai999x.com/?ax_shot=discrete-math-ai999x/scene-7.webp"><figcaption>Venn diagram with three sets (inclusion-exclusion)</figcaption></figure>
+<figure><img src="https://www.ai999x.com/?ax_shot=discrete-math-ai999x/scene-8.webp"><figcaption>Apportionment: Hamilton, Jefferson, Webster, Adams and Huntington-Hill</figcaption></figure>
+<figure><img src="https://www.ai999x.com/?ax_shot=discrete-math-ai999x/chart-1.webp"><figcaption>Modular multiplicative inverse: a chart, enlarged.</figcaption></figure>
+<figure><img src="https://www.ai999x.com/?ax_shot=discrete-math-ai999x/chart-2.webp"><figcaption>Derangements: a chart, enlarged.</figcaption></figure>
+<h2>6. Light and dark</h2>
+<p>The app follows a light or a dark theme (the switch is in its top bar).</p>
+<figure><img src="https://www.ai999x.com/?ax_shot=discrete-math-ai999x/hero-dark.webp"><figcaption>The Discrete Math app in the dark theme.</figcaption></figure>
+<h2>7. Every calculation</h2>
+<p>103 calculations in 9 topics; each has its own entry on the model&#x27;s page (https://www.ai999x.com/models/discrete-math-ai999x/) with its formula, worked example and charts.</p>
+<table><thead><tr><th>topic</th><th>calculations</th></tr></thead><tbody><tr><td>Combinatorics</td><td>Bell numbers, Bernoulli numbers, Bracelets (rotations and reflections identified), Catalan numbers, Coefficient in a binomial expansion, Combinations C(n, k), Combinations with repetition (multisets), Counting multiples by inclusion-exclusion, Derangements, Distinct arrangements of the letters of a word, Fibonacci numbers, Integer partitions p(n), Integer solutions of x1 + ... + xk = n (stars and bars), Lattice paths in a grid, Lucas numbers, Multinomial coefficient, Necklaces (rotations identified), Partitions into distinct parts, Partitions into exactly k parts, Permutations P(n, k), Pigeonhole principle: guaranteed load, Pigeonhole principle: objects needed for a guarantee, Sequences with repetition (n^k), Stirling numbers of the first kind, Stirling numbers of the second kind</td></tr><tr><td>Cryptography</td><td>Affine cipher, Caesar (shift) cipher, Diffie-Hellman key exchange, ElGamal encryption, RSA decryption, RSA decryption from p, q and e (CRT), RSA encryption, RSA key from p, q and e, Vigenère cipher</td></tr><tr><td>Graph theory</td><td>Articulation points (cut vertices), Bipartiteness test, Breadth-first search order, Bridges (cut edges), Chromatic number of a small graph, Clique number, Connected components, Cycle detection in a directed graph, Cycles in an undirected graph (cyclomatic number), Depth-first search order, Diameter, radius and center, Eulerian circuits and paths, Girth (shortest cycle length), Graphical degree sequence, Hamiltonian cycle of a small graph, Independence number, Number of spanning trees (Kirchhoff), Number of triangles, Number of walks of a given length, Prüfer code of a labelled tree, Strongly connected components, Topological sort, Tree from a Prüfer code, Tree test, Vertex degrees and degree sequence</td></tr><tr><td>Logic</td><td>Contradiction test, Evaluate a propositional formula, Logical equivalence of two formulas, Minimal product of sums (CNF), Minimal sum of products (DNF), Minimal sum of products from minterms (with don&#x27;t-cares), Satisfiability of a propositional formula, Tautology test, Truth table and minterms</td></tr><tr><td>Modular arithmetic</td><td>Chinese remainder theorem, Discrete logarithm, Linear congruence ax ≡ b (mod m), Modular exponentiation, Modular multiplicative inverse, Multiplicative order, Remainder modulo m (Euclidean division), Smallest primitive root modulo a prime</td></tr><tr><td>Number representations</td><td>Base (radix) conversion, Two&#x27;s complement representation</td></tr><tr><td>Number theory</td><td>Carmichael function, Continued fraction of a rational number, Continued fraction of a square root, Divisors, divisor count and divisor sum, Euler&#x27;s totient function, Extended Euclidean algorithm (Bezout coefficients), Greatest common divisor and least common multiple, Integer square root and perfect squares, Jacobi symbol, Legendre symbol, Linear Diophantine equation ax + by = c, Möbius function, Next prime, Pell&#x27;s equation (fundamental solution), Previous prime, Primality test, Prime factorization, Prime-counting function, Square roots modulo a prime, Sums of two squares, The n-th prime</td></tr><tr><td>Sets</td><td>Venn diagram with three sets (inclusion-exclusion), Venn diagram with two sets (inclusion-exclusion)</td></tr><tr><td>Voting and apportionment</td><td>Apportionment: Hamilton, Jefferson, Webster, Adams and Huntington-Hill, Voting methods: plurality, Borda count, instant runoff, pairwise comparisons</td></tr></tbody></table>
+<h2>8. Other ways to use it</h2>
+<p>The same engine runs on the command line (<code>discrete-math</code>, its own guide), in Python (<code>pip install discrete-math-ai999x</code>, <code>import discrete_math_ai999x</code>, its own guide) and in the browser on https://www.ai999x.com/models/discrete-math-ai999x/.</p>
+<p>Licence: Apache-2.0 · AI999X · https://www.ai999x.com/models/discrete-math-ai999x/</p></body></html>
