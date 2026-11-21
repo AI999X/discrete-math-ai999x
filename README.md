@@ -10,8 +10,8 @@ Discrete Math covers number theory, modular arithmetic, combinatorics, graph the
 
 | | |
 |---|---|
-| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-discrete-math-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-discrete-math-1.6.6-linux-x86_64.tar.gz) |
-| **Command line** `discrete-math` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-linux-x86_64.tar.gz) |
+| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-discrete-math-1.6.7-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-discrete-math-1.6.7-linux-x86_64.tar.gz) |
+| **Command line** `discrete-math` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-cli-1.6.7-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-cli-1.6.7-linux-x86_64.tar.gz) |
 | **Browser** (any device) | [Try it on the model page](https://www.ai999x.com/models/discrete-math-ai999x/#capabilities) |
 | **Python** 3.10+ | `pip install discrete-math-ai999x`: on Windows and Linux (x86-64) `pip` installs the same compiled engine; on other systems (macOS, ARM) it installs a pure-Python build that gives the same answers |
 
@@ -119,75 +119,6 @@ print(a.outcome, a.values)
 # SOLVED {'bracelets': 13, 'necklaces': 14}
 ```
 
-## Command line: 15 examples
-
-Each command below was run with `discrete-math` of this release; the lines under it are the answer it printed (the full answer goes on with the method, every input in SI units and the conditions it assumes).
-
-```text
-$ discrete-math solve bell n=5
-bell = 52
-
-$ discrete-math solve affine_cipher a=5 b=8 "message=AFFINE CIPHER" mode=encrypt
-result = IHHWVCSWFRCP
-
-$ discrete-math solve articulation_points "edges=A-B, B-C, C-A, C-D, D-E"
-count = 2
-points = ["C","D"]
-
-$ discrete-math solve logic_contradiction "formula=p & ~p"
-contradiction = true
-true_rows = 0
-witness = null
-
-$ discrete-math solve crt "residues=[2, 3, 2]" "moduli=[3, 5, 7]"
-x = 23
-modulus = 105
-
-$ discrete-math solve base_convert digits=1011 from_base=2 to_base=10
-result = 11
-decimal = 11
-
-$ discrete-math solve carmichael_lambda n=15
-lambda = 4
-
-$ discrete-math solve venn_three_sets a=30 b=25 c=20 ab=10 ac=8 bc=5 abc=3 universe=60
-union = 55
-only_a = 15
-only_b = 13
-only_c = 10
-only_a_and_b = 7
-only_a_and_c = 5
-
-$ discrete-math solve apportionment method=jefferson seats=10 "populations=[2400, 3300, 4300]"
-seats = [2,3,5]
-standard_divisor = 1000
-quotas = [2.4,3.3,4.3]
-total_seats = 10
-
-$ discrete-math solve bernoulli n=10
-numerator = 5
-denominator = 66
-value = 0.07575757576
-
-$ discrete-math solve caesar_cipher "message=HELLO WORLD" mode=encrypt shift=3
-result = KHOORZRUOG
-
-$ discrete-math solve bipartite "edges=A-B, B-C, C-D, D-A"
-is_bipartite = true
-
-$ discrete-math solve logic_evaluate "formula=(p -> q) & ~r" "assignment=p = true, q = false, r = false"
-value = false
-
-$ discrete-math solve linear_congruence a=3 b=4 m=7
-smallest = 6
-count = 1
-step = 7
-
-$ discrete-math solve twos_complement n=-5 bits=8
-bits_text = 11111011
-unsigned = 251
-```
-
 ## Guides
 
 - Desktop app guide: the window, every calculation, scenes and charts: [PDF](https://huggingface.co/AI999X/discrete-math-ai999x/blob/main/docs/discrete_math_ai999x_desktop_guide.pdf) · [HTML](https://huggingface.co/AI999X/discrete-math-ai999x/blob/main/docs/discrete_math_ai999x_desktop_guide.html) · [Markdown](https://huggingface.co/AI999X/discrete-math-ai999x/blob/main/docs/discrete_math_ai999x_desktop_guide.md)
@@ -196,13 +127,13 @@ unsigned = 251
 
 Every calculation, with its formula, a worked example and its figures: **[Discrete Math on ai999x.com](https://www.ai999x.com/models/discrete-math-ai999x/)**. Install guides for the app and the command line: [https://www.ai999x.com/desktop-cli/](https://www.ai999x.com/desktop-cli/).
 
-Version 1.6.6 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
+Version 1.6.7 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
 
 *The Future Is Self-Improving.*
 
 ## Source and releases
 
-This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/discrete-math-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.6`; the [GitHub release](https://github.com/AI999X/discrete-math-ai999x/releases/tag/v1.6.6) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
+This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/discrete-math-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.7`; the [GitHub release](https://github.com/AI999X/discrete-math-ai999x/releases/tag/v1.6.7) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
 
 ## Build the program from source
 
