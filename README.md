@@ -10,8 +10,8 @@ Discrete Math covers number theory, modular arithmetic, combinatorics, graph the
 
 | | |
 |---|---|
-| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.5/ai999x-discrete-math-1.6.5-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.5/ai999x-discrete-math-1.6.5-linux-x86_64.tar.gz) |
-| **Command line** `discrete-math` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.4/ai999x-cli-1.6.4-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.4/ai999x-cli-1.6.4-linux-x86_64.tar.gz) |
+| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-discrete-math-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-discrete-math-1.6.6-linux-x86_64.tar.gz) |
+| **Command line** `discrete-math` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-linux-x86_64.tar.gz) |
 | **Browser** (any device) | [Try it on the model page](https://www.ai999x.com/models/discrete-math-ai999x/#capabilities) |
 | **Python** 3.10+ | `pip install discrete-math-ai999x`: on Windows and Linux (x86-64) `pip` installs the same compiled engine; on other systems (macOS, ARM) it installs a pure-Python build that gives the same answers |
 
@@ -188,102 +188,6 @@ bits_text = 11111011
 unsigned = 251
 ```
 
-## Rust library: 15 examples
-
-The crate `discrete-math-ai999x` (in `rust/` of the GitHub repository) answers a JSON request with `discrete_math_ai999x::solve_json`. Each call below was compiled and run on this release; the comment under it is what it printed. The whole program is `rust/discrete-math/examples/readme.rs`: `cd rust && cargo run --release --example readme -p discrete-math-ai999x`.
-
-```rust
-use serde_json::{json, Value};
-
-fn show(request: Value) {
-    let answer: Value = serde_json::from_str(&discrete_math_ai999x::solve_json(&request.to_string())).unwrap();
-    println!("{}", answer["outcome"].as_str().unwrap_or(""));
-    for v in answer["values"].as_array().into_iter().flatten() {
-        let unit = v[2].as_str().unwrap_or("");
-        let unit = if unit.is_empty() || unit == "1" { String::new() } else { format!(" {unit}") };
-        println!("{} = {}{}", v[0].as_str().unwrap_or(""), v[1], unit);
-    }
-}
-
-show(json!({"key": "bell", "inputs": {"n": "5"}}));
-// SOLVED
-// bell = 52
-
-show(json!({"key": "affine_cipher", "inputs": {"a": "5", "b": "8", "message": "AFFINE CIPHER", "mode": "encrypt"}}));
-// SOLVED
-// result = "IHHWVCSWFRCP"
-
-show(json!({"key": "articulation_points", "inputs": {"edges": "A-B, B-C, C-A, C-D, D-E"}}));
-// SOLVED
-// count = 2
-// points = ["C","D"]
-
-show(json!({"key": "logic_contradiction", "inputs": {"formula": "p & ~p"}}));
-// SOLVED
-// contradiction = true
-// true_rows = 0
-// witness = null
-
-show(json!({"key": "crt", "inputs": {"residues": [2, 3, 2], "moduli": [3, 5, 7]}}));
-// SOLVED
-// x = 23
-// modulus = 105
-
-show(json!({"key": "base_convert", "inputs": {"digits": "1011", "from_base": "2", "to_base": "10"}}));
-// SOLVED
-// result = "11"
-// decimal = 11
-
-show(json!({"key": "carmichael_lambda", "inputs": {"n": "15"}}));
-// SOLVED
-// lambda = 4
-
-show(json!({"key": "venn_three_sets", "inputs": {"a": "30", "b": "25", "c": "20", "ab": "10", "ac": "8", "bc": "5", "abc": "3", "universe": "60"}}));
-// SOLVED
-// union = 55
-// only_a = 15
-// only_b = 13
-// only_c = 10
-// only_a_and_b = 7
-// only_a_and_c = 5
-
-show(json!({"key": "apportionment", "inputs": {"method": "jefferson", "seats": "10", "populations": [2400, 3300, 4300]}}));
-// SOLVED
-// seats = [2,3,5]
-// standard_divisor = 1000.0
-// quotas = [2.4,3.3,4.3]
-// total_seats = 10
-
-show(json!({"key": "bernoulli", "inputs": {"n": "10"}}));
-// SOLVED
-// numerator = 5
-// denominator = 66
-// value = 0.07575757575757576
-
-show(json!({"key": "caesar_cipher", "inputs": {"message": "HELLO WORLD", "mode": "encrypt", "shift": "3"}}));
-// SOLVED
-// result = "KHOORZRUOG"
-
-show(json!({"key": "bipartite", "inputs": {"edges": "A-B, B-C, C-D, D-A"}}));
-// SOLVED
-// is_bipartite = true
-
-show(json!({"key": "logic_evaluate", "inputs": {"formula": "(p -> q) & ~r", "assignment": "p = true, q = false, r = false"}}));
-// SOLVED
-// value = false
-
-show(json!({"key": "linear_congruence", "inputs": {"a": "3", "b": "4", "m": "7"}}));
-// SOLVED
-// smallest = 6
-// count = 1
-// step = 7
-
-show(json!({"key": "twos_complement", "inputs": {"n": "-5", "bits": "8"}}));
-// SOLVED
-// bits_text = "11111011"
-// unsigned = 251
-```
-
 ## Guides
 
 - Desktop app guide: the window, every calculation, scenes and charts: [PDF](https://huggingface.co/AI999X/discrete-math-ai999x/blob/main/docs/discrete_math_ai999x_desktop_guide.pdf) · [HTML](https://huggingface.co/AI999X/discrete-math-ai999x/blob/main/docs/discrete_math_ai999x_desktop_guide.html) · [Markdown](https://huggingface.co/AI999X/discrete-math-ai999x/blob/main/docs/discrete_math_ai999x_desktop_guide.md)
@@ -292,7 +196,7 @@ show(json!({"key": "twos_complement", "inputs": {"n": "-5", "bits": "8"}}));
 
 Every calculation, with its formula, a worked example and its figures: **[Discrete Math on ai999x.com](https://www.ai999x.com/models/discrete-math-ai999x/)**. Install guides for the app and the command line: [https://www.ai999x.com/desktop-cli/](https://www.ai999x.com/desktop-cli/).
 
-Version 1.6.4 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
+Version 1.6.6 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
 
 *The Future Is Self-Improving.*
 
